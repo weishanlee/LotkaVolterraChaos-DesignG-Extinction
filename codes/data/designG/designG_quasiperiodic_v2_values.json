@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-21T12:58:51.116168+00:00",
+  "mu0": 3.5,
+  "nu1_NS": 4.666666666666667,
+  "rho_at_4p9": 0.22412109375,
+  "theta_over_2pi": 0.2300534561626159,
+  "nu1": 4.9,
+  "rho": 0.2241006167808043,
+  "invariant_circle_residual": 0.001256765840864263,
+  "fft_peak_snr": 111659794.46911488,
+  "largest_lyap": -0.00011224519932977555,
+  "normal_lyap": -0.04951861497699066,
+  "_taxonomy": {
+    "rho": "regression_anchor",
+    "largest_lyap": "empirical_discovery",
+    "normal_lyap": "empirical_discovery",
+    "invariant_circle_residual": "empirical_discovery",
+    "fft_peak_snr": "empirical_discovery"
+  },
+  "_provenance": {
+    "generated_by": "output/codes/designG_quasiperiodic_v2.py",
+    "timestamp_utc": "2026-10-21T12:58:51.116195+00:00",
+    "python": "3.10.12",
+    "numpy": "1.26.4",
+    "smoke": false,
+    "only_block": null,
+    "n_burn_panel": 60000,
+    "n_keep_panel": 4000,
+    "n_burn_fft": 60000,
+    "nfft": 8192,
+    "n_burn_u5": 5000,
+    "n_keep_u5": 20000,
+    "qp_source_path": "codes/data/designG/designG_quasiperiodic_values.json",
+    "qp_source_status": "default_nu1",
+    "output_fig_dir": "../../../../../../../tmp/tmp.i9ntAniAGM/figs",
+    "output_data_dir": "../../../../../../../tmp/tmp.i9ntAniAGM/data"
+  }
+}

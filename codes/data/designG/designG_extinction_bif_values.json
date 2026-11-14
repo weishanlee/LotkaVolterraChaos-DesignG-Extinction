@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-21T12:58:33.273950+00:00",
+  "nu1": 2.1,
+  "seed": [
+    0.2,
+    0.001
+  ],
+  "n_burn": 75000,
+  "n_keep": 400,
+  "chaos_onset_mu0": 3.96,
+  "extinction_onset_mu0": 3.96,
+  "lambda_perp_mu0_4_closed_form": -0.6443570163905132,
+  "periodic_window_check": {
+    "3.83": {
+      "lambda_par": -0.3696402747005968,
+      "lambda_perp": -0.11952645375786089,
+      "prey_periodic": true,
+      "transverse_negative": true
+    },
+    "3.84": {
+      "lambda_par": -0.04437248299265322,
+      "lambda_perp": -0.1446783469485086,
+      "prey_periodic": true,
+      "transverse_negative": true
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "ic_type": "rlogy",
+  "N": 40000,
+  "seed": 20260709,
+  "generator": "numpy.random.default_rng(seed) [PCG64]; rlogy: x = rng.random(N); u = rng.uniform(-12.0, log10(0.3), N); y = np.power(10.0, u); runif: rng.random((N, 2))",
+  "dtype": "float64",
+  "shape": [
+    40000,
+    2
+  ],
+  "order": "C (row-major; column 0 = x0, column 1 = y0)",
+  "byteorder": "little",
+  "serialization": "numpy .npy (np.save, format 1.0); sha256_data is over arr.tobytes() in C order",
+  "sha256_data": "384d22a666e30c09903596fef3478d45292f9f134fe61270605b9d798674e1ef",
+  "sha256_file": "c8c07fbae8dfc30785954eb5c245176625276f270ea0c18a1067950d23e8848c",
+  "runtime": {
+    "python": "3.10.12",
+    "numpy": "1.26.4",
+    "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "NPY_DISABLE_CPU_FEATURES": null,
+    "cpu_features_enabled": [
+      "AVX",
+      "AVX2",
+      "F16C",
+      "FMA3",
+      "MMX",
+      "POPCNT",
+      "SSE",
+      "SSE2",
+      "SSE3",
+      "SSE41",
+      "SSE42",
+      "SSSE3"
+    ],
+    "cpu_baseline": [
+      "SSE",
+      "SSE2",
+      "SSE3"
+    ],
+    "cpu_dispatch_targets": [
+      "SSSE3",
+      "SSE41",
+      "POPCNT",
+      "SSE42",
+      "AVX",
+      "F16C",
+      "FMA3",
+      "AVX2",
+      "AVX512F",
+      "AVX512CD",
+      "AVX512_KNL",
+      "AVX512_KNM",
+      "AVX512_SKX",
+      "AVX512_CLX",
+      "AVX512_CNL",
+      "AVX512_ICL"
+    ]
+  },
+  "written_utc": "2026-11-12T14:23:29.172145+00:00"
+}

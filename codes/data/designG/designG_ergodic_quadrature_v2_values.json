@@ -1,0 +1,618 @@
+{
+  "provenance": {
+    "generated_by": "output/codes/designG_ergodic_quadrature_v2.py",
+    "timestamp_utc": "2026-11-12T22:07:33.206498+00:00",
+    "model": "logistic prey axis of Design G at mu0=4 (arcsine measure)",
+    "honesty": "Numerics are CONSISTENCY CHECKS, not proofs (the sub-action telescoping argument is the proof). a.e./SRB != all-orbit. The arcsine density, I(4)=-2ln2 and nu1*(4)=4 hold at mu0=4 only; nu1*(mu0) has a closed form on an attracting cycle of the prey (mu0/(mu0-1) for 1<mu0<=3, mu0/sqrt(mu0+1) for 3<mu0<=1+sqrt6); the six values at mu0=3.60 to 3.99 are orbit averages, non-monotone (periodic windows).",
+    "python": "3.10.12",
+    "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+    "numpy": "1.26.4",
+    "numba": "0.61.2",
+    "output_data_dir": "../repro_run_ergodic_2026-11-13/data",
+    "output_fig_dir": "../repro_run_ergodic_2026-11-13/figs",
+    "no_figs": false,
+    "protocol": {
+      "quadrature_nodes": 200000,
+      "subaction_grid": 200001,
+      "max_period": 16,
+      "enumeration": "exact rational angle doubling (fractions.Fraction); every interior orbit evaluated",
+      "I_burn_in": 75000,
+      "I_retain": 50000,
+      "I_n_ic": 32
+    }
+  },
+  "arcsine_moments": {
+    "n_nodes": 200000,
+    "E_lnx": -1.386290895383988,
+    "E_lnx_closed_form": -1.3862943611198906,
+    "E_x": 0.49999999999999983,
+    "E_x_closed_form": 0.5,
+    "jensen_gap": -0.6931437148240425,
+    "jensen_gap_closed_form": -0.6931471805599453
+  },
+  "equilibrium_measure": {
+    "n_nodes": 200000,
+    "on_support": {
+      "0.00": -1.3862908953926523,
+      "0.10": -1.3862961984534063,
+      "0.20": -1.3862963205929362,
+      "0.30": -1.3862936734673608,
+      "0.40": -1.3862943349893784,
+      "0.50": -1.3863504890340428,
+      "0.60": -1.3862943349893793,
+      "0.70": -1.3862936734673612,
+      "0.80": -1.3862963205929355,
+      "0.90": -1.3862961984534061,
+      "1.00": -1.3862908954148967
+    },
+    "off_support": {
+      "1.20": {
+        "quadrature": -0.5192796346293256,
+        "closed_form": -0.5192796346293255,
+        "spec_target": -0.519
+      },
+      "2.00": {
+        "quadrature": 0.3764528129191954,
+        "closed_form": 0.3764528129191954,
+        "spec_target": 0.376
+      }
+    }
+  },
+  "subaction": {
+    "n_grid": 200001,
+    "max_H": -0.2876820724519477,
+    "argmax_H": 0.75000025,
+    "H_at_3/4": -0.2876820724517809,
+    "ln_3/4": -0.2876820724517809,
+    "Hpp_max": -4.555555555555555,
+    "Hpp_all_negative": true
+  },
+  "periodic_enumeration": {
+    "max_period": 16,
+    "enumeration_method": "exact rational angle doubling (fractions.Fraction) on the conjugacy x = sin^2(pi r); least periods and counts exact; the ln x orbit averages are float64 (math.fsum)",
+    "points_by_least_period": {
+      "1": 2,
+      "2": 2,
+      "3": 6,
+      "4": 12,
+      "5": 30,
+      "6": 54,
+      "7": 126,
+      "8": 240,
+      "9": 504,
+      "10": 990,
+      "11": 2046,
+      "12": 4020,
+      "13": 8190,
+      "14": 16254,
+      "15": 32730,
+      "16": 65280
+    },
+    "orbits_by_least_period": {
+      "1": 2,
+      "2": 1,
+      "3": 2,
+      "4": 3,
+      "5": 6,
+      "6": 9,
+      "7": 18,
+      "8": 30,
+      "9": 56,
+      "10": 99,
+      "11": 186,
+      "12": 335,
+      "13": 630,
+      "14": 1161,
+      "15": 2182,
+      "16": 4080
+    },
+    "enumerated_orbits_by_least_period": {
+      "1": 1,
+      "2": 1,
+      "3": 2,
+      "4": 3,
+      "5": 6,
+      "6": 9,
+      "7": 18,
+      "8": 30,
+      "9": 56,
+      "10": 99,
+      "11": 186,
+      "12": 335,
+      "13": 630,
+      "14": 1161,
+      "15": 2182,
+      "16": 4080
+    },
+    "enumerated_points_by_least_period": {
+      "1": 1,
+      "2": 2,
+      "3": 6,
+      "4": 12,
+      "5": 30,
+      "6": 54,
+      "7": 126,
+      "8": 240,
+      "9": 504,
+      "10": 990,
+      "11": 2046,
+      "12": 4020,
+      "13": 8190,
+      "14": 16254,
+      "15": 32730,
+      "16": 65280
+    },
+    "evaluated_orbits_by_least_period": {
+      "1": 1,
+      "2": 1,
+      "3": 2,
+      "4": 3,
+      "5": 6,
+      "6": 9,
+      "7": 18,
+      "8": 30,
+      "9": 56,
+      "10": 99,
+      "11": 186,
+      "12": 335,
+      "13": 630,
+      "14": 1161,
+      "15": 2182,
+      "16": 4080
+    },
+    "max_orbit_avg_lnx_by_least_period": {
+      "1": -0.28768207245178107,
+      "2": -0.5815754049028405,
+      "3": -0.7376576447681195,
+      "4": -0.5084645562975884,
+      "5": -0.5048345861718184,
+      "6": -0.450739728532729,
+      "7": -0.43487754878328966,
+      "8": -0.4131767759503456,
+      "9": -0.40068879323608875,
+      "10": -0.38873044933182155,
+      "11": -0.3798425964871795,
+      "12": -0.3720256708609497,
+      "13": -0.3656008474964247,
+      "14": -0.36000589595599497,
+      "15": -0.3551979909526475,
+      "16": -0.35097183164463047
+    },
+    "total_periodic_points": 130486,
+    "total_orbits": 8800,
+    "interior_periodic_points_exact": 130485,
+    "interior_orbits_exact": 8799,
+    "interior_orbits_enumerated": 8799,
+    "interior_points_enumerated": 130485,
+    "interior_orbits_evaluated": 8799,
+    "boundary_orbits_excluded": 1,
+    "least_period_count_mismatches": 0,
+    "coverage_complete": true,
+    "max_orbit_avg_lnx": -0.28768207245178107,
+    "argmax_orbit_period": 1,
+    "argmax_orbit_angle": "1/3",
+    "argmax_orbit_x0": 0.7499999999999999,
+    "runner_up_avg_lnx": -0.35097183164463047,
+    "runner_up_period": 16,
+    "runner_up_angle": "10923/65537",
+    "runner_up_x0": 0.25000691902181443,
+    "period_2_orbit_avg_lnx_closed_form": -0.5815754049028404,
+    "n_least_periods_2_to_max_with_avg_at_or_above_ln34": 0,
+    "closest_gap_below_ln34_over_periods_2_to_max": 0.06328975919284957,
+    "target_max_avg_ln_3/4": -0.2876820724517809,
+    "float_evaluation_note": "counts and periods are exact; the sin/log orbit averages are double precision, not interval-certified; the analytic subaction (thm:ergodic-opt) is the proof"
+  },
+  "I_family": {
+    "n_burn": 75000,
+    "n_keep": 50000,
+    "n_ic": 32,
+    "family": {
+      "3.60": {
+        "I": -0.5027650766608723,
+        "nu1star_ae": 1.653286419991277,
+        "prey_lyap": 0.18345778287517187,
+        "chaotic": true,
+        "all_orbit_bound_mu0_over_mu0m1": 1.3846153846153846,
+        "spec_target_nu1star": 1.653
+      },
+      "3.70": {
+        "I": -0.464767103605747,
+        "nu1star_ae": 1.5916434576955645,
+        "prey_lyap": 0.3549745898436416,
+        "chaotic": true,
+        "all_orbit_bound_mu0_over_mu0m1": 1.3703703703703702,
+        "spec_target_nu1star": 1.592
+      },
+      "3.74": {
+        "I": -0.567970342775002,
+        "nu1star_ae": 1.7646817151697114,
+        "prey_lyap": -0.11187536752038348,
+        "chaotic": false,
+        "all_orbit_bound_mu0_over_mu0m1": 1.364963503649635,
+        "spec_target_nu1star": 1.765
+      },
+      "3.90": {
+        "I": -0.7121975182180998,
+        "nu1star_ae": 2.038465906252194,
+        "prey_lyap": 0.4957441610679526,
+        "chaotic": true,
+        "all_orbit_bound_mu0_over_mu0m1": 1.3448275862068966,
+        "spec_target_nu1star": 2.038
+      },
+      "3.95": {
+        "I": -0.7741094319962971,
+        "nu1star_ae": 2.168659927791065,
+        "prey_lyap": 0.5772418185152085,
+        "chaotic": true,
+        "all_orbit_bound_mu0_over_mu0m1": 1.3389830508474576,
+        "spec_target_nu1star": null
+      },
+      "3.99": {
+        "I": -1.0446802277982985,
+        "nu1star_ae": 2.8424894292048593,
+        "prey_lyap": 0.6396005443118051,
+        "chaotic": true,
+        "all_orbit_bound_mu0_over_mu0m1": 1.334448160535117,
+        "spec_target_nu1star": null
+      }
+    },
+    "I_4_quadrature": -1.386290895383988,
+    "I_4_closed_form": -1.3862943611198906,
+    "nu1star_4": 3.9999861370804126,
+    "all_orbit_bound_min_at_4": 1.3333333333333333
+  },
+  "validation_table": [
+    {
+      "quantity": "E_mu4[ln x]",
+      "predicted": -1.3862943611198906,
+      "computed": -1.386290895383988,
+      "abs_err": 3.465735902485889e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -2 ln2 = -1.386294 (eq:arcsine-moments)"
+    },
+    {
+      "quantity": "E_mu4[x]",
+      "predicted": 0.5,
+      "computed": 0.49999999999999983,
+      "abs_err": 1.6653345369377348e-16,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= 1/2 (eq:arcsine-moments)"
+    },
+    {
+      "quantity": "Jensen gap E[ln x]-ln E[x]",
+      "predicted": -0.6931471805599453,
+      "computed": -0.6931437148240425,
+      "abs_err": 3.465735902818956e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln2 = -0.693147 (eq:jensen-gap)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.00",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862908953926523,
+      "abs_err": 3.465727238305405e-06,
+      "tol": 0.005,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.10",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862961984534063,
+      "abs_err": 1.8373335157750859e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.20",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862963205929362,
+      "abs_err": 1.9594730455985143e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.30",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862936734673608,
+      "abs_err": 6.876525298071812e-07,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.40",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862943349893784,
+      "abs_err": 2.6130512198463407e-08,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.50",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3863504890340428,
+      "abs_err": 5.61279141522153e-05,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.60",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862943349893793,
+      "abs_err": 2.6130511310284987e-08,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.70",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862936734673612,
+      "abs_err": 6.87652529363092e-07,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.80",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862963205929355,
+      "abs_err": 1.9594730449323805e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=0.90",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862961984534061,
+      "abs_err": 1.8373335155530413e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=1.00",
+      "predicted": -1.3862943611198906,
+      "computed": -1.3862908954148967,
+      "abs_err": 3.4657049938768836e-06,
+      "tol": 0.005,
+      "pass": true,
+      "note": "= -ln4 = -1.386294 on [0,1] (eq:equilibrium-potential)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=1.20 (off support)",
+      "predicted": -0.5192796346293255,
+      "computed": -0.5192796346293256,
+      "abs_err": 1.1102230246251565e-16,
+      "tol": 0.001,
+      "pass": true,
+      "note": "closed form -0.5193; spec target ~-0.519 (departs from -ln4)"
+    },
+    {
+      "quantity": "int ln|x-r| dmu4, r=2.00 (off support)",
+      "predicted": 0.3764528129191954,
+      "computed": 0.3764528129191954,
+      "abs_err": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "note": "closed form 0.3765; spec target ~+0.376 (departs from -ln4)"
+    },
+    {
+      "quantity": "sup_x H(x)",
+      "predicted": -0.2876820724517809,
+      "computed": -0.2876820724519477,
+      "abs_err": 1.6681100944992977e-13,
+      "tol": 0.001,
+      "pass": true,
+      "note": "<= ln(3/4) = -0.287682 (eq:subaction)"
+    },
+    {
+      "quantity": "H(3/4) value",
+      "predicted": -0.2876820724517809,
+      "computed": -0.2876820724517809,
+      "abs_err": 0.0,
+      "tol": 1e-12,
+      "pass": true,
+      "note": "equality at x=3/4"
+    },
+    {
+      "quantity": "argmax H(x)",
+      "predicted": 0.75,
+      "computed": 0.75000025,
+      "abs_err": 2.500000000349445e-07,
+      "tol": 0.002,
+      "pass": true,
+      "note": "interior maximiser x*=3/4"
+    },
+    {
+      "quantity": "nonconcavity violation max(H'',0)",
+      "predicted": 0.0,
+      "computed": 0.0,
+      "abs_err": 0.0,
+      "tol": 1e-12,
+      "pass": true,
+      "note": "clipped residual: 0 == no nonconcave grid point. NOT max H'' -- see next row"
+    },
+    {
+      "quantity": "max H''(x) on (0,1]",
+      "predicted": -4.555555555555555,
+      "computed": -4.555555555555555,
+      "abs_err": 0.0,
+      "tol": 1e-06,
+      "pass": true,
+      "note": "closed form H''(1) = -1 - 32/9 = -41/9 ~ -4.5556 (strictly negative => concave)"
+    },
+    {
+      "quantity": "max orbit-avg ln x (all interior orbits, period<= 16)",
+      "predicted": -0.2876820724517809,
+      "computed": -0.28768207245178107,
+      "abs_err": 1.6653345369377348e-16,
+      "tol": 1e-09,
+      "pass": true,
+      "note": "= ln(3/4) = -0.287682 at x*=3/4, angle 1/3 (rmk:ergodic-numeric); float64 evaluation of every orbit"
+    },
+    {
+      "quantity": "argmax orbit point x0",
+      "predicted": 0.75,
+      "computed": 0.7499999999999999,
+      "abs_err": 1.1102230246251565e-16,
+      "tol": 1e-09,
+      "pass": true,
+      "note": "maximiser is the interior fixed point x*=3/4 (least period 1)"
+    },
+    {
+      "quantity": "argmax least period",
+      "predicted": 1.0,
+      "computed": 1.0,
+      "abs_err": 0.0,
+      "tol": 0.0,
+      "pass": true,
+      "note": "the maximising orbit is the fixed point (period 1)"
+    },
+    {
+      "quantity": "period-2 orbit-avg ln x (closed form ln(5/16)/2)",
+      "predicted": -0.5815754049028404,
+      "computed": -0.5815754049028405,
+      "abs_err": 1.1102230246251565e-16,
+      "tol": 1e-09,
+      "pass": true,
+      "note": "the single least-period-2 orbit, evaluated by the same float64 path as every other orbit"
+    },
+    {
+      "quantity": "least periods 2..16 whose largest orbit average reaches ln(3/4)",
+      "predicted": 0.0,
+      "computed": 0.0,
+      "abs_err": 0.0,
+      "tol": 0.0,
+      "pass": true,
+      "note": "all strictly below; closest gap 0.0633 (period 16, an orbit shadowing x*=3/4)"
+    },
+    {
+      "quantity": "interior-orbit count (exact enumeration, period<= 16)",
+      "predicted": 8799.0,
+      "computed": 8799.0,
+      "abs_err": 0.0,
+      "tol": 0.5,
+      "pass": true,
+      "note": "exact Lyndon/Moebius reference for the period-16 protocol"
+    },
+    {
+      "quantity": "interior periodic-point count (exact enumeration, period<= 16)",
+      "predicted": 130485.0,
+      "computed": 130485.0,
+      "abs_err": 0.0,
+      "tol": 0.5,
+      "pass": true,
+      "note": "exact point count minus the boundary fixed point x=0"
+    },
+    {
+      "quantity": "least-period count mismatches (enumeration vs Moebius/Lyndon)",
+      "predicted": 0.0,
+      "computed": 0.0,
+      "abs_err": 0.0,
+      "tol": 0.0,
+      "pass": true,
+      "note": "every least period 1..max_period: enumerated orbits/points == formula"
+    },
+    {
+      "quantity": "orbits with an evaluated ln x average (coverage, period<= 16)",
+      "predicted": 8799.0,
+      "computed": 8799.0,
+      "abs_err": 0.0,
+      "tol": 0.5,
+      "pass": true,
+      "note": "coverage measured, not inferred from the maximising value"
+    },
+    {
+      "quantity": "boundary periodic orbits excluded",
+      "predicted": 1.0,
+      "computed": 1.0,
+      "abs_err": 0.0,
+      "tol": 0.0,
+      "pass": true,
+      "note": "exactly one: the fixed point x=0 (angle 0)"
+    },
+    {
+      "quantity": "I(4) (arcsine quadrature)",
+      "predicted": -1.3862943611198906,
+      "computed": -1.386290895383988,
+      "abs_err": 3.465735902485889e-06,
+      "tol": 0.001,
+      "pass": true,
+      "note": "= -2 ln2 = -1.386294 (rmk:Icurve)"
+    },
+    {
+      "quantity": "nu1*(4) = exp(-I(4))",
+      "predicted": 4.0,
+      "computed": 3.9999861370804126,
+      "abs_err": 1.3862919587381839e-05,
+      "tol": 0.01,
+      "pass": true,
+      "note": "closed form exp(2 ln 2) = 4.000 at the band edge mu0=4 (rmk:Icurve); no maximality over the family is asserted"
+    },
+    {
+      "quantity": "nu1*(3.60) = exp(-I)",
+      "predicted": 1.653,
+      "computed": 1.653286419991277,
+      "abs_err": 0.0002864199912768761,
+      "tol": 0.25,
+      "pass": true,
+      "note": "non-monotone family threshold (rmk:Icurve); consistency, not certified"
+    },
+    {
+      "quantity": "nu1*(3.70) = exp(-I)",
+      "predicted": 1.592,
+      "computed": 1.5916434576955645,
+      "abs_err": 0.0003565423044356031,
+      "tol": 0.25,
+      "pass": true,
+      "note": "non-monotone family threshold (rmk:Icurve); consistency, not certified"
+    },
+    {
+      "quantity": "nu1*(3.74) = exp(-I)",
+      "predicted": 1.765,
+      "computed": 1.7646817151697114,
+      "abs_err": 0.0003182848302885066,
+      "tol": 0.25,
+      "pass": true,
+      "note": "non-monotone family threshold (rmk:Icurve); consistency, not certified"
+    },
+    {
+      "quantity": "nu1*(3.90) = exp(-I)",
+      "predicted": 2.038,
+      "computed": 2.038465906252194,
+      "abs_err": 0.0004659062521943369,
+      "tol": 0.25,
+      "pass": true,
+      "note": "non-monotone family threshold (rmk:Icurve); consistency, not certified"
+    },
+    {
+      "quantity": "all-orbit bound mu0/(mu0-1) at mu0=4",
+      "predicted": 1.3333333333333333,
+      "computed": 1.3333333333333333,
+      "abs_err": 0.0,
+      "tol": 1e-12,
+      "pass": true,
+      "note": "min = 4/3 = 1.3333 (cor:mu0family)"
+    }
+  ],
+  "summary": {
+    "n_pass": 38,
+    "n_total": 38,
+    "all_pass": true
+  },
+  "figures": [
+    "../repro_run_ergodic_2026-11-13/figs/designG_subaction.png",
+    "../repro_run_ergodic_2026-11-13/figs/designG_equilibrium_potential.png",
+    "../repro_run_ergodic_2026-11-13/figs/designG_I_family.png"
+  ]
+}

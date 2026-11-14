@@ -1,0 +1,5127 @@
+{
+  "_meta": {
+    "task": "Design-G validator",
+    "generated": "2026-11-14T04:59:50.983119+00:00",
+    "mode": "full",
+    "scope": null,
+    "claims_in": "current_claims_designG_v1.json",
+    "data_in": "../../repro_run/data",
+    "figdir": "../../repro_run/figs",
+    "manifest": "../../repro_run/manifest.md",
+    "producers_found": [
+      "designG_dynamics_v4",
+      "designG_ergodic_quadrature_v2",
+      "designG_extinction_bif",
+      "designG_onset_ensemble_v1",
+      "designG_period_two_certificate_v1",
+      "designG_quasiperiodic_v2",
+      "designG_stable_leaf_v1"
+    ]
+  },
+  "overall": "PASS",
+  "exit_code": 0,
+  "readiness": "SUBMISSION_READY",
+  "strict_mode": true,
+  "summary": {
+    "n_claims_total": 98,
+    "n_evaluated": 98,
+    "n_blocking_kinds": 67,
+    "n_pass": 67,
+    "n_fail": 0,
+    "n_skipped_smoke": 0,
+    "n_manuscript_change": 0,
+    "n_audit_rows": 254,
+    "n_audit_to_claim": 73,
+    "n_audit_exclusion": 181
+  },
+  "ci_methods": {
+    "sens_base_nu1_2": "none",
+    "sens_runif_nu1_2": "wilson",
+    "sens_base_nu1_3": "none",
+    "sens_base_nu1_4": "none",
+    "sens_eps1e3_nu1_4": "none",
+    "sens_rlogy_nu1_2": "wilson",
+    "sens_rlogy_nu1_3": "wilson",
+    "sens_rlogy_nu1_4": "wilson",
+    "sens_fp_eps1e3_nu1_3": "none",
+    "sens_fp_eps1e12_nu1_3": "none",
+    "sens_rlogy_fp_censored_incl_nu1_2": "wilson",
+    "sens_rlogy_fp_censored_incl_nu1_3": "wilson",
+    "sens_rlogy_fp_censored_incl_nu1_4": "wilson"
+  },
+  "checks": [
+    {
+      "kind": "regression_anchor",
+      "name": "ext_frac_nu1_1",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/validation_table/*/fraction_extinct",
+      "selector": {
+        "label": "ext_frac_nu1_1"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2580",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "1.0000",
+        "lines": [
+          2580,
+          2581
+        ],
+        "tokens": [
+          "1.0000"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2580,
+              2581
+            ],
+            "tokens": [
+              "1.0000"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "ext_frac_nu1_1p5",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/validation_table/*/fraction_extinct",
+      "selector": {
+        "label": "ext_frac_nu1_1p5"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2581",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "1.0000",
+        "lines": [
+          2580,
+          2581
+        ],
+        "tokens": [
+          "1.0000"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2580,
+              2581
+            ],
+            "tokens": [
+              "1.0000"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "ext_frac_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/validation_table/*/fraction_extinct",
+      "selector": {
+        "label": "ext_frac_nu1_2"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2247",
+      "actual": 0.22694444444444445,
+      "expected": 0.2269,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 8,
+        "min_occurrences": 8,
+        "token": null,
+        "lines": [
+          2247,
+          2249,
+          2293,
+          2383,
+          2393,
+          2484,
+          2582,
+          2592
+        ],
+        "tokens": [
+          "0.2269"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              103
+            ],
+            "tokens": [
+              "0.2269"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 8,
+            "min_occurrences": 8,
+            "lines": [
+              2247,
+              2249,
+              2293,
+              2383,
+              2393,
+              2484,
+              2582,
+              2592
+            ],
+            "tokens": [
+              "0.2269"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "ext_frac_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/validation_table/*/fraction_extinct",
+      "selector": {
+        "label": "ext_frac_nu1_3"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2384",
+      "actual": 0.011111111111111112,
+      "expected": 0.0111,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2384,
+          2583
+        ],
+        "tokens": [
+          "0.0111"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              103
+            ],
+            "tokens": [
+              "0.0111"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2384,
+              2583
+            ],
+            "tokens": [
+              "0.0111"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "ext_frac_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/validation_table/*/fraction_extinct",
+      "selector": {
+        "label": "ext_frac_nu1_4"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2584",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 5,
+        "min_occurrences": 5,
+        "token": "0.0000",
+        "lines": [
+          2361,
+          2462,
+          2584,
+          2608,
+          2648
+        ],
+        "tokens": [
+          "0.0000"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              104
+            ],
+            "tokens": [
+              "0.0000"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 5,
+            "min_occurrences": 5,
+            "lines": [
+              2361,
+              2462,
+              2584,
+              2608,
+              2648
+            ],
+            "tokens": [
+              "0.0000"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "lambda_perp_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/exact_skew/per_nu1/*/lambda_perp_quadrature",
+      "selector": {
+        "nu1": "2"
+      },
+      "block": "exact_skew",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2167",
+      "actual": -0.6931471805599417,
+      "expected": -0.6931471805599453,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "theory_invariant",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 9,
+        "min_occurrences": 9,
+        "token": null,
+        "lines": [
+          1081,
+          1082,
+          2167,
+          2167,
+          2167,
+          2358,
+          2693,
+          2759
+        ],
+        "tokens": [
+          "-0.692893",
+          "-0.6931",
+          "-0.69314",
+          "-0.693144",
+          "-0.693147",
+          "-0.69315"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              13
+            ],
+            "tokens": [
+              "-0.6931"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 9,
+            "min_occurrences": 9,
+            "lines": [
+              1081,
+              1082,
+              2167,
+              2167,
+              2167,
+              2358,
+              2693,
+              2759
+            ],
+            "tokens": [
+              "-0.692893",
+              "-0.6931",
+              "-0.69314",
+              "-0.693144",
+              "-0.693147",
+              "-0.69315"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "lambda_perp_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/exact_skew/per_nu1/*/lambda_perp_quadrature",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "exact_skew",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2168",
+      "actual": -0.28768207245177724,
+      "expected": -0.2876820724517809,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "theory_invariant",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 17,
+        "min_occurrences": 17,
+        "token": null,
+        "lines": [
+          1272,
+          1283,
+          1354,
+          2168,
+          2168,
+          2168,
+          2242,
+          2359
+        ],
+        "tokens": [
+          "-0.287428",
+          "-0.287682",
+          "-0.2877"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              794
+            ],
+            "tokens": [
+              "-0.287682"
+            ]
+          },
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              142
+            ],
+            "tokens": [
+              "-0.288"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 17,
+            "min_occurrences": 17,
+            "lines": [
+              1272,
+              1283,
+              1354,
+              2168,
+              2168,
+              2168,
+              2242,
+              2359
+            ],
+            "tokens": [
+              "-0.287428",
+              "-0.287682",
+              "-0.2877"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "lambda_perp_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/exact_skew/per_nu1/*/lambda_perp_quadrature",
+      "selector": {
+        "nu1": "4"
+      },
+      "block": "exact_skew",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2169",
+      "actual": 3.552713678800501e-15,
+      "expected": 0.0,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "theory_invariant",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 5,
+        "min_occurrences": 5,
+        "token": "0.0000",
+        "lines": [
+          2361,
+          2462,
+          2584,
+          2608,
+          2648
+        ],
+        "tokens": [
+          "0.0000"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              104
+            ],
+            "tokens": [
+              "0.0000"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 5,
+            "min_occurrences": 5,
+            "lines": [
+              2361,
+              2462,
+              2584,
+              2608,
+              2648
+            ],
+            "tokens": [
+              "0.0000"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "jury_lower_edge",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/coexistence/jury_band/lower_edge_closed_form",
+      "selector": {},
+      "block": "coexistence",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1518",
+      "actual": 1.8564064605510175,
+      "expected": 1.8564064605510175,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 6,
+        "min_occurrences": 6,
+        "token": null,
+        "lines": [
+          1387,
+          1518,
+          2329,
+          2559,
+          2701,
+          2701
+        ],
+        "tokens": [
+          "1.856",
+          "1.85641"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              144,
+              154,
+              155,
+              951
+            ],
+            "tokens": [
+              "1.856",
+              "1.8564",
+              "1.85641"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 6,
+            "min_occurrences": 6,
+            "lines": [
+              1387,
+              1518,
+              2329,
+              2559,
+              2701,
+              2701
+            ],
+            "tokens": [
+              "1.856",
+              "1.85641"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "arcsine_E_lnx",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/arcsine_moments/E_lnx",
+      "selector": {},
+      "block": "arcsine",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1058",
+      "actual": -1.386290895383988,
+      "expected": -1.3862943611198906,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 35,
+        "min_occurrences": 35,
+        "token": null,
+        "lines": [
+          1046,
+          1058,
+          1063,
+          1064,
+          1066,
+          1596,
+          1597,
+          2356
+        ],
+        "tokens": [
+          "-1.38629",
+          "-1.386291",
+          "-1.386294",
+          "-1.3863",
+          "-1.38630",
+          "-1.38635"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 35,
+            "min_occurrences": 35,
+            "lines": [
+              1046,
+              1058,
+              1063,
+              1064,
+              1066,
+              1596,
+              1597,
+              2356
+            ],
+            "tokens": [
+              "-1.38629",
+              "-1.386291",
+              "-1.386294",
+              "-1.3863",
+              "-1.38630",
+              "-1.38635"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "jensen_gap_mln2",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/arcsine_moments/jensen_gap",
+      "selector": {},
+      "block": "arcsine",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1081",
+      "actual": -0.6931437148240425,
+      "expected": -0.6931471805599453,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 8,
+        "min_occurrences": 8,
+        "token": null,
+        "lines": [
+          1081,
+          1082,
+          2167,
+          2167,
+          2358,
+          2693,
+          2759,
+          2759
+        ],
+        "tokens": [
+          "-0.6931",
+          "-0.69314",
+          "-0.693144",
+          "-0.693147",
+          "-0.69315"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 8,
+            "min_occurrences": 8,
+            "lines": [
+              1081,
+              1082,
+              2167,
+              2167,
+              2358,
+              2693,
+              2759,
+              2759
+            ],
+            "tokens": [
+              "-0.6931",
+              "-0.69314",
+              "-0.693144",
+              "-0.693147",
+              "-0.69315"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "subaction_sup_ln34",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/subaction/max_H",
+      "selector": {},
+      "block": "subaction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1283",
+      "actual": -0.2876820724519477,
+      "expected": -0.2876820724517809,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 13,
+        "min_occurrences": 13,
+        "token": null,
+        "lines": [
+          1272,
+          1283,
+          2168,
+          2168,
+          2694,
+          2697,
+          2697,
+          2773
+        ],
+        "tokens": [
+          "-0.287682"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              794
+            ],
+            "tokens": [
+              "-0.287682"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 13,
+            "min_occurrences": 13,
+            "lines": [
+              1272,
+              1283,
+              2168,
+              2168,
+              2694,
+              2697,
+              2697,
+              2773
+            ],
+            "tokens": [
+              "-0.287682"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "nu1star_mu0_4",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/I_family/nu1star_4",
+      "selector": {},
+      "block": "I_family",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1597",
+      "actual": 3.9999861370804126,
+      "expected": 4.0,
+      "tol": 0.001,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "4.000",
+        "lines": [
+          1597
+        ],
+        "tokens": [
+          "4.000"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1597
+            ],
+            "tokens": [
+              "4.000"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "family_spread_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/family_unification/per_nu1/*/pairwise_max_spread",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "family_unification",
+      "manuscript_tracked": false,
+      "tex_ref": "(untracked)",
+      "actual": 5.849587095574371e-05,
+      "expected": 5.8496e-05,
+      "tol": 1e-05,
+      "status": "PASS",
+      "manuscript_change_required": null,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_quote": null
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "family_spread_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/family_unification/per_nu1/*/pairwise_max_spread",
+      "selector": {
+        "nu1": "4.00"
+      },
+      "block": "family_unification",
+      "manuscript_tracked": false,
+      "tex_ref": "(untracked)",
+      "actual": 0.001847307971376267,
+      "expected": 0.00184731,
+      "tol": 0.0001,
+      "status": "PASS",
+      "manuscript_change_required": null,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_quote": null
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "rho_quasiperiodic",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "rho",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:178",
+      "actual": 0.2241006167808043,
+      "expected": 0.2241,
+      "tol": 0.0005,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          152,
+          178
+        ],
+        "tokens": [
+          "0.2241"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              152,
+              178
+            ],
+            "tokens": [
+              "0.2241"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1960,
+              1996
+            ],
+            "tokens": [
+              "0.2241"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "sens_base_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/base/{nu1}/fraction",
+      "selector": {
+        "nu1": "2"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2486",
+      "actual": 0.3287,
+      "expected": 0.3287,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 18,
+        "min_occurrences": 18,
+        "token": "0.3287",
+        "lines": [
+          2420,
+          2460,
+          2461,
+          2486,
+          2592,
+          2607,
+          2611,
+          2612
+        ],
+        "tokens": [
+          "0.3287"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 18,
+            "min_occurrences": 18,
+            "lines": [
+              2420,
+              2460,
+              2461,
+              2486,
+              2592,
+              2607,
+              2611,
+              2612
+            ],
+            "tokens": [
+              "0.3287"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_runif_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/{config}/{nu1}/fraction",
+      "selector": {
+        "config": "ic.runif",
+        "nu1": "2"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": false,
+      "tex_ref": "(untracked)",
+      "actual": 0.325675,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": null,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_quote": null
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "finite_amp_decay_nu1_2_pre_underflow",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/finite_amp/per_nu1/{nu1}/per_delta/{delta}/horizon_sweep/{idx}/decay_rate",
+      "selector": {
+        "nu1": "2",
+        "delta": "0.0001",
+        "idx": "0"
+      },
+      "block": "finite_amp",
+      "manuscript_tracked": false,
+      "tex_ref": "(untracked)",
+      "actual": -0.6938932732599241,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": null,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": null,
+      "manuscript_quote": null
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "absorb_before_tail_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/n_extinct_exact_zero_before_tail",
+      "selector": {
+        "nu1": "2.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2439",
+      "actual": 817,
+      "expected": 817,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "817",
+        "lines": [
+          2439,
+          2582
+        ],
+        "tokens": [
+          "817"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2439,
+              2582
+            ],
+            "tokens": [
+              "817"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "first_zero_step_min_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/first_zero_step_min",
+      "selector": {
+        "nu1": "2.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2440",
+      "actual": 591,
+      "expected": 591,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "591",
+        "lines": [
+          2440
+        ],
+        "tokens": [
+          "591"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2440
+            ],
+            "tokens": [
+              "591"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "first_zero_step_max_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/first_zero_step_max",
+      "selector": {
+        "nu1": "2.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2440",
+      "actual": 1567,
+      "expected": 1567,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "1567",
+        "lines": [
+          2440
+        ],
+        "tokens": [
+          "1567"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2440
+            ],
+            "tokens": [
+              "1567"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "absorb_before_tail_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/n_extinct_exact_zero_before_tail",
+      "selector": {
+        "nu1": "3.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2440",
+      "actual": 40,
+      "expected": 40,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 4,
+        "min_occurrences": 4,
+        "token": "40",
+        "lines": [
+          2440,
+          2540,
+          2544,
+          2583
+        ],
+        "tokens": [
+          "40"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              2440,
+              2540,
+              2544,
+              2583
+            ],
+            "tokens": [
+              "40"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "first_zero_step_min_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/first_zero_step_min",
+      "selector": {
+        "nu1": "3.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2440",
+      "actual": 1650,
+      "expected": 1650,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "1650",
+        "lines": [
+          2440
+        ],
+        "tokens": [
+          "1650"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2440
+            ],
+            "tokens": [
+              "1650"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "first_zero_step_max_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/extinction_fraction/per_nu1/{nu1}/eps_sweep/{eps}/first_zero_step_max",
+      "selector": {
+        "nu1": "3.00",
+        "eps": "1e-06"
+      },
+      "block": "extinction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2441",
+      "actual": 4244,
+      "expected": 4244,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "4244",
+        "lines": [
+          2441
+        ],
+        "tokens": [
+          "4244"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2441
+            ],
+            "tokens": [
+              "4244"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "sens_base_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/base/{nu1}/fraction",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2468",
+      "actual": 0.0459,
+      "expected": 0.0459,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 17,
+        "min_occurrences": 17,
+        "token": null,
+        "lines": [
+          2420,
+          2425,
+          2468,
+          2592,
+          2607,
+          2611,
+          2612,
+          2613
+        ],
+        "tokens": [
+          "0.0459",
+          "\\,0.0459"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 17,
+            "min_occurrences": 17,
+            "lines": [
+              2420,
+              2425,
+              2468,
+              2592,
+              2607,
+              2611,
+              2612,
+              2613
+            ],
+            "tokens": [
+              "0.0459",
+              "\\,0.0459"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "sens_base_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/base/{nu1}/fraction",
+      "selector": {
+        "nu1": "4"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2420",
+      "actual": 0.0005,
+      "expected": 0.0005,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 12,
+        "min_occurrences": 12,
+        "token": null,
+        "lines": [
+          2420,
+          2426,
+          2607,
+          2612,
+          2614,
+          2615,
+          2648,
+          2651
+        ],
+        "tokens": [
+          "0.0005",
+          "4.6591\\times10^{-4}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 12,
+            "min_occurrences": 12,
+            "lines": [
+              2420,
+              2426,
+              2607,
+              2612,
+              2614,
+              2615,
+              2648,
+              2651
+            ],
+            "tokens": [
+              "0.0005",
+              "4.6591\\times10^{-4}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_eps1e3_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/eps.1e-3/{nu1}/fraction",
+      "selector": {
+        "nu1": "4"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2426",
+      "actual": 0.0006,
+      "expected": 0.0006,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 3,
+        "min_occurrences": 3,
+        "token": null,
+        "lines": [
+          2426,
+          2613,
+          2654
+        ],
+        "tokens": [
+          "0.0006",
+          "\\,0.0006"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 3,
+            "min_occurrences": 3,
+            "lines": [
+              2426,
+              2613,
+              2654
+            ],
+            "tokens": [
+              "0.0006",
+              "\\,0.0006"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction",
+      "selector": {
+        "nu1": "2"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2477",
+      "actual": 0.8096414677741562,
+      "expected": 0.8096,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 4,
+        "min_occurrences": 4,
+        "token": null,
+        "lines": [
+          2430,
+          2477,
+          2617,
+          2643
+        ],
+        "tokens": [
+          "0.8096"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              2430,
+              2477,
+              2617,
+              2643
+            ],
+            "tokens": [
+              "0.8096"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2478",
+      "actual": 0.27273683103774576,
+      "expected": 0.2727,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 4,
+        "min_occurrences": 4,
+        "token": null,
+        "lines": [
+          2430,
+          2478,
+          2617,
+          2644
+        ],
+        "tokens": [
+          "0.2727"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              2430,
+              2478,
+              2617,
+              2644
+            ],
+            "tokens": [
+              "0.2727"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction",
+      "selector": {
+        "nu1": "4"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2478",
+      "actual": 0.004047944485332773,
+      "expected": 0.004,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 5,
+        "min_occurrences": 5,
+        "token": null,
+        "lines": [
+          2430,
+          2478,
+          2592,
+          2617,
+          2645
+        ],
+        "tokens": [
+          "0.0040"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 5,
+            "min_occurrences": 5,
+            "lines": [
+              2430,
+              2478,
+              2592,
+              2617,
+              2645
+            ],
+            "tokens": [
+              "0.0040"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_fp_eps1e3_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/eps.1e-3/{nu1}/fraction_first_passage",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2466",
+      "actual": 0.1181,
+      "expected": 0.1181,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 4,
+        "min_occurrences": 4,
+        "token": null,
+        "lines": [
+          2427,
+          2466,
+          2592,
+          2625
+        ],
+        "tokens": [
+          "0.1181",
+          "\\,0.1181"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              2427,
+              2466,
+              2592,
+              2625
+            ],
+            "tokens": [
+              "0.1181",
+              "\\,0.1181"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_fp_eps1e12_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/eps.1e-12/{nu1}/fraction_first_passage",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2466",
+      "actual": 0.0474,
+      "expected": 0.0474,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "none",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 4,
+        "min_occurrences": 4,
+        "token": null,
+        "lines": [
+          2427,
+          2466,
+          2592,
+          2625
+        ],
+        "tokens": [
+          "0.0474"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 4,
+            "min_occurrences": 4,
+            "lines": [
+              2427,
+              2466,
+              2592,
+              2625
+            ],
+            "tokens": [
+              "0.0474"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_fp_censored_incl_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction_first_passage_censored_inclusive",
+      "selector": {
+        "nu1": "2"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2481",
+      "actual": 0.9095,
+      "expected": 0.9095,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2481
+        ],
+        "tokens": [
+          "0.9095"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2481
+            ],
+            "tokens": [
+              "0.9095"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_fp_censored_incl_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction_first_passage_censored_inclusive",
+      "selector": {
+        "nu1": "3"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2481",
+      "actual": 0.695075,
+      "expected": 0.6951,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2481
+        ],
+        "tokens": [
+          "0.6951"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2481
+            ],
+            "tokens": [
+              "0.6951"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "sens_rlogy_fp_censored_incl_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/sensitivity/ic.rlogy/{nu1}/fraction_first_passage_censored_inclusive",
+      "selector": {
+        "nu1": "4"
+      },
+      "block": "sensitivity",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2481",
+      "actual": 0.607225,
+      "expected": 0.6072,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": "wilson",
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2481,
+          2592
+        ],
+        "tokens": [
+          "0.6072"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2481,
+              2592
+            ],
+            "tokens": [
+              "0.6072"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_1",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "1.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2356",
+      "actual": -1.3853484102241758,
+      "expected": -1.3853,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2356
+        ],
+        "tokens": [
+          "-1.3853"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2356
+            ],
+            "tokens": [
+              "-1.3853"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_1p5",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "1.50"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2357",
+      "actual": -0.9798833021160114,
+      "expected": -0.9799,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2357,
+          2692
+        ],
+        "tokens": [
+          "-0.979883",
+          "-0.9799"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2357,
+              2692
+            ],
+            "tokens": [
+              "-0.979883",
+              "-0.9799"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_2",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2358",
+      "actual": -0.6922012296642305,
+      "expected": -0.6922,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2358,
+          2693
+        ],
+        "tokens": [
+          "-0.6922",
+          "-0.692201"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              13
+            ],
+            "tokens": [
+              "-0.6922"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2358,
+              2693
+            ],
+            "tokens": [
+              "-0.6922",
+              "-0.692201"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_3",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "3.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2359",
+      "actual": -0.286736121556066,
+      "expected": -0.2867,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 3,
+        "min_occurrences": 3,
+        "token": null,
+        "lines": [
+          2241,
+          2359,
+          2694
+        ],
+        "tokens": [
+          "-0.2867",
+          "-0.286736"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 3,
+            "min_occurrences": 3,
+            "lines": [
+              2241,
+              2359,
+              2694
+            ],
+            "tokens": [
+              "-0.2867",
+              "-0.286736"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_3p5",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "3.50"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2360",
+      "actual": -0.1325854417288077,
+      "expected": -0.1326,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2360,
+          2695
+        ],
+        "tokens": [
+          "-0.132585",
+          "-0.1326"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2360,
+              2695
+            ],
+            "tokens": [
+              "-0.132585",
+              "-0.1326"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_4",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "4.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2361",
+      "actual": 0.0009459508957148088,
+      "expected": 0.0009,
+      "tol": 5e-05,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 10,
+        "min_occurrences": 10,
+        "token": null,
+        "lines": [
+          2361,
+          2610,
+          2642,
+          2691,
+          2692,
+          2693,
+          2694,
+          2695
+        ],
+        "tokens": [
+          "0.0009",
+          "9.4595\\times10^{-4}"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              13
+            ],
+            "tokens": [
+              "0.0009"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 10,
+            "min_occurrences": 10,
+            "lines": [
+              2361,
+              2610,
+              2642,
+              2691,
+              2692,
+              2693,
+              2694,
+              2695
+            ],
+            "tokens": [
+              "0.0009",
+              "9.4595\\times10^{-4}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_n_trajectories",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/n_trajectories",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:332",
+      "actual": 128,
+      "expected": 128,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "128",
+        "lines": [
+          332
+        ],
+        "tokens": [
+          "128"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              332
+            ],
+            "tokens": [
+              "128"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_n_noncollapsed",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/n_noncollapsed",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:332",
+      "actual": 125,
+      "expected": 125,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "125",
+        "lines": [
+          332
+        ],
+        "tokens": [
+          "125"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              332
+            ],
+            "tokens": [
+              "125"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_n_accepted",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/n_accepted_stable",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:332",
+      "actual": 118,
+      "expected": 118,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "118",
+        "lines": [
+          332
+        ],
+        "tokens": [
+          "118"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              332
+            ],
+            "tokens": [
+              "118"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "lambda_hat_sem",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/sem_across_accepted",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2340",
+      "actual": 0.0014019781002804746,
+      "expected": 0.0014,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 3,
+        "min_occurrences": 3,
+        "token": null,
+        "lines": [
+          2336,
+          2340,
+          2351
+        ],
+        "tokens": [
+          "1.40\\times 10^{-3}",
+          "1.40\\times10^{-3}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 3,
+            "min_occurrences": 3,
+            "lines": [
+              2336,
+              2340,
+              2351
+            ],
+            "tokens": [
+              "1.40\\times 10^{-3}",
+              "1.40\\times10^{-3}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "sweep_chaos_onset_nu1_2p1",
+      "producer": "designG_extinction_bif",
+      "producer_field": "/chaos_onset_mu0",
+      "selector": {},
+      "block": "sweep",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:36",
+      "actual": 3.96,
+      "expected": 3.96,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "3.96",
+        "lines": [
+          36,
+          60
+        ],
+        "tokens": [
+          "3.96"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              36,
+              60
+            ],
+            "tokens": [
+              "3.96"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "sweep_ext_onset_nu1_2p1",
+      "producer": "designG_extinction_bif",
+      "producer_field": "/extinction_onset_mu0",
+      "selector": {},
+      "block": "sweep",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:36",
+      "actual": 3.96,
+      "expected": 3.96,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "3.96",
+        "lines": [
+          36,
+          60
+        ],
+        "tokens": [
+          "3.96"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              36,
+              60
+            ],
+            "tokens": [
+              "3.96"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "lambda_hat_sd",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/sd_across_accepted",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2341",
+      "actual": 0.01522938035681668,
+      "expected": 0.0152,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2341,
+          2351
+        ],
+        "tokens": [
+          "1.52\\times10^{-2}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2341,
+              2351
+            ],
+            "tokens": [
+              "1.52\\times10^{-2}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_1_6d",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "1.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2691",
+      "actual": -1.3853484102241758,
+      "expected": -1.38535,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2691
+        ],
+        "tokens": [
+          "-1.38535"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2691
+            ],
+            "tokens": [
+              "-1.38535"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_1p5_6d",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "1.50"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2692",
+      "actual": -0.9798833021160114,
+      "expected": -0.979883,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2692
+        ],
+        "tokens": [
+          "-0.979883"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2692
+            ],
+            "tokens": [
+              "-0.979883"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_2_6d",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "2.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2693",
+      "actual": -0.6922012296642305,
+      "expected": -0.692201,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          2358,
+          2693
+        ],
+        "tokens": [
+          "-0.6922",
+          "-0.692201"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              2358,
+              2693
+            ],
+            "tokens": [
+              "-0.6922",
+              "-0.692201"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_3_6d",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "3.00"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2694",
+      "actual": -0.286736121556066,
+      "expected": -0.286736,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2694
+        ],
+        "tokens": [
+          "-0.286736"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2694
+            ],
+            "tokens": [
+              "-0.286736"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "lambda_hat_nu1_3p5_6d",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/lambda_hat/per_nu1/{nu1}/lambda_hat",
+      "selector": {
+        "nu1": "3.50"
+      },
+      "block": "lambda_hat",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2695",
+      "actual": -0.1325854417288077,
+      "expected": -0.132585,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "regression_anchor",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2695
+        ],
+        "tokens": [
+          "-0.132585"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2695
+            ],
+            "tokens": [
+              "-0.132585"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "nu1star_mu0_4_5d",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/I_family/nu1star_4",
+      "selector": {},
+      "block": "I_family",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2783",
+      "actual": 3.9999861370804126,
+      "expected": 3.99999,
+      "tol": 5e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2783
+        ],
+        "tokens": [
+          "3.99999"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2783
+            ],
+            "tokens": [
+              "3.99999"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "nu1_NS_mu0_3p5",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "nu1_NS",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1957",
+      "actual": 4.666666666666667,
+      "expected": 4.666666666666667,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1957,
+          1983
+        ],
+        "tokens": [
+          "4.667"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1957,
+              1983
+            ],
+            "tokens": [
+              "4.667"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "theory_invariant",
+      "name": "theta_over_2pi_mu0_3p5",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "theta_over_2pi",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1958",
+      "actual": 0.2300534561626159,
+      "expected": 0.2300534561626159,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1958,
+          1984
+        ],
+        "tokens": [
+          "0.2301"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              179
+            ],
+            "tokens": [
+              "0.2301"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1958,
+              1984
+            ],
+            "tokens": [
+              "0.2301"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "qp_residual_nu1_4p9",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "invariant_circle_residual",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1998",
+      "actual": 0.001256765840864263,
+      "expected": 0.001256765840864263,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          1998
+        ],
+        "tokens": [
+          "1.26\\times10^{-3}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1998
+            ],
+            "tokens": [
+              "1.26\\times10^{-3}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "qp_largest_lyap_nu1_4p9",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "largest_lyap",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2000",
+      "actual": -0.00011224519932977555,
+      "expected": -0.00011224519932977555,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2000
+        ],
+        "tokens": [
+          "-1.12\\times10^{-4}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2000
+            ],
+            "tokens": [
+              "-1.12\\times10^{-4}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "qp_normal_lyap_nu1_4p9",
+      "producer": "designG_quasiperiodic_v2",
+      "producer_field": "normal_lyap",
+      "selector": {},
+      "block": "quasiperiodic",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2001",
+      "actual": -0.04951861497699066,
+      "expected": -0.04951861497699066,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "taxonomy_kind": "empirical_discovery",
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2001
+        ],
+        "tokens": [
+          "-4.95\\times10^{-2}"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2001
+            ],
+            "tokens": [
+              "-4.95\\times10^{-2}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_median_sustained_0p01",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.01/summary/chaos_sustained/median",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2519",
+      "actual": 3.96,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.96",
+        "lines": [
+          2519
+        ],
+        "tokens": [
+          "3.96"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2519
+            ],
+            "tokens": [
+              "3.96"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_median_sustained_0p002",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.002/summary/chaos_sustained/median",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2519",
+      "actual": 3.962,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.962",
+        "lines": [
+          2519
+        ],
+        "tokens": [
+          "3.962"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2519
+            ],
+            "tokens": [
+              "3.962"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_min_sustained_0p01",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.01/summary/chaos_sustained/min",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2519",
+      "actual": 3.94,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.94",
+        "lines": [
+          2519
+        ],
+        "tokens": [
+          "3.94"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2519
+            ],
+            "tokens": [
+              "3.94"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_max_sustained_0p01",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.01/summary/chaos_sustained/max",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2519",
+      "actual": 4.0,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 5,
+        "min_occurrences": 5,
+        "token": "4.00",
+        "lines": [
+          2519,
+          2584,
+          2687,
+          2688,
+          2696
+        ],
+        "tokens": [
+          "4.00"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 5,
+            "min_occurrences": 5,
+            "lines": [
+              2519,
+              2584,
+              2687,
+              2688,
+              2696
+            ],
+            "tokens": [
+              "4.00"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_min_sustained_0p002",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.002/summary/chaos_sustained/min",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2520",
+      "actual": 3.944,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.944",
+        "lines": [
+          2520
+        ],
+        "tokens": [
+          "3.944"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2520
+            ],
+            "tokens": [
+              "3.944"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_max_sustained_0p002",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.002/summary/chaos_sustained/max",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2520",
+      "actual": 3.996,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.996",
+        "lines": [
+          2520
+        ],
+        "tokens": [
+          "3.996"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2520
+            ],
+            "tokens": [
+              "3.996"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_seed0_sustained_0p01",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.01/per_seed/0/chaos_sustained",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:36",
+      "actual": 3.96,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "3.96",
+        "lines": [
+          36,
+          60
+        ],
+        "tokens": [
+          "3.96"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              36,
+              60
+            ],
+            "tokens": [
+              "3.96"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_seed0_sustained_0p005",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.005/per_seed/0/chaos_sustained",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2522",
+      "actual": 3.955,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.955",
+        "lines": [
+          2522
+        ],
+        "tokens": [
+          "3.955"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2522
+            ],
+            "tokens": [
+              "3.955"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_seed0_sustained_0p002",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.002/per_seed/0/chaos_sustained",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2523",
+      "actual": 3.958,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "3.958",
+        "lines": [
+          2523
+        ],
+        "tokens": [
+          "3.958"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2523
+            ],
+            "tokens": [
+              "3.958"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "ons_seed0_first_positive_0p01",
+      "producer": "designG_onset_ensemble_v1",
+      "producer_field": "/per_resolution/0.01/per_seed/0/chaos_first_positive",
+      "selector": {},
+      "block": "onset_ensemble",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:55",
+      "actual": 3.85,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": "3.85",
+        "lines": [
+          35,
+          55
+        ],
+        "tokens": [
+          "3.85"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              35,
+              55
+            ],
+            "tokens": [
+              "3.85"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_p_x",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/point_p_float/0",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:812",
+      "actual": 0.5023280449865453,
+      "expected": 0.5023280449865453,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          812
+        ],
+        "tokens": [
+          "0.502328"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              812
+            ],
+            "tokens": [
+              "0.502328"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1409
+            ],
+            "tokens": [
+              "0.502328"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_p_y",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/point_p_float/1",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:812",
+      "actual": 0.17597360899144368,
+      "expected": 0.17597360899144368,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          812
+        ],
+        "tokens": [
+          "0.175974"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              812
+            ],
+            "tokens": [
+              "0.175974"
+            ]
+          },
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1409
+            ],
+            "tokens": [
+              "0.175974"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_phip_x",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/point_Phi_p_float/0",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:812",
+      "actual": 0.824008526797179,
+      "expected": 0.824008526797179,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          812
+        ],
+        "tokens": [
+          "0.824009"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              812
+            ],
+            "tokens": [
+              "0.824009"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_phip_y",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/point_Phi_p_float/1",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:812",
+      "actual": 0.1340274980459748,
+      "expected": 0.1340274980459748,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          812
+        ],
+        "tokens": [
+          "0.134027"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              812
+            ],
+            "tokens": [
+              "0.134027"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_mult_lo",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/multipliers_midpoint_float/0",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:813",
+      "actual": -0.6328077698753096,
+      "expected": -0.6328077698753096,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          813
+        ],
+        "tokens": [
+          "-0.6328"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              813
+            ],
+            "tokens": [
+              "-0.6328"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_mult_hi",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/multipliers_midpoint_float/1",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:814",
+      "actual": 0.9636594800383995,
+      "expected": 0.9636594800383995,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          814
+        ],
+        "tokens": [
+          "0.9637"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              814
+            ],
+            "tokens": [
+              "0.9637"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_trace_lo",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/trace_D_Phi2_float/0",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1423",
+      "actual": 0.3308517068585713,
+      "expected": 0.3308517068585713,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1423,
+          1423
+        ],
+        "tokens": [
+          "0.330851",
+          "0.330852"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1423,
+              1423
+            ],
+            "tokens": [
+              "0.330851",
+              "0.330852"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_trace_hi",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/trace_D_Phi2_float/1",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1423",
+      "actual": 0.3308517134676086,
+      "expected": 0.3308517134676086,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1423,
+          1423
+        ],
+        "tokens": [
+          "0.330851",
+          "0.330852"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1423,
+              1423
+            ],
+            "tokens": [
+              "0.330851",
+              "0.330852"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_det_lo",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/det_D_Phi2_float/0",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1423",
+      "actual": -0.609811210289712,
+      "expected": -0.609811210289712,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          1423
+        ],
+        "tokens": [
+          "-0.609812"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1423
+            ],
+            "tokens": [
+              "-0.609812"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tc_det_hi",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/certificate/det_D_Phi2_float/1",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1423",
+      "actual": -0.6098112026748884,
+      "expected": -0.6098112026748884,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          1423
+        ],
+        "tokens": [
+          "-0.609811"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1423
+            ],
+            "tokens": [
+              "-0.609811"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "tc_basin_two_cycle",
+      "producer": "designG_period_two_certificate_v1",
+      "producer_field": "/basin_fraction_nu1_46_25/fraction_two_cycle",
+      "selector": {},
+      "block": "two_cycle",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1439",
+      "actual": 0.585275,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          1439
+        ],
+        "tokens": [
+          "0.585"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1439
+            ],
+            "tokens": [
+              "0.585"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "enum_closest_gap",
+      "producer": "designG_ergodic_quadrature_v2",
+      "producer_field": "/periodic_enumeration/closest_gap_below_ln34_over_periods_2_to_max",
+      "selector": {},
+      "block": "subaction",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:1286",
+      "actual": 0.06328975919284957,
+      "expected": 0.06328975919284957,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          1286
+        ],
+        "tokens": [
+          "0.063"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              1286
+            ],
+            "tokens": [
+              "0.063"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "bif_window_lperp_3p83",
+      "producer": "designG_extinction_bif",
+      "producer_field": "/periodic_window_check/3.83/lambda_perp",
+      "selector": {},
+      "block": "sweep",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:78",
+      "actual": -0.11952645375786089,
+      "expected": -0.11952645375786089,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          78
+        ],
+        "tokens": [
+          "-0.12"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              78
+            ],
+            "tokens": [
+              "-0.12"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "bif_window_lperp_3p84",
+      "producer": "designG_extinction_bif",
+      "producer_field": "/periodic_window_check/3.84/lambda_perp",
+      "selector": {},
+      "block": "sweep",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:78",
+      "actual": -0.1446783469485086,
+      "expected": -0.1446783469485086,
+      "tol": 1e-09,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          78
+        ],
+        "tokens": [
+          "-0.14"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              78
+            ],
+            "tokens": [
+              "-0.14"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_stop_step_1p00",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.00/max_stop_step",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2704",
+      "actual": 570,
+      "expected": 570.0,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1356,
+          2704
+        ],
+        "tokens": [
+          "570"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1356,
+              2704
+            ],
+            "tokens": [
+              "570"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_log10_y_horizon_1p00",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.00/max_log10_y_at_horizon",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2705",
+      "actual": -2122.1742709866326,
+      "expected": -2122.1742709866326,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 2,
+        "min_occurrences": 2,
+        "token": null,
+        "lines": [
+          1359,
+          2705
+        ],
+        "tokens": [
+          "-2122"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 2,
+            "min_occurrences": 2,
+            "lines": [
+              1359,
+              2705
+            ],
+            "tokens": [
+              "-2122"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_stop_step_1p20",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.20/max_stop_step",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2707",
+      "actual": 671,
+      "expected": 671.0,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2707
+        ],
+        "tokens": [
+          "671"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2707
+            ],
+            "tokens": [
+              "671"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_log10_y_horizon_1p20",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.20/max_log10_y_at_horizon",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2708",
+      "actual": -1830.2783767692565,
+      "expected": -1830.2783767692565,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2708
+        ],
+        "tokens": [
+          "-1830"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2708
+            ],
+            "tokens": [
+              "-1830"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_stop_step_1p30",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.30/max_stop_step",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2710",
+      "actual": 752,
+      "expected": 752.0,
+      "tol": 0.5,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2710
+        ],
+        "tokens": [
+          "752"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2710
+            ],
+            "tokens": [
+              "752"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "tele_max_log10_y_horizon_1p30",
+      "producer": "designG_dynamics_v4",
+      "producer_field": "/global_telescoping/per_nu1/1.30/max_log10_y_at_horizon",
+      "selector": {},
+      "block": "global_telescoping",
+      "manuscript_tracked": true,
+      "tex_ref": "supplementary_clean.tex:2711",
+      "actual": -1666.0806404332902,
+      "expected": -1666.0806404332902,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "supplementary_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          2711
+        ],
+        "tokens": [
+          "-1666"
+        ],
+        "files": {
+          "supplementary_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              2711
+            ],
+            "tokens": [
+              "-1666"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "leaf_psi2_nu1_2p1",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_2.1/psi_over_t2_small_t",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:483",
+      "actual": -424.6597743263119,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          483
+        ],
+        "tokens": [
+          "-425"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              483
+            ],
+            "tokens": [
+              "-425"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "leaf_psi2_nu1_3",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_3/psi_over_t2_small_t",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:483",
+      "actual": -30286.881106594014,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          483
+        ],
+        "tokens": [
+          "-3.03\\times10^{4}"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              483
+            ],
+            "tokens": [
+              "-3.03\\times10^{4}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "leaf_track_nu1_2p1",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_2.1/matched/max_abs_ratio_minus_1",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:490",
+      "actual": 5.741215285248735e-05,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "5.7\\times10^{-5}",
+        "lines": [
+          490
+        ],
+        "tokens": [
+          "5.7\\times10^{-5}"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              490
+            ],
+            "tokens": [
+              "5.7\\times10^{-5}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "empirical_discovery",
+      "name": "leaf_track_nu1_3",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_3/matched/max_abs_ratio_minus_1",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "methods_clean.tex:490",
+      "actual": 0.0013248375799185252,
+      "expected": null,
+      "tol": null,
+      "status": "OK_NONBLOCKING",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "methods_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": "1.3\\times10^{-3}",
+        "lines": [
+          490
+        ],
+        "tokens": [
+          "1.3\\times10^{-3}"
+        ],
+        "files": {
+          "methods_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              490
+            ],
+            "tokens": [
+              "1.3\\times10^{-3}"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "leaf_rate40_nu1_2p1",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_2.1/reference_rate_at_40",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:140",
+      "actual": -0.8391137845296779,
+      "expected": -0.8391138,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          140
+        ],
+        "tokens": [
+          "-0.839"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              140
+            ],
+            "tokens": [
+              "-0.839"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "leaf_rate40_nu1_3",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_3/reference_rate_at_40",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:141",
+      "actual": -0.4824388405909456,
+      "expected": -0.4824388,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          141
+        ],
+        "tokens": [
+          "-0.482"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              141
+            ],
+            "tokens": [
+              "-0.482"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "leaf_rateN_nu1_2p1",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_2.1/reference_rate_N_long",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:141",
+      "actual": -0.6376151003479793,
+      "expected": -0.6376151,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          141
+        ],
+        "tokens": [
+          "-0.638"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              141
+            ],
+            "tokens": [
+              "-0.638"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "regression_anchor",
+      "name": "leaf_rateN_nu1_3",
+      "producer": "designG_stable_leaf_v1",
+      "producer_field": "/nu1_3/reference_rate_N_long",
+      "selector": {},
+      "block": "stable_leaf",
+      "manuscript_tracked": true,
+      "tex_ref": "resultsAndDiscussions_clean.tex:141",
+      "actual": -0.2809401564092398,
+      "expected": -0.2809402,
+      "tol": 1e-06,
+      "status": "PASS",
+      "manuscript_change_required": false,
+      "ci_method": null,
+      "hard_fail": false,
+      "blocking_fail": false,
+      "detail": null,
+      "manuscript_status": "CONSISTENT",
+      "manuscript_quote": {
+        "status": "FOUND",
+        "path": "resultsAndDiscussions_clean.tex",
+        "n_occurrences": 1,
+        "min_occurrences": 1,
+        "token": null,
+        "lines": [
+          141
+        ],
+        "tokens": [
+          "-0.281"
+        ],
+        "files": {
+          "resultsAndDiscussions_clean.tex": {
+            "status": "FOUND",
+            "n_occurrences": 1,
+            "min_occurrences": 1,
+            "lines": [
+              141
+            ],
+            "tokens": [
+              "-0.281"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "gates": {
+    "inventory": [],
+    "inventory_status": "OK",
+    "essential_flags": [],
+    "essential_flags_status": "OK",
+    "completeness": [],
+    "completeness_status": "OK",
+    "fallback": [],
+    "fallback_status": "OK",
+    "qp_source": [],
+    "qp_source_status": "OK",
+    "manifest": [],
+    "manifest_status": "OK",
+    "manuscript_quotes": [],
+    "manuscript_quotes_status": "OK",
+    "audit_integrity": "OK"
+  },
+  "manuscript_changes": []
+}

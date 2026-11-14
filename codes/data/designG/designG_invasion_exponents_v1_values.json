@@ -1,0 +1,89 @@
+{
+  "provenance": {
+    "script": "designG_invasion_exponents_v1.py",
+    "generated_utc": "2026-10-21T12:58:47.122278+00:00",
+    "python": "3.10.12",
+    "numpy": "1.26.4",
+    "status": "closed-form evaluation; illustration of prop:controls and lem:meanvar, not evidence for them"
+  },
+  "thresholds": {
+    "all_orbit_extinction_4_over_3": 1.3333333333333333,
+    "same_mean_physical_control_positive_above": 2.0,
+    "meanvar_obstruction_ends_4^(2/3)": 2.5198420997897464,
+    "period3_contrast_begins_4*3^(-1/3)": 2.773445097402539,
+    "arcsine_exponent_zero": 4.0,
+    "3^(4/3)/4_at_nu1_3": 1.0816871777305561
+  },
+  "period3_orbit": {
+    "points": [
+      0.11697777844051097,
+      0.41317591116653474,
+      0.9698463103929541
+    ],
+    "sum": 1.4999999999999998,
+    "product": 0.04687499999999997,
+    "expected_sum": 1.5,
+    "expected_product": 0.046875,
+    "abs_f3_prime": 8.000000000000007,
+    "mean": 0.49999999999999994,
+    "second_moment": 0.37499999999999994,
+    "expected_second_moment": 0.375
+  },
+  "exponents": {
+    "nu1=2.1": {
+      "arcsine_ln_nu_over_4": -0.6443570163905132,
+      "period3_same_mean_variance": -0.27815292016780996,
+      "mu0_2_physical_control": 0.04879016416943205,
+      "fixed_point_3_over_4": 0.4542552722775965,
+      "period2": 0.16036193982653696,
+      "meanvar_upper_bound": -0.18225889601721634,
+      "period5_example": -1.409990710657133
+    },
+    "nu1=3": {
+      "arcsine_ln_nu_over_4": -0.2876820724517809,
+      "period3_same_mean_variance": 0.07852202377092238,
+      "mu0_2_physical_control": 0.4054651081081644,
+      "fixed_point_3_over_4": 0.8109302162163288,
+      "period2": 0.5170368837652694,
+      "meanvar_upper_bound": 0.17441604792151605,
+      "period5_example": -1.0533157667184005
+    }
+  },
+  "exact_rational_sign_checks": {
+    "fixed_point_multiplier_at_2.1": {
+      "value": "63/40",
+      "gt_one": true
+    },
+    "period2_squared_multiplier_at_2.1": {
+      "value": "441/320",
+      "gt_one": true
+    },
+    "period3_cubed_multiplier_at_2.1": {
+      "value": "27783/64000",
+      "gt_one": false
+    },
+    "mu2_control_multiplier_at_2.1": {
+      "value": "21/20",
+      "gt_one": true
+    },
+    "period3_cubed_multiplier_at_3": {
+      "value": "81/64",
+      "gt_one": true
+    },
+    "meanvar_cube_check_at_2.1": {
+      "value": "9261/1000 < 16",
+      "holds": true
+    }
+  },
+  "meanvar_equality_law": {
+    "atoms": [
+      0.25,
+      1.0
+    ],
+    "weights": [
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "sup_E_ln_x": -0.9241962407465937
+  }
+}

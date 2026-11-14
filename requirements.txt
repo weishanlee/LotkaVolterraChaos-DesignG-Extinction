@@ -1,0 +1,28 @@
+# Design-G validation suite -- PINNED dependencies. Python 3.10.x is REQUIRED.
+#
+# The Design-G scripts designG_dynamics_v4.py and designG_quasiperiodic_v2.py run a
+# preflight that ENFORCES Python 3.10.x and the exact numpy and numba versions below
+# (numba is version-sensitive); a mismatch aborts with a clear message. matplotlib is
+# pinned for reproduction but not checked by the preflight. Install into a Python
+# 3.10.x virtual environment:
+#
+#     python3.10 -m venv .venv && . .venv/bin/activate
+#     pip install -r requirements.txt
+#
+# The preflight does NOT require any particular interpreter PATH: as of 2026-07-17
+# the venv you create above is sufficient and the commands in README.md run as
+# written. (Earlier versions additionally demanded the author's own ~/.venv/nolds
+# unless an undocumented --public/LV_PUBLIC=1 flag was supplied, which made those
+# same commands fail for every third party. Both flags are still
+# accepted, as no-ops. Set LV_LOCAL=1 to opt back in to the author-path assertion.)
+#
+# Validated combination that produced the submitted U1-U5 numbers and the appendix
+# checks: Python 3.10.12, numpy 1.26.4, numba 0.61.2, matplotlib 3.9.2.
+numpy==1.26.4
+numba==0.61.2
+matplotlib==3.9.2
+
+# Test runner for the shipped regression suite (test_designG_v4.py,
+# test_designG_bifurcation.py, test_designG_invasion_exponents.py, test_designG_stable_leaf.py). Previously omitted,
+# so the README asked the reader to run tests it never told them how to install.
+pytest>=7.0

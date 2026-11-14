@@ -1,0 +1,1011 @@
+{
+ "_meta": {
+  "description": "Integrity manifest of the submission code bundle (target submit/codes; its path is relative to submit/codes) and of the companion GitHub repository weishanlee/LotkaVolterraChaos-DesignG-Extinction (target companion; its path is relative to the repository root, which mirrors the bundle as codes/ plus figures/, requirements.txt, README.md, LICENSE). Artifacts are keyed by repository path (bundle file P = repository file codes/P); every row carries sha256 + size_bytes. The manifest does not list itself.",
+  "targets_legend": {
+   "submit/codes": "the code bundle shipped with the manuscript (CPU only)",
+   "companion": "public companion repository: the bundle as codes/ (without code_availability.md) plus figures/, requirements.txt, README.md and LICENSE"
+  },
+  "counts": {
+   "artifacts": 68,
+   "submit_codes_rows": 42,
+   "companion_rows": 67
+  },
+  "generated_utc": "2026-11-14T10:46:14.614429+00:00"
+ },
+ "artifacts": [
+  {
+   "artifact": "LICENSE",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "LICENSE",
+    "sha256": "5004d36df869dc8ab11ac617aff1860f03f9ccaa3464f2eb778b1be388304e4d",
+    "size_bytes": 1069
+   }
+  },
+  {
+   "artifact": "README.md",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "README.md",
+    "sha256": "d1f2dc9baafc82bbb828d5448265d1bda2a6a7f23702949e751b451b4d8aa4a9",
+    "size_bytes": 3530
+   }
+  },
+  {
+   "artifact": "codes/.designg_bindings.sh",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": ".designg_bindings.sh",
+    "sha256": "b052ed4382debd5ddffbce14d519c4ec9b788532b31f70d6ac63f9417bbca69a",
+    "size_bytes": 688
+   },
+   "companion": {
+    "path": "codes/.designg_bindings.sh",
+    "sha256": "b052ed4382debd5ddffbce14d519c4ec9b788532b31f70d6ac63f9417bbca69a",
+    "size_bytes": 688
+   }
+  },
+  {
+   "artifact": "codes/README.md",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "README.md",
+    "sha256": "dd38d691c4fbc17743e0d0f6c5b2088b4bce40e01d87304ced5dc2db34f1a13a",
+    "size_bytes": 42629
+   },
+   "companion": {
+    "path": "codes/README.md",
+    "sha256": "dd38d691c4fbc17743e0d0f6c5b2088b4bce40e01d87304ced5dc2db34f1a13a",
+    "size_bytes": 42629
+   }
+  },
+  {
+   "artifact": "codes/certify_period_two_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "certify_period_two_v1.py",
+    "sha256": "c68b59eaa485ed68d6fb2a34db2a4689a0121a86fe811fa43e55fd228d9f5b14",
+    "size_bytes": 17181
+   },
+   "companion": {
+    "path": "codes/certify_period_two_v1.py",
+    "sha256": "c68b59eaa485ed68d6fb2a34db2a4689a0121a86fe811fa43e55fd228d9f5b14",
+    "size_bytes": 17181
+   }
+  },
+  {
+   "artifact": "codes/code_availability.md",
+   "targets": [
+    "submit/codes"
+   ],
+   "submit/codes": {
+    "path": "code_availability.md",
+    "sha256": "b3011adcfad3433f14e1d2cced9dfe81c6026629272a7bec1d13400b313719aa",
+    "size_bytes": 3791
+   }
+  },
+  {
+   "artifact": "codes/current_claims_designG_v1.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "current_claims_designG_v1.json",
+    "sha256": "0207467660ea020743f5ec458bc5811f9e897d8f3bfe59a8e134de78027e7cd6",
+    "size_bytes": 201197
+   },
+   "companion": {
+    "path": "codes/current_claims_designG_v1.json",
+    "sha256": "0207467660ea020743f5ec458bc5811f9e897d8f3bfe59a8e134de78027e7cd6",
+    "size_bytes": 201197
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_bifurcation_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_bifurcation_values.json",
+    "sha256": "e40865e7437273a5c5eaccfb53711927be417a972d96993fa2476daf724639c8",
+    "size_bytes": 143
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_bifurcation_values.json",
+    "sha256": "e40865e7437273a5c5eaccfb53711927be417a972d96993fa2476daf724639c8",
+    "size_bytes": 143
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_dynamics_v4_sensitivity_checkpoint.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_dynamics_v4_sensitivity_checkpoint.json",
+    "sha256": "40642b6fc93084ed6c2950c2415b3101c73f4b850cfaf2232784d344a873d679",
+    "size_bytes": 20435
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_dynamics_v4_sensitivity_checkpoint.json",
+    "sha256": "40642b6fc93084ed6c2950c2415b3101c73f4b850cfaf2232784d344a873d679",
+    "size_bytes": 20435
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_dynamics_v4_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_dynamics_v4_values.json",
+    "sha256": "f304c72eb3e619656273feee2892ea724a6984fa850c5495a14bcb680e6ef916",
+    "size_bytes": 88183
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_dynamics_v4_values.json",
+    "sha256": "f304c72eb3e619656273feee2892ea724a6984fa850c5495a14bcb680e6ef916",
+    "size_bytes": 88183
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_ergodic_quadrature_v2_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_ergodic_quadrature_v2_values.json",
+    "sha256": "f1a78675e5f9a373d5b1bc3a7ed64e58af2e9c97ff56f22e13b511fb2835e485",
+    "size_bytes": 18826
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_ergodic_quadrature_v2_values.json",
+    "sha256": "f1a78675e5f9a373d5b1bc3a7ed64e58af2e9c97ff56f22e13b511fb2835e485",
+    "size_bytes": 18826
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_extinction_bif_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_extinction_bif_values.json",
+    "sha256": "6e4343aa25dd2b6b280424c12bfd1884f420f564fd1d2295522e187299e9d52c",
+    "size_bytes": 617
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_extinction_bif_values.json",
+    "sha256": "6e4343aa25dd2b6b280424c12bfd1884f420f564fd1d2295522e187299e9d52c",
+    "size_bytes": 617
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_invasion_exponents_v1_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_invasion_exponents_v1_values.json",
+    "sha256": "f377482cea17b20dd556d9fbf6ac8ed5b5f8df2625eb509b096469be0b80968c",
+    "size_bytes": 2574
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_invasion_exponents_v1_values.json",
+    "sha256": "f377482cea17b20dd556d9fbf6ac8ed5b5f8df2625eb509b096469be0b80968c",
+    "size_bytes": 2574
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_onset_ensemble_v1.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_onset_ensemble_v1.json",
+    "sha256": "6c79b5d6a6243a5d5507a9410c89d0a6eaeb0b1bb26344dffa89fbfdb0940515",
+    "size_bytes": 16506
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_onset_ensemble_v1.json",
+    "sha256": "6c79b5d6a6243a5d5507a9410c89d0a6eaeb0b1bb26344dffa89fbfdb0940515",
+    "size_bytes": 16506
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_period_two_certificate_v1.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_period_two_certificate_v1.json",
+    "sha256": "9f24bc2ac0c6a4d0049de1a04722b20b4672db61e1d67f07dc762c4fb7117498",
+    "size_bytes": 43641
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_period_two_certificate_v1.json",
+    "sha256": "9f24bc2ac0c6a4d0049de1a04722b20b4672db61e1d67f07dc762c4fb7117498",
+    "size_bytes": 43641
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_quasiperiodic_v2_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_quasiperiodic_v2_values.json",
+    "sha256": "a6975b49ef5fc92bf048add75843dd6eb2c515e2a00c265193476ff7eef34ccd",
+    "size_bytes": 1253
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_quasiperiodic_v2_values.json",
+    "sha256": "a6975b49ef5fc92bf048add75843dd6eb2c515e2a00c265193476ff7eef34ccd",
+    "size_bytes": 1253
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_quasiperiodic_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_quasiperiodic_values.json",
+    "sha256": "5a0a2cd51236a4a1a2d3f3c11f6665d71ee02f137c685fddc1e978c3d22eb9a5",
+    "size_bytes": 163
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_quasiperiodic_values.json",
+    "sha256": "5a0a2cd51236a4a1a2d3f3c11f6665d71ee02f137c685fddc1e978c3d22eb9a5",
+    "size_bytes": 163
+   }
+  },
+  {
+   "artifact": "codes/data/designG/designG_stable_leaf_v1_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/designG_stable_leaf_v1_values.json",
+    "sha256": "5b9ca082fd8cafc1943a85cfec1bae9d537d7b928d3277961252d3dd2bf3c920",
+    "size_bytes": 42780
+   },
+   "companion": {
+    "path": "codes/data/designG/designG_stable_leaf_v1_values.json",
+    "sha256": "5b9ca082fd8cafc1943a85cfec1bae9d537d7b928d3277961252d3dd2bf3c920",
+    "size_bytes": 42780
+   }
+  },
+  {
+   "artifact": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/ics/designG_ics_rlogy_N40000_seed20260709.json",
+    "sha256": "57a7f972d3045a7d9f6f0bb405cfc711996511db72f25d3fa3b2390a52646fd3",
+    "size_bytes": 1472
+   },
+   "companion": {
+    "path": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.json",
+    "sha256": "57a7f972d3045a7d9f6f0bb405cfc711996511db72f25d3fa3b2390a52646fd3",
+    "size_bytes": 1472
+   }
+  },
+  {
+   "artifact": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.npy",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/ics/designG_ics_rlogy_N40000_seed20260709.npy",
+    "sha256": "c8c07fbae8dfc30785954eb5c245176625276f270ea0c18a1067950d23e8848c",
+    "size_bytes": 640128
+   },
+   "companion": {
+    "path": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.npy",
+    "sha256": "c8c07fbae8dfc30785954eb5c245176625276f270ea0c18a1067950d23e8848c",
+    "size_bytes": 640128
+   }
+  },
+  {
+   "artifact": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/ics/designG_ics_runif_N40000_seed20260709.json",
+    "sha256": "b61d26e653ce1de0514553ab8b21ab26c292f7728646882ab1902bb3df0a3316",
+    "size_bytes": 1472
+   },
+   "companion": {
+    "path": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.json",
+    "sha256": "b61d26e653ce1de0514553ab8b21ab26c292f7728646882ab1902bb3df0a3316",
+    "size_bytes": 1472
+   }
+  },
+  {
+   "artifact": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.npy",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/ics/designG_ics_runif_N40000_seed20260709.npy",
+    "sha256": "e88615cff1e4465e80763618ea840d0eb8c47008ae48950144a9e17c786473e1",
+    "size_bytes": 640128
+   },
+   "companion": {
+    "path": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.npy",
+    "sha256": "e88615cff1e4465e80763618ea840d0eb8c47008ae48950144a9e17c786473e1",
+    "size_bytes": 640128
+   }
+  },
+  {
+   "artifact": "codes/data/designG/superseded/README.md",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/superseded/README.md",
+    "sha256": "f888c58f00c5d5c5c7fe29a4987656fc26c066eb26676f54cc56e44670ebac33",
+    "size_bytes": 1800
+   },
+   "companion": {
+    "path": "codes/data/designG/superseded/README.md",
+    "sha256": "f888c58f00c5d5c5c7fe29a4987656fc26c066eb26676f54cc56e44670ebac33",
+    "size_bytes": 1800
+   }
+  },
+  {
+   "artifact": "codes/data/designG/superseded/designG_dynamics_v3_values.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/superseded/designG_dynamics_v3_values.json",
+    "sha256": "80cd9141c36c7e748940e221da01cac1c10799379d5d3847a928658971488ef9",
+    "size_bytes": 55541
+   },
+   "companion": {
+    "path": "codes/data/designG/superseded/designG_dynamics_v3_values.json",
+    "sha256": "80cd9141c36c7e748940e221da01cac1c10799379d5d3847a928658971488ef9",
+    "size_bytes": 55541
+   }
+  },
+  {
+   "artifact": "codes/data/designG/validation_designG_v1.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "data/designG/validation_designG_v1.json",
+    "sha256": "c03ea53418ea0bdbcace625018b9bf245ff50d413306d3702228287bf1a79ebb",
+    "size_bytes": 132198
+   },
+   "companion": {
+    "path": "codes/data/designG/validation_designG_v1.json",
+    "sha256": "c03ea53418ea0bdbcace625018b9bf245ff50d413306d3702228287bf1a79ebb",
+    "size_bytes": 132198
+   }
+  },
+  {
+   "artifact": "codes/designG_bifurcation_v2.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_bifurcation_v2.py",
+    "sha256": "1cbdd277c4e5eb5cfd4d6ce7fc7d2ba8ada18896c8c0d9e9938c7ed385c93e1c",
+    "size_bytes": 48189
+   },
+   "companion": {
+    "path": "codes/designG_bifurcation_v2.py",
+    "sha256": "1cbdd277c4e5eb5cfd4d6ce7fc7d2ba8ada18896c8c0d9e9938c7ed385c93e1c",
+    "size_bytes": 48189
+   }
+  },
+  {
+   "artifact": "codes/designG_dynamics_v3.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_dynamics_v3.py",
+    "sha256": "29f3e0952438510b5a834fb478f4324c4c057165ae5f6ff669c547ada293a28f",
+    "size_bytes": 121795
+   },
+   "companion": {
+    "path": "codes/designG_dynamics_v3.py",
+    "sha256": "29f3e0952438510b5a834fb478f4324c4c057165ae5f6ff669c547ada293a28f",
+    "size_bytes": 121795
+   }
+  },
+  {
+   "artifact": "codes/designG_dynamics_v4.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_dynamics_v4.py",
+    "sha256": "7c039b4fd2b7ca15542f488f688da9911938027915187067ae9d42976bc68c54",
+    "size_bytes": 170654
+   },
+   "companion": {
+    "path": "codes/designG_dynamics_v4.py",
+    "sha256": "7c039b4fd2b7ca15542f488f688da9911938027915187067ae9d42976bc68c54",
+    "size_bytes": 170654
+   }
+  },
+  {
+   "artifact": "codes/designG_ergodic_quadrature_v2.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_ergodic_quadrature_v2.py",
+    "sha256": "94db37ecdd956620d6cb64a1c218e3afbdcfa75f8f738f4b9e7659db5089c9b3",
+    "size_bytes": 56867
+   },
+   "companion": {
+    "path": "codes/designG_ergodic_quadrature_v2.py",
+    "sha256": "94db37ecdd956620d6cb64a1c218e3afbdcfa75f8f738f4b9e7659db5089c9b3",
+    "size_bytes": 56867
+   }
+  },
+  {
+   "artifact": "codes/designG_invasion_exponents_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_invasion_exponents_v1.py",
+    "sha256": "d45db2c75c8016bf313188531df2d2643b00baf5d6bcbe47cfcc51095adef7a7",
+    "size_bytes": 11632
+   },
+   "companion": {
+    "path": "codes/designG_invasion_exponents_v1.py",
+    "sha256": "d45db2c75c8016bf313188531df2d2643b00baf5d6bcbe47cfcc51095adef7a7",
+    "size_bytes": 11632
+   }
+  },
+  {
+   "artifact": "codes/designG_onset_ensemble_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_onset_ensemble_v1.py",
+    "sha256": "bef9133d52c75fefa6026d21963a4e157e9e5cf048488b074f0c686005d1d1a3",
+    "size_bytes": 12874
+   },
+   "companion": {
+    "path": "codes/designG_onset_ensemble_v1.py",
+    "sha256": "bef9133d52c75fefa6026d21963a4e157e9e5cf048488b074f0c686005d1d1a3",
+    "size_bytes": 12874
+   }
+  },
+  {
+   "artifact": "codes/designG_quasiperiodic_v2.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_quasiperiodic_v2.py",
+    "sha256": "228f00d37a070adc46f50949391c8e90e2626b454ec250b07d089a79671e9af3",
+    "size_bytes": 26753
+   },
+   "companion": {
+    "path": "codes/designG_quasiperiodic_v2.py",
+    "sha256": "228f00d37a070adc46f50949391c8e90e2626b454ec250b07d089a79671e9af3",
+    "size_bytes": 26753
+   }
+  },
+  {
+   "artifact": "codes/designG_schematics_v2.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_schematics_v2.py",
+    "sha256": "4cf33bbe0ec8229f573c4e10b0fb7c5a32023f465d648749e08875276479eeed",
+    "size_bytes": 31167
+   },
+   "companion": {
+    "path": "codes/designG_schematics_v2.py",
+    "sha256": "4cf33bbe0ec8229f573c4e10b0fb7c5a32023f465d648749e08875276479eeed",
+    "size_bytes": 31167
+   }
+  },
+  {
+   "artifact": "codes/designG_stable_leaf_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "designG_stable_leaf_v1.py",
+    "sha256": "8b0abac42d445387e3a0add0385161595cde7c935016ef682c44023eb4fee236",
+    "size_bytes": 26810
+   },
+   "companion": {
+    "path": "codes/designG_stable_leaf_v1.py",
+    "sha256": "8b0abac42d445387e3a0add0385161595cde7c935016ef682c44023eb4fee236",
+    "size_bytes": 26810
+   }
+  },
+  {
+   "artifact": "codes/report_calculation_v2.md",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "report_calculation_v2.md",
+    "sha256": "589dbdfe79b6a952ec889708045c41fc0d34413a226ce19157e80b8c77b5b160",
+    "size_bytes": 75363
+   },
+   "companion": {
+    "path": "codes/report_calculation_v2.md",
+    "sha256": "589dbdfe79b6a952ec889708045c41fc0d34413a226ce19157e80b8c77b5b160",
+    "size_bytes": 75363
+   }
+  },
+  {
+   "artifact": "codes/reproduce_designG_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "reproduce_designG_v1.py",
+    "sha256": "478106434a385ccd462e2c34784da1b3505f40fc4b828007263802ea95c9dc0e",
+    "size_bytes": 31460
+   },
+   "companion": {
+    "path": "codes/reproduce_designG_v1.py",
+    "sha256": "478106434a385ccd462e2c34784da1b3505f40fc4b828007263802ea95c9dc0e",
+    "size_bytes": 31460
+   }
+  },
+  {
+   "artifact": "codes/requirements.txt",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "requirements.txt",
+    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
+    "size_bytes": 1502
+   },
+   "companion": {
+    "path": "codes/requirements.txt",
+    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
+    "size_bytes": 1502
+   }
+  },
+  {
+   "artifact": "codes/run_designG_figs.sh",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "run_designG_figs.sh",
+    "sha256": "08e5db36a98a9196802de9a95e392f4dabc186119cf532848bed4f4504057ab0",
+    "size_bytes": 4295
+   },
+   "companion": {
+    "path": "codes/run_designG_figs.sh",
+    "sha256": "08e5db36a98a9196802de9a95e392f4dabc186119cf532848bed4f4504057ab0",
+    "size_bytes": 4295
+   }
+  },
+  {
+   "artifact": "codes/submitted_claims_designG_v1.json",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "submitted_claims_designG_v1.json",
+    "sha256": "492f6a891b548a7773676e041b481d9d894c3815ef48388831b2c3839af40d39",
+    "size_bytes": 35969
+   },
+   "companion": {
+    "path": "codes/submitted_claims_designG_v1.json",
+    "sha256": "492f6a891b548a7773676e041b481d9d894c3815ef48388831b2c3839af40d39",
+    "size_bytes": 35969
+   }
+  },
+  {
+   "artifact": "codes/test_designG_bifurcation.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "test_designG_bifurcation.py",
+    "sha256": "d950d7153a91bb3cf0cee46be137cec369a1c540185ce186d26f2ebdd7bbab50",
+    "size_bytes": 21581
+   },
+   "companion": {
+    "path": "codes/test_designG_bifurcation.py",
+    "sha256": "d950d7153a91bb3cf0cee46be137cec369a1c540185ce186d26f2ebdd7bbab50",
+    "size_bytes": 21581
+   }
+  },
+  {
+   "artifact": "codes/test_designG_invasion_exponents.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "test_designG_invasion_exponents.py",
+    "sha256": "7ace652854f8d594c9fcca0ea68108036b8944e74d368fcc9e027458df3c4a93",
+    "size_bytes": 4252
+   },
+   "companion": {
+    "path": "codes/test_designG_invasion_exponents.py",
+    "sha256": "7ace652854f8d594c9fcca0ea68108036b8944e74d368fcc9e027458df3c4a93",
+    "size_bytes": 4252
+   }
+  },
+  {
+   "artifact": "codes/test_designG_stable_leaf.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "test_designG_stable_leaf.py",
+    "sha256": "0ba60ba7e9af7d0ec2e7c7ab864d4cfb9a87e9ce6dda5913331013a0f25192ab",
+    "size_bytes": 6502
+   },
+   "companion": {
+    "path": "codes/test_designG_stable_leaf.py",
+    "sha256": "0ba60ba7e9af7d0ec2e7c7ab864d4cfb9a87e9ce6dda5913331013a0f25192ab",
+    "size_bytes": 6502
+   }
+  },
+  {
+   "artifact": "codes/test_designG_v4.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "test_designG_v4.py",
+    "sha256": "fc751478f0737278917b8521855fb139498d5f5f846c68ef3492b9b725761b22",
+    "size_bytes": 100115
+   },
+   "companion": {
+    "path": "codes/test_designG_v4.py",
+    "sha256": "fc751478f0737278917b8521855fb139498d5f5f846c68ef3492b9b725761b22",
+    "size_bytes": 100115
+   }
+  },
+  {
+   "artifact": "codes/validate_designG_v1.py",
+   "targets": [
+    "submit/codes",
+    "companion"
+   ],
+   "submit/codes": {
+    "path": "validate_designG_v1.py",
+    "sha256": "de2204fe0e10839fcea3fe09f82bcea406c27583d91ada33234806f8164c78bc",
+    "size_bytes": 103826
+   },
+   "companion": {
+    "path": "codes/validate_designG_v1.py",
+    "sha256": "de2204fe0e10839fcea3fe09f82bcea406c27583d91ada33234806f8164c78bc",
+    "size_bytes": 103826
+   }
+  },
+  {
+   "artifact": "figures/architecture_methods_v5.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/architecture_methods_v5.png",
+    "sha256": "e9434375b6eb734d009988850a9ad4310a94077b5d115c6ea641764754ceb80f",
+    "size_bytes": 195356
+   }
+  },
+  {
+   "artifact": "figures/designG_I_family.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_I_family.png",
+    "sha256": "39fb07386e93b8f8c56e0ec4080af9cedb001fe732896eda5662d6c416fed22c",
+    "size_bytes": 194087
+   }
+  },
+  {
+   "artifact": "figures/designG_bifurcation_mu0.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_bifurcation_mu0.png",
+    "sha256": "7eb4a73a68787aa77ab4c5e3d693882007e3f9c00251ee059a5f42eac0d649be",
+    "size_bytes": 715649
+   }
+  },
+  {
+   "artifact": "figures/designG_bifurcation_mu0_M0logistic.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_bifurcation_mu0_M0logistic.png",
+    "sha256": "69aba40311478c05aa25ebc3adcde44d00b78e87c9c8059d74b67d622dd9a721",
+    "size_bytes": 259412
+   }
+  },
+  {
+   "artifact": "figures/designG_bifurcation_nu1.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_bifurcation_nu1.png",
+    "sha256": "f0a19ad6e79dc64cbaacf91eb346a4672a1a60800d9e179206859dc34f649cdf",
+    "size_bytes": 291363
+   }
+  },
+  {
+   "artifact": "figures/designG_equilibrium_potential.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_equilibrium_potential.png",
+    "sha256": "3243435aeb7f318eacac252f8440da6c2ceabbe5d93a092a1f3f879f8584344f",
+    "size_bytes": 37879
+   }
+  },
+  {
+   "artifact": "figures/designG_exact_skew.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_exact_skew.png",
+    "sha256": "67635ed0ab13f17a35c51cfea3e5719677f27a04021678374394b8437d7e919c",
+    "size_bytes": 90407
+   }
+  },
+  {
+   "artifact": "figures/designG_extinction_fraction.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_extinction_fraction.png",
+    "sha256": "8672d020c90bb7b9b7a5daedad8e8c87db4499d781054925b12d33ad36eb70f9",
+    "size_bytes": 137308
+   }
+  },
+  {
+   "artifact": "figures/designG_extinction_sensitivity.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_extinction_sensitivity.png",
+    "sha256": "d0afbcf5a86e7b591cf9aa822c1348a3b7143233bc81b2d017bdc75f9e26116e",
+    "size_bytes": 69584
+   }
+  },
+  {
+   "artifact": "figures/designG_invasion_exponents.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_invasion_exponents.png",
+    "sha256": "ed75c6e822e154a76471a273d9e619de959b088fbf44ed4b5ff3d2e3dc99d687",
+    "size_bytes": 206345
+   }
+  },
+  {
+   "artifact": "figures/designG_jury_band.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_jury_band.png",
+    "sha256": "8310e4cc3495ecead19e335b99c24c19d9ffdfb0a950741b5137845b35d3ac94",
+    "size_bytes": 76417
+   }
+  },
+  {
+   "artifact": "figures/designG_lambda_convergence.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_lambda_convergence.png",
+    "sha256": "e8df30259aa19efc1376b5ed43f92286b7ac55ba13d00c12b8397fc64494fc66",
+    "size_bytes": 87279
+   }
+  },
+  {
+   "artifact": "figures/designG_lambda_vs_nu1.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_lambda_vs_nu1.png",
+    "sha256": "b6fcfc9fbe9a18717db892983fe667c98d8289862897159ec0e8ebaf16770290",
+    "size_bytes": 69123
+   }
+  },
+  {
+   "artifact": "figures/designG_lyapunov_mu0.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_lyapunov_mu0.png",
+    "sha256": "bf85affb1e68b07300c731fa3d8791b9535ccc7e4433682885bc330fe77893a9",
+    "size_bytes": 93478
+   }
+  },
+  {
+   "artifact": "figures/designG_lyapunov_mu0_M0logistic.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_lyapunov_mu0_M0logistic.png",
+    "sha256": "97ac07e3988b6254284b356ae49ea4b90ebd1c28aee97165876603971d93358c",
+    "size_bytes": 91190
+   }
+  },
+  {
+   "artifact": "figures/designG_lyapunov_nu1.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_lyapunov_nu1.png",
+    "sha256": "56d5e69174f4a22dbbfa8c3c3be472d2ba7b9ad12585d9d7f615caf14ac78f02",
+    "size_bytes": 130840
+   }
+  },
+  {
+   "artifact": "figures/designG_quasiperiodic_fft.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_quasiperiodic_fft.png",
+    "sha256": "cc04f30dbf76892829d0575b6c30991bbb7c6ed86e666eceb672b3eb8c6bb967",
+    "size_bytes": 124684
+   }
+  },
+  {
+   "artifact": "figures/designG_quasiperiodic_panel.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_quasiperiodic_panel.png",
+    "sha256": "ecdd2f07007a5a9f05dbf40f3e4926bda244fba51e3c3151bef464700e8c183a",
+    "size_bytes": 419985
+   }
+  },
+  {
+   "artifact": "figures/designG_stable_leaf.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_stable_leaf.png",
+    "sha256": "0f12a659dd8a4169491c2275e7952c29717a07a575fe5f524f602638382cd4a8",
+    "size_bytes": 234883
+   }
+  },
+  {
+   "artifact": "figures/designG_stable_leaf_rates.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_stable_leaf_rates.png",
+    "sha256": "9ea57ff00b0d7017f77b19d7ae1596dbef2bf32fa0a1938a3132f628bc0ae984",
+    "size_bytes": 119600
+   }
+  },
+  {
+   "artifact": "figures/designG_subaction.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/designG_subaction.png",
+    "sha256": "068cff56e5bd849a80e0edd382ebbd202950bab1300e1570e830867d46b2622d",
+    "size_bytes": 41583
+   }
+  },
+  {
+   "artifact": "figures/mechanism_methods_v5.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/mechanism_methods_v5.png",
+    "sha256": "96de8103d0e6865b5770d140dc8e7315a2e1935c7304f9151fdfd65849f05d85",
+    "size_bytes": 284110
+   }
+  },
+  {
+   "artifact": "figures/workflow_methods_v5.png",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "figures/workflow_methods_v5.png",
+    "sha256": "97d9267cd75bdf6e3a70e61264ab0884ca6778a338cda7a2bf8e111636a5dc9d",
+    "size_bytes": 289162
+   }
+  },
+  {
+   "artifact": "requirements.txt",
+   "targets": [
+    "companion"
+   ],
+   "companion": {
+    "path": "requirements.txt",
+    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
+    "size_bytes": 1502
+   }
+  }
+ ]
+}

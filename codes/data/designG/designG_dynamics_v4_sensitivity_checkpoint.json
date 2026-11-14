@@ -1,0 +1,835 @@
+{
+  "base": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3287,
+      "fraction_first_passage_censored_inclusive": 0.3287,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.0617,
+      "fraction_first_passage_censored_inclusive": 0.0617,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.0005,
+      "fraction_first_passage": 0.0281,
+      "fraction_first_passage_censored_inclusive": 0.0281,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "grid",
+      "wall_s": 4.276593029964715,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "grid.50": {
+    "2": {
+      "fraction": 0.3336,
+      "fraction_first_passage": 0.3336,
+      "fraction_first_passage_censored_inclusive": 0.3336,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 2500,
+      "n_censored": 0,
+      "n_total": 2500
+    },
+    "3": {
+      "fraction": 0.0412,
+      "fraction_first_passage": 0.058,
+      "fraction_first_passage_censored_inclusive": 0.058,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 2500,
+      "n_censored": 0,
+      "n_total": 2500
+    },
+    "4": {
+      "fraction": 0.0,
+      "fraction_first_passage": 0.032,
+      "fraction_first_passage_censored_inclusive": 0.032,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 2500,
+      "n_censored": 0,
+      "n_total": 2500
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 50,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "grid",
+      "wall_s": 1.0608910559676588,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "grid.200": {
+    "2": {
+      "fraction": 0.328425,
+      "fraction_first_passage": 0.328425,
+      "fraction_first_passage_censored_inclusive": 0.328425,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "3": {
+      "fraction": 0.048775,
+      "fraction_first_passage": 0.064125,
+      "fraction_first_passage_censored_inclusive": 0.064125,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "4": {
+      "fraction": 0.001275,
+      "fraction_first_passage": 0.0317,
+      "fraction_first_passage_censored_inclusive": 0.0317,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 200,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "grid",
+      "wall_s": 17.135106950066984,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "grid.400": {
+    "2": {
+      "fraction": 0.32781875,
+      "fraction_first_passage": 0.327825,
+      "fraction_first_passage_censored_inclusive": 0.327825,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 160000,
+      "n_censored": 0,
+      "n_total": 160000
+    },
+    "3": {
+      "fraction": 0.04833125,
+      "fraction_first_passage": 0.06371875,
+      "fraction_first_passage_censored_inclusive": 0.06371875,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 160000,
+      "n_censored": 0,
+      "n_total": 160000
+    },
+    "4": {
+      "fraction": 0.00085625,
+      "fraction_first_passage": 0.0321375,
+      "fraction_first_passage_censored_inclusive": 0.0321375,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 160000,
+      "n_censored": 0,
+      "n_total": 160000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 400,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "grid",
+      "wall_s": 68.598002263112,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "horizon.1e3": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3287,
+      "fraction_first_passage_censored_inclusive": 0.3287,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.0617,
+      "fraction_first_passage_censored_inclusive": 0.0617,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.002,
+      "fraction_first_passage": 0.0281,
+      "fraction_first_passage_censored_inclusive": 0.0281,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 1000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "horizon",
+      "wall_s": 0.43879317003302276,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 500,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "horizon.7.5e4": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3287,
+      "fraction_first_passage_censored_inclusive": 0.3287,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.0617,
+      "fraction_first_passage_censored_inclusive": 0.0617,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.0005,
+      "fraction_first_passage": 0.0281,
+      "fraction_first_passage_censored_inclusive": 0.0281,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 75000,
+      "eps": 1e-06,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "horizon",
+      "wall_s": 31.82011383608915,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "eps.1e-3": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3315,
+      "fraction_first_passage_censored_inclusive": 0.3315,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.1181,
+      "fraction_first_passage_censored_inclusive": 0.1181,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.0006,
+      "fraction_first_passage": 0.0986,
+      "fraction_first_passage_censored_inclusive": 0.0986,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 10000,
+      "eps": 0.001,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "horizon",
+      "wall_s": 4.288960610982031,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "eps.1e-9": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3287,
+      "fraction_first_passage_censored_inclusive": 0.3287,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.0506,
+      "fraction_first_passage_censored_inclusive": 0.0506,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.0005,
+      "fraction_first_passage": 0.0163,
+      "fraction_first_passage_censored_inclusive": 0.0163,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 10000,
+      "eps": 1e-09,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "horizon",
+      "wall_s": 4.305871441960335,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "eps.1e-12": {
+    "2": {
+      "fraction": 0.3287,
+      "fraction_first_passage": 0.3287,
+      "fraction_first_passage_censored_inclusive": 0.3287,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "3": {
+      "fraction": 0.0459,
+      "fraction_first_passage": 0.0474,
+      "fraction_first_passage_censored_inclusive": 0.0474,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "4": {
+      "fraction": 0.0005,
+      "fraction_first_passage": 0.011,
+      "fraction_first_passage_censored_inclusive": 0.011,
+      "ci_method": "none",
+      "ci_low": null,
+      "ci_high": null,
+      "n": 10000,
+      "n_censored": 0,
+      "n_total": 10000
+    },
+    "_params": {
+      "kind": "det",
+      "ic_type": "grid",
+      "mu0": 4.0,
+      "grid": 100,
+      "T": 10000,
+      "eps": 1e-12,
+      "N": null,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": null,
+      "cost_axis": "horizon",
+      "wall_s": 4.274579006945714,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000
+    },
+    "_fallback_used": false
+  },
+  "ic.runif": {
+    "2": {
+      "fraction": 0.325675,
+      "fraction_first_passage": 0.325675,
+      "fraction_first_passage_censored_inclusive": 0.325675,
+      "ci_method": "wilson",
+      "ci_low": 0.3210993908929247,
+      "ci_high": 0.3302840902375474,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "3": {
+      "fraction": 0.048225,
+      "fraction_first_passage": 0.063775,
+      "fraction_first_passage_censored_inclusive": 0.063775,
+      "ci_method": "wilson",
+      "ci_low": 0.04616847183202591,
+      "ci_high": 0.0503682967767169,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "4": {
+      "fraction": 0.0012,
+      "fraction_first_passage": 0.03225,
+      "fraction_first_passage_censored_inclusive": 0.03225,
+      "ci_method": "wilson",
+      "ci_low": 0.000905273426419097,
+      "ci_high": 0.00159052687691977,
+      "n": 40000,
+      "n_censored": 0,
+      "n_total": 40000
+    },
+    "_params": {
+      "kind": "random",
+      "ic_type": "runif",
+      "mu0": 4.0,
+      "grid": null,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": 40000,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": 20260709,
+      "cost_axis": "N",
+      "wall_s": 17.135956365149468,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000,
+      "ic_provenance": {
+        "mode": "archive",
+        "fresh_draw_sha256": "b2c02736455d9f6fd6a9a4056b91efd8ef0074d00eec982cd5653a2a8b629fe0",
+        "runtime": {
+          "python": "3.10.12",
+          "numpy": "1.26.4",
+          "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+          "machine": "x86_64",
+          "NPY_DISABLE_CPU_FEATURES": null,
+          "cpu_features_enabled": [
+            "AVX",
+            "AVX2",
+            "F16C",
+            "FMA3",
+            "MMX",
+            "POPCNT",
+            "SSE",
+            "SSE2",
+            "SSE3",
+            "SSE41",
+            "SSE42",
+            "SSSE3"
+          ],
+          "cpu_baseline": [
+            "SSE",
+            "SSE2",
+            "SSE3"
+          ],
+          "cpu_dispatch_targets": [
+            "SSSE3",
+            "SSE41",
+            "POPCNT",
+            "SSE42",
+            "AVX",
+            "F16C",
+            "FMA3",
+            "AVX2",
+            "AVX512F",
+            "AVX512CD",
+            "AVX512_KNL",
+            "AVX512_KNM",
+            "AVX512_SKX",
+            "AVX512_CLX",
+            "AVX512_CNL",
+            "AVX512_ICL"
+          ]
+        },
+        "archive_dir": "codes/data/designG/ics",
+        "source": "archive",
+        "archive_file": "designG_ics_runif_N40000_seed20260709.npy",
+        "archive_sha256": "b2c02736455d9f6fd6a9a4056b91efd8ef0074d00eec982cd5653a2a8b629fe0",
+        "archive_runtime": {
+          "python": "3.10.12",
+          "numpy": "1.26.4",
+          "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+          "machine": "x86_64",
+          "NPY_DISABLE_CPU_FEATURES": null,
+          "cpu_features_enabled": [
+            "AVX",
+            "AVX2",
+            "F16C",
+            "FMA3",
+            "MMX",
+            "POPCNT",
+            "SSE",
+            "SSE2",
+            "SSE3",
+            "SSE41",
+            "SSE42",
+            "SSSE3"
+          ],
+          "cpu_baseline": [
+            "SSE",
+            "SSE2",
+            "SSE3"
+          ],
+          "cpu_dispatch_targets": [
+            "SSSE3",
+            "SSE41",
+            "POPCNT",
+            "SSE42",
+            "AVX",
+            "F16C",
+            "FMA3",
+            "AVX2",
+            "AVX512F",
+            "AVX512CD",
+            "AVX512_KNL",
+            "AVX512_KNM",
+            "AVX512_SKX",
+            "AVX512_CLX",
+            "AVX512_CNL",
+            "AVX512_ICL"
+          ]
+        },
+        "identical_to_archive": true,
+        "n_values_differ": 0,
+        "n_x_differ": 0,
+        "n_y_differ": 0,
+        "max_ulp": 0,
+        "used_sha256": "b2c02736455d9f6fd6a9a4056b91efd8ef0074d00eec982cd5653a2a8b629fe0",
+        "recorded_in": "ics/designG_ics_runif_N40000_seed20260709.npy (beside this run's values JSON)"
+      }
+    },
+    "_fallback_used": false
+  },
+  "ic.rlogy": {
+    "2": {
+      "fraction": 0.8096414677741562,
+      "fraction_first_passage": 0.8096940384817579,
+      "fraction_first_passage_censored_inclusive": 0.9095,
+      "ci_method": "wilson",
+      "ci_low": 0.804000105967183,
+      "ci_high": 0.815157787158554,
+      "n": 19022,
+      "n_censored": 20978,
+      "n_total": 40000
+    },
+    "3": {
+      "fraction": 0.27273683103774576,
+      "fraction_first_passage": 0.35879507938176847,
+      "fraction_first_passage_censored_inclusive": 0.695075,
+      "ci_method": "wilson",
+      "ci_low": 0.26645403732016903,
+      "ci_high": 0.27911140037379345,
+      "n": 19022,
+      "n_censored": 20978,
+      "n_total": 40000
+    },
+    "4": {
+      "fraction": 0.004047944485332773,
+      "fraction_first_passage": 0.1740616128693092,
+      "fraction_first_passage_censored_inclusive": 0.607225,
+      "ci_method": "wilson",
+      "ci_low": 0.003240307284316625,
+      "ci_high": 0.005055861858603182,
+      "n": 19022,
+      "n_censored": 20978,
+      "n_total": 40000
+    },
+    "_params": {
+      "kind": "random",
+      "ic_type": "rlogy",
+      "mu0": 4.0,
+      "grid": null,
+      "T": 10000,
+      "eps": 1e-06,
+      "N": 40000,
+      "nu1_list": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "seed": 20260709,
+      "cost_axis": "N",
+      "wall_s": 17.833067367086187,
+      "budget_s": 300.0,
+      "protocol": "terminal_persistence",
+      "tail": 1000,
+      "tail_nominal": 1000,
+      "ic_provenance": {
+        "mode": "archive",
+        "fresh_draw_sha256": "384d22a666e30c09903596fef3478d45292f9f134fe61270605b9d798674e1ef",
+        "runtime": {
+          "python": "3.10.12",
+          "numpy": "1.26.4",
+          "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+          "machine": "x86_64",
+          "NPY_DISABLE_CPU_FEATURES": null,
+          "cpu_features_enabled": [
+            "AVX",
+            "AVX2",
+            "F16C",
+            "FMA3",
+            "MMX",
+            "POPCNT",
+            "SSE",
+            "SSE2",
+            "SSE3",
+            "SSE41",
+            "SSE42",
+            "SSSE3"
+          ],
+          "cpu_baseline": [
+            "SSE",
+            "SSE2",
+            "SSE3"
+          ],
+          "cpu_dispatch_targets": [
+            "SSSE3",
+            "SSE41",
+            "POPCNT",
+            "SSE42",
+            "AVX",
+            "F16C",
+            "FMA3",
+            "AVX2",
+            "AVX512F",
+            "AVX512CD",
+            "AVX512_KNL",
+            "AVX512_KNM",
+            "AVX512_SKX",
+            "AVX512_CLX",
+            "AVX512_CNL",
+            "AVX512_ICL"
+          ]
+        },
+        "archive_dir": "codes/data/designG/ics",
+        "source": "archive",
+        "archive_file": "designG_ics_rlogy_N40000_seed20260709.npy",
+        "archive_sha256": "384d22a666e30c09903596fef3478d45292f9f134fe61270605b9d798674e1ef",
+        "archive_runtime": {
+          "python": "3.10.12",
+          "numpy": "1.26.4",
+          "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+          "machine": "x86_64",
+          "NPY_DISABLE_CPU_FEATURES": null,
+          "cpu_features_enabled": [
+            "AVX",
+            "AVX2",
+            "F16C",
+            "FMA3",
+            "MMX",
+            "POPCNT",
+            "SSE",
+            "SSE2",
+            "SSE3",
+            "SSE41",
+            "SSE42",
+            "SSSE3"
+          ],
+          "cpu_baseline": [
+            "SSE",
+            "SSE2",
+            "SSE3"
+          ],
+          "cpu_dispatch_targets": [
+            "SSSE3",
+            "SSE41",
+            "POPCNT",
+            "SSE42",
+            "AVX",
+            "F16C",
+            "FMA3",
+            "AVX2",
+            "AVX512F",
+            "AVX512CD",
+            "AVX512_KNL",
+            "AVX512_KNM",
+            "AVX512_SKX",
+            "AVX512_CLX",
+            "AVX512_CNL",
+            "AVX512_ICL"
+          ]
+        },
+        "identical_to_archive": true,
+        "n_values_differ": 0,
+        "n_x_differ": 0,
+        "n_y_differ": 0,
+        "max_ulp": 0,
+        "used_sha256": "384d22a666e30c09903596fef3478d45292f9f134fe61270605b9d798674e1ef",
+        "recorded_in": "ics/designG_ics_rlogy_N40000_seed20260709.npy (beside this run's values JSON)"
+      }
+    },
+    "_fallback_used": false
+  }
+}
