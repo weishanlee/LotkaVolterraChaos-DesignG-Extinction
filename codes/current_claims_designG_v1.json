@@ -8,10 +8,11 @@
    "designG_ergodic_quadrature_v2": "output/codes/designG_ergodic_quadrature_v2.py (SIBLING). Emits NO _taxonomy and has NO --smoke; only <stem>_values.json exists (absent from a --smoke scratch data dir -> validator marks its claims SKIPPED_SMOKE in smoke mode, requires it present in full mode when in scope).",
    "designG_extinction_bif": "output/codes/designG_bifurcation_v2.py (mu0 sweep at nu1=2.1); writes designG_extinction_bif_values.json; emits NO _taxonomy and has no --smoke output (absent from a --smoke scratch data dir -> SKIPPED_SMOKE; required in full mode, block 'sweep').",
    "designG_onset_ensemble_v1": "output/codes/designG_onset_ensemble_v1.py (24-seed x 3-resolution onset ensemble at nu1=2.1); writes designG_onset_ensemble_v1.json (a bare <stem>.json: no _values suffix, no --smoke output -> SKIPPED_SMOKE in smoke mode, required in full mode, block 'onset_ensemble'); emits NO _taxonomy. Registered 2026-10-18 so the ensemble numbers quoted in Section 6 and Section S12 are value-checked directly.",
-   "designG_stable_leaf_v1": "output/codes/designG_stable_leaf_v1.py (2026-10-21; Figures 5 and 12, the stable-leaf / matched-product illustration; NumPy + standard library, deterministic); writes designG_stable_leaf_v1_values.json; emits NO _taxonomy and has no --smoke output (SKIPPED_SMOKE in smoke mode); block 'stable_leaf'. The tracking maxima are float64 rounding-amplified and are empirical_discovery (non-blocking); the exact-orbit running rates are regression anchors."
+   "designG_stable_leaf_v1": "output/codes/designG_stable_leaf_v1.py (2026-10-21; Figures 5 and 12, the stable-leaf / matched-product illustration; NumPy + standard library, deterministic); writes designG_stable_leaf_v1_values.json; emits NO _taxonomy and has no --smoke output (SKIPPED_SMOKE in smoke mode); block 'stable_leaf'. The tracking maxima are float64 rounding-amplified and are empirical_discovery (non-blocking); the exact-orbit running rates are regression anchors.",
+   "designG_period_two_certificate_v1": "codes/certify_period_two_v1.py (exact rational interval certificate of the attracting two-cycle at (mu0, nu1) = (4, 46/25), with a numerical basin fraction and nu1 scan); writes designG_period_two_certificate_v1.json (a bare <stem>.json: no _values suffix, no --smoke output -> SKIPPED_SMOKE in smoke mode, required in full mode, block 'two_cycle') and no figure; emits NO _taxonomy."
   },
   "schema": {
-   "producer": "producer stem (maps to <stem>_smoke.json in smoke / <stem>_values.json in full).",
+   "producer": "producer stem (maps to <stem>_smoke.json in smoke / <stem>_values.json in full; the onset ensemble and the two-cycle certificate write a bare <stem>.json, and designG_bifurcation_v2.py writes designG_extinction_bif_values.json: see 'producers').",
    "producer_field": "JSON-Pointer into that producer's JSON; segments may be a literal, a bare '*' (any non-_ dict key or list index), or a {named} segment substituted from producer_selector.",
    "producer_selector": "resolves the field to EXACTLY ONE scalar. A key that names a {named} segment substitutes it; otherwise it is a field-value constraint on the *-selected record, or (if not a record field) the required *-segment key. Zero or multiple matches is a HARD FAIL.",
    "producer_kind": "regression_anchor | theory_invariant | empirical_discovery -- MUST equal the producer's _taxonomy kind for that field where the producer emits _taxonomy (no conflict).",
@@ -244,6 +245,14 @@
    {
     "utc": "2026-11-12",
     "what": "v31: four audit rows name what the reader sees. A16 (lines 308 and 677 of methods_clean.tex, in Sections 3 and 4) states its disposition clause once, where it was repeated six times; A145 names Table S4 in its disposition and A152 names the caption of Table S4 in its literal, where both read the internal label appA-exactskew; A147 names the caption of Figure 11 in its literal, where it read \"Table appA-extinction caption\", since line 102 of resultsAndDiscussions_clean.tex is in the caption of Figure 11. No claim added, removed or re-pinned; no row added or removed; no line, quoted value, tolerance, producer field or status changed, nor any number that the validator reads from a literal (the new labels add only the digits 11 and 4, which it does not read)."
+   },
+   {
+    "utc": "2026-11-21",
+    "what": "v31: the claim lambda_perp_nu1_4 is bound to the text of its two lines (new optional field pinned_text: the row of Table S4 that prints the closed-form value at nu1 = 4 as the cell $0$, and the row that prints it as 0.0000); its line is 2361, where the counted token is printed, and its count no longer includes the Results, whose 0.0000 is an extinction fraction. The number reader now takes a multiplication sign in braces (5{\\times}10^{-3}) as part of the number, so row A253 lists the two resolutions 5e-3 and 2e-3 only. Row A212 no longer lists line 2616 (the row of the uniform sample). Three rows were deleted: A57 (its line and numbers are those of A204) and A201 and A208 (each identical to another row, A66 and A207). 251 rows remain; the rows after a deleted one move up: A58-A200 are now A57-A199, A202-A207 are A200-A205, A209-A254 are A206-A251; earlier entries of this log use the numbers of their time. The producer catalogue gained designG_period_two_certificate_v1. No value, tolerance or check changed."
+   },
+   {
+    "utc": "2026-11-21",
+    "what": "v31: the literal of audit row A42 (the value 5.6e-5 at lines 1047 and 1062 of supplementary_clean.tex) names the value the largest potential departure among the eleven sampled shifts, where it read as a maximum over the support: the value is the largest departure of the quadrature from -ln 4 at the eleven shifts r = 0, 0.1, ..., 1 of the block equilibrium_measure.on_support. No claim added, removed or re-pinned; no row added or removed; no line, quoted value, tolerance, producer field or status changed."
    }
   ]
  },
@@ -430,14 +439,25 @@
    "expected_source": "closed form ln(nu1/4)=ln(1)=0 (marginal band edge)",
    "display_tol": 0.0005,
    "tex": "supplementary_clean.tex",
-   "line": 2169,
+   "line": 2361,
    "manuscript_min_occurrences": 5,
    "manuscript_token": "0.0000",
    "note": " [2026-10-17: coarse value; quote check pinned to the exact printed token '0.0000' in resultsAndDiscussions_clean.tex, 3 occurrence(s).] [v29 (amendment 45): the token '0.0000' is pinned in supplementary_clean.tex, 6 occurrence(s).] [v30 (amendment 46): the token '0.0000' is pinned in resultsAndDiscussions_clean.tex, 1 occurrence(s) (the extinction-fraction figure's caption, moved there from the Supplement), and in supplementary_clean.tex, 5 occurrence(s).]",
    "quoted_in": {
-    "resultsAndDiscussions_clean.tex": 1,
     "supplementary_clean.tex": 5
-   }
+   },
+   "pinned_text": [
+    {
+     "tex": "supplementary_clean.tex",
+     "line": 2169,
+     "text": "$4$ & $3.5527\\times10^{-15}$ & $0$ & "
+    },
+    {
+     "tex": "supplementary_clean.tex",
+     "line": 2361,
+     "text": "$4.0$ & $+0.0009$ & $\\phantom{+}0.0000$ & "
+    }
+   ]
   },
   {
    "id": "jury_lower_edge",
@@ -2804,7 +2824,7 @@
     1047,
     1062
    ],
-   "literal": "5.6e-5 (largest on-support potential departure)",
+   "literal": "5.6e-5 (largest potential departure among the eleven sampled shifts)",
    "disposition": "exclusion:diagnostic_error_bar (equilibrium_measure on-support departure; block-covered)"
   },
   {
@@ -2965,14 +2985,6 @@
    ],
    "literal": "3.96 (sustained-chaos onset that the onset ensemble finds for the plotted seed at the coarsest grid resolution)",
    "disposition": "claim:ons_seed0_sustained_0p01 (direct value check, 2026-10-18; the ensemble file is a validator producer)"
-  },
-  {
-   "tex": "supplementary_clean.tex",
-   "lines": [
-    2519
-   ],
-   "literal": "3.96 / 4.00 (3.96 ([moved] at the finest resolution) median and [moved] to 4.00 ([moved] to [moved]) range of the 22 collapsing seeds' sustained-chaos onset; the row's other values moved to the appendix with the restructuring)",
-   "disposition": "claim:ons_median_sustained_0p01 (direct value checks, 2026-10-18); the seed counts 22/24 remain regression-covered (reproduce (A))"
   },
   {
    "tex": "methods_clean.tex",
@@ -4388,14 +4400,6 @@
    "disposition": "exclusion:protocol_observation (seed (0.2, 1e-3) on the 4e-4 display grid under the shipped protocol; reproducible with designG_bifurcation_v2.sweep_mu0_xy / lyap_max; not a stored field)"
   },
   {
-   "tex": "supplementary_clean.tex",
-   "lines": [
-    2505
-   ],
-   "literal": "1.909 (21/11: sign change of ln(nu1(1-1/mu0)) on the fixed-point branch at nu1=2.1)",
-   "disposition": "exclusion:closed_form_constant (21/11)"
-  },
-  {
    "tex": "resultsAndDiscussions_clean.tex",
    "lines": [
     78
@@ -4449,15 +4453,6 @@
   {
    "tex": "supplementary_clean.tex",
    "lines": [
-    2526,
-    2527
-   ],
-   "literal": "3.950000000000003 / 3.9499999999999797 (the two float64 values of the decimal grid point 3.95 built from the anchors 1.0 and 3.0)",
-   "disposition": "exclusion:arithmetic_demonstration (double-precision representation; the scripts now round every sweep grid to the nearest double)"
-  },
-  {
-   "tex": "supplementary_clean.tex",
-   "lines": [
     2337
    ],
    "literal": "5000 (Benettin protocol: the window of the stability test; its burn-in and retained length are printed in the Results)",
@@ -4487,7 +4482,6 @@
     2476,
     2477,
     2592,
-    2616,
     2617,
     2625,
     2820,
@@ -4887,8 +4881,8 @@
     2517,
     2522
    ],
-   "literal": "5e-3 / 2e-3 (the two finer mu0 grid resolutions of the onset ensemble; where the multiplication sign is braced the validator's number reader reads each as the power 1e-3 after a one-digit factor)",
-   "disposition": "exclusion:protocol_parameter (designG_onset_ensemble_v1.py RESOLUTIONS = (0.01, 0.005, 0.002); on line 2517 the multiplication sign is braced, so the validator's number reader reads 5x10^-3 and 2x10^-3 there as the power 1e-3 after a one-digit factor)"
+   "literal": "5e-3 / 2e-3 (the two finer mu0 grid resolutions of the onset ensemble)",
+   "disposition": "exclusion:protocol_parameter (designG_onset_ensemble_v1.py RESOLUTIONS = (0.01, 0.005, 0.002))"
   },
   {
    "tex": "supplementary_clean.tex",

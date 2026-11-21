@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Regenerate EVERY figure the manuscript includes (CPU; several minutes -- the
-# onset ensemble is the slow step) and the two-cycle certificate. Writes figures + values JSON + a producer
+# Regenerate EVERY figure the manuscript includes (CPU; about twelve minutes on the authors'
+# host) and the two-cycle certificate. Writes figures + values JSON + a producer
 # manifest; see README.md for the validator step that checks the manifest
 # against the manuscript's \includegraphics list.
 #
@@ -16,7 +16,7 @@ else PY="python3"; fi
 
 # output/ layout: the manuscript's \includegraphics{figures/...} resolves against
 # output/, so figures belong in output/figures -- one level ABOVE this script.
-# (This is also the Python scripts' own default, _OUT/figures.)  The submit/
+# (This is also the Python scripts' own default, _OUT/figures.)  The
 # bundle has the same codes/ -> ../figures relation, so both layouts write the
 # manuscript figure directory; only the data directory differs (the bundle keeps
 # its reference JSON under codes/data/designG).  Pre-set DESIGNG_* variables are

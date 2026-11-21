@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""reproduce_designG_v1.py -- check that the submitted Design-G producer numbers reproduce.
+"""reproduce_designG_v1.py -- check that the Design-G producer numbers reproduce.
 
-Reviewer-facing reproducibility check for the Design-G resubmission.  It takes a
+Reproducibility check for the Design-G numbers.  It takes a
 directory of FRESHLY REGENERATED producer JSON (written by run_designG_figs.sh and
 designG_quasiperiodic_v2.py: the nine result files of the eight producers listed in PRODUCERS below) and the
-SHIPPED reference producer JSON, and checks two things, and only these:
+SHIPPED reference producer JSON. Four checks decide the exit status -- (A) the numeric leaves and (A') the
+boolean leaves outside the volatile keys (VOLATILE_KEYS below: provenance blocks, times, host and path
+fields, run times), (B) the frozen entries that resolve directly, (D) the essential success flags -- and a
+fifth, (C), the comparison of the random initial conditions, is reported and never changes it:
 
   (A) numeric-leaf reproduction -- every numeric leaf of each regenerated
       producer JSON matches the shipped reference within tolerance (volatile
@@ -19,16 +22,20 @@ SHIPPED reference producer JSON, and checks two things, and only these:
       '/a/b/c' against the dynamics producer), resolve it against the REGENERATED
       JSON and confirm it equals the recorded json_value.  Entries with
       human-annotated pointers ( '{a,b}' sets, parentheticals, 'derived' ) are
-      reported as informational, since they are covered by layer (A).  The file
+      counted and reported; their recorded values are not checked (layer (A)
+      compares the producer fields they derive from, not the derived values).  The file
       must hold the expected number of entries and of resolved entries (77 and
       65 for the frozen inventory; --expect-claims for another one), so that an
       empty or truncated claims file fails instead of passing with nothing checked.
 
-  (C) initial-condition provenance (2026-10-18) -- for the random sensitivity
-      configurations, whether the regenerated run used the SAME initial conditions as the
-      shipped run (archive loaded: STRICT regression) or different ones (fresh draw or
-      resample under another CPU dispatch: PLATFORM); informational, never changes the
-      exit code, but it tells the reader which kind of comparison (A) performed.
+  (C) initial-condition provenance (2026-10-18) -- for each random sensitivity
+      configuration, the SHA-256 of the initial conditions the regenerated run used against
+      that of the shipped run: STRICT when both records carry a valid digest and the two are
+      equal (the archive loaded, or a fresh draw with the same bytes), PLATFORM when both are
+      valid and differ (a fresh draw or a resample under another CPU dispatch), UNAVAILABLE
+      when a record or a valid digest is missing on a side; the record's ``source`` field
+      says how the inputs were obtained. Informational, never changes the exit code, but it
+      tells the reader which kind of comparison (A) performed.
 
   (A') boolean-leaf reproduction and (D) essential success flags -- every
       boolean leaf outside the volatile subtrees (pass flags, Jury stability, chaotic labels,
@@ -122,7 +129,7 @@ def ic_provenance_check(regen_dir: str, shipped_dir: str) -> Tuple[str, List[str
                        from the shipped inputs (typically one ULP in np.power under a
                        different CPU dispatch); differences in the random blocks are then a
                        finite-sample / platform effect to be judged against the Wilson
-                       intervals, not a reproduction failure of the mathematics;
+                       intervals;
       UNAVAILABLE   -- one side carries no provenance record (pre-2026-10-18 files).
     This section is informational: it never changes the exit code, it classifies.
     """
@@ -539,7 +546,7 @@ def submitted_claims_check(claims_path: str, regen_dir: str, rtol: float, atol: 
             stats["matched"] += 1
         else:
             ok = False
-            msgs.append(f"  CLAIM-MISMATCH {cid}: regen={val!r} vs submitted json_value={jv!r} ({jsf})")
+            msgs.append(f"  CLAIM-MISMATCH {cid}: regen={val!r} vs submitted_claims json_value={jv!r} ({jsf})")
     # Nothing checked is not a pass: the file must hold the expected entries, and as many of them must resolve.
     if expect is not None and (len(claims), stats["resolved"]) != tuple(expect):
         ok = False
@@ -550,7 +557,7 @@ def submitted_claims_check(claims_path: str, regen_dir: str, rtol: float, atol: 
 
 def main(argv: Optional[List[str]] = None) -> int:
     here = os.path.dirname(os.path.abspath(__file__))
-    ap = argparse.ArgumentParser(description="Prove the submitted Design-G numbers reproduce.")
+    ap = argparse.ArgumentParser(description="Check that the Design-G producer numbers reproduce.")
     ap.add_argument("--regen", default=os.environ.get("DESIGNG_REGEN_DIR"),
                     help="dir of freshly regenerated producer *_values.json")
     ap.add_argument("--shipped", default=os.environ.get("DESIGNG_SHIPPED_DIR",
@@ -570,7 +577,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         sys.stderr.write("[reproduce] ERROR: --regen (or DESIGNG_REGEN_DIR) is required\n")
         return 2
 
-    print("== Design-G submitted-number reproduction check ==")
+    print("== Design-G reproduction check ==")
     print(f"regen:   {args.regen}")
     print(f"shipped: {args.shipped}")
     print(f"claims:  {args.claims}")
@@ -591,7 +598,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                                                    expect=tuple(args.expect_claims))
     print(f"\n(B) submitted_claims direct resolution: {'PASS' if b_ok else 'FAIL'}")
     print(f"    resolved={b_stats['resolved']} matched={b_stats['matched']} "
-          f"unresolvable={b_stats['unresolvable']} annotated(covered by A)={b_stats['annotated']}")
+          f"unresolvable={b_stats['unresolvable']} annotated(not value-checked)={b_stats['annotated']}")
     for m in b_msgs:
         print(m)
 
@@ -601,7 +608,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(m)
     if c_verdict == "PLATFORM":
         print("    (inputs differ at the floating-point level: differences confined to the random-IC blocks are a "
-              "platform/sampling effect, to be read against the Wilson intervals; they are not a defect of the mathematics)")
+              "platform/sampling effect, to be read against the Wilson intervals)")
 
     d_ok_r, d_msgs_r = essential_flags_check(args.regen, "regenerated")
     d_ok_s, d_msgs_s = essential_flags_check(args.shipped, "shipped")

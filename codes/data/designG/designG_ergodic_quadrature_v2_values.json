@@ -3,7 +3,7 @@
     "generated_by": "output/codes/designG_ergodic_quadrature_v2.py",
     "timestamp_utc": "2026-11-12T22:07:33.206498+00:00",
     "model": "logistic prey axis of Design G at mu0=4 (arcsine measure)",
-    "honesty": "Numerics are CONSISTENCY CHECKS, not proofs (the sub-action telescoping argument is the proof). a.e./SRB != all-orbit. The arcsine density, I(4)=-2ln2 and nu1*(4)=4 hold at mu0=4 only; nu1*(mu0) has a closed form on an attracting cycle of the prey (mu0/(mu0-1) for 1<mu0<=3, mu0/sqrt(mu0+1) for 3<mu0<=1+sqrt6); the six values at mu0=3.60 to 3.99 are orbit averages, non-monotone (periodic windows).",
+    "honesty": "Numerics are CONSISTENCY CHECKS, not proofs (the sub-action telescoping argument is the proof). a.e./SRB != all-orbit. The arcsine density holds at mu0=4 only; there it gives I(4)=-2ln2 and nu1*(4)=4; nu1*(mu0) has a closed form on an attracting cycle of the prey (mu0/(mu0-1) for 1<mu0<=3, mu0/sqrt(mu0+1) for 3<mu0<=1+sqrt6); the six values at mu0=3.60 to 3.99 are orbit averages, non-monotone (periodic windows).",
     "python": "3.10.12",
     "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
     "numpy": "1.26.4",

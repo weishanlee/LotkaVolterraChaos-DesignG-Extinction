@@ -16,8 +16,7 @@ checks from that one scalar:
 
 Modes (``DESIGNG_VALIDATE_MODE``):
   * ``smoke`` -- schema / taxonomy / selector-resolvability / coverage-of-present
-    only; every numeric anchor -> ``SKIPPED_SMOKE`` (never blocks). Used by F1's
-    clone gate and by this task's own Step-5 run.
+    only; every numeric anchor -> ``SKIPPED_SMOKE`` (never blocks).
   * ``full`` (default; B7 promoted run) -- blocking kinds must PASS; a
     completeness gate (all U1-U5 blocks + fields + _taxonomy + C0-C10 count +
     U2/U3/U4/U5 figures + manifest rows + referenced retained-v2 blocks) and a
@@ -33,14 +32,15 @@ Env contract (ALL SIX are REQUIRED -- the validator ABORTS if any is unset):
   DESIGNG_VALJSON_OUT     -- machine-readable result JSON ($VALJSON) to write.
   DESIGNG_MANIFEST        -- phase manifest to VERIFY (rows authored by the producers).
 
-Run (canonical preamble, from the repo root):
-    set -a; source output/codes/.designg_bindings.sh; set +a
+Run (from the directory that holds ``codes/``, with the environment of README.md active; README.md gives the
+same sequence from inside ``codes/``, and the full-mode sequence):
+    set -a; . codes/.designg_bindings.sh; set +a
     S=$(mktemp -d); mkdir -p "$S/figs" "$S/data"
-    DESIGNG_FIGDIR="$S/figs" DESIGNG_DATADIR="$S/data" DESIGNG_MANIFEST="$S/manifest.md" ~/.venv/nolds/bin/python "$DYN" --smoke
-    DESIGNG_FIGDIR="$S/figs" DESIGNG_DATADIR="$S/data" DESIGNG_MANIFEST="$S/manifest.md" ~/.venv/nolds/bin/python "$QP" --smoke
+    DESIGNG_FIGDIR="$S/figs" DESIGNG_DATADIR="$S/data" DESIGNG_MANIFEST="$S/manifest.md" python "$DYN" --smoke
+    DESIGNG_FIGDIR="$S/figs" DESIGNG_DATADIR="$S/data" DESIGNG_MANIFEST="$S/manifest.md" python "$QP" --smoke
     DESIGNG_VALIDATE_MODE=smoke DESIGNG_VALIDATE_IN="$S/data" DESIGNG_VALIDATE_FIGDIR="$S/figs" \
       DESIGNG_CLAIMS_IN="$CLAIMS" DESIGNG_REPORT_OUT="$S/r.md" DESIGNG_VALJSON_OUT="$S/v.json" \
-      DESIGNG_MANIFEST="$S/manifest.md" ~/.venv/nolds/bin/python "$VAL"
+      DESIGNG_MANIFEST="$S/manifest.md" python "$VAL"
 
 
 """
@@ -440,12 +440,17 @@ def manuscript_figures(texdir: str) -> List[str]:
 # Groups: (sign, mantissa, tex_exponent, e_exponent).
 _SP = r"(?:\s|\\[,;!:]|\{\}|~)"
 _GRP = r"\{,\}"
+# The multiplication sign of a power-of-ten factor, bare or in a brace group of its own (5\times10^{-3}, 5{\times}10^{-3}).
+_MUL = r"(?:\\(?:times|cdot)|\{" + _SP + r"*\\(?:times|cdot)" + _SP + r"*\})"
 _NUM_RE = re.compile(r"(-?)" + _SP + r"*(\d{1,3}(?:" + _GRP + r"\d{3})+(?:\.\d+)?(?!\d)|\d+(?:\.\d+)?)"
-                     r"(?:" + _SP + r"*\\(?:times|cdot)" + _SP + r"*10\^\{?([+-]?\d+)\}?|[eE]([+-]?\d+))?")
+                     r"(?:" + _SP + r"*" + _MUL + _SP + r"*10\^\{?([+-]?\d+)\}?|[eE]([+-]?\d+))?")
 # After an exact token nothing may continue the number: no digit, no decimal part, no thousands
 # group "{,}ddd", no multiplication/exponent operator (even after spacing), no e-notation.
-_TOKEN_TAIL = r"(?!\d|\.\d|" + _GRP + r"\d|" + _SP + r"*\\(?:times|cdot)|" + _SP + r"*[eE][+-]?\d)"
-_CONTINUATION_RE = re.compile(r"\.\d|" + _GRP + r"\d|" + _SP + r"*\\(?:times|cdot)|" + _SP + r"*[eE][+-]?\d")
+_TOKEN_TAIL = r"(?!\d|\.\d|" + _GRP + r"\d|" + _SP + r"*" + _MUL + r"|" + _SP + r"*[eE][+-]?\d)"
+_CONTINUATION_RE = re.compile(r"\.\d|" + _GRP + r"\d|" + _SP + r"*" + _MUL + r"|" + _SP + r"*[eE][+-]?\d")
+# The digits of an exponent belong to the number that carries it: what precedes the 40 of 1e40, 10^{40} or
+# 1\times10^{40}. Such digits are no number of their own for the quote gate.
+_EXPONENT_HEAD = re.compile(r"(?:\d[eE][+-]?|10" + _SP + r"*\^" + _SP + r"*\{?" + _SP + r"*[+-]?" + _SP + r"*)$")
 
 
 def _signed_before(text: str, pos: int) -> bool:
@@ -497,10 +502,14 @@ def _quote_hits_in_file(claim: Dict[str, Any], path: str) -> List[Tuple[int, str
         for m in pat.finditer(text):
             if _signed_before(text, m.start()):
                 continue
+            if _EXPONENT_HEAD.search(text[max(0, m.start() - 48):m.start()]):
+                continue  # the digits of an exponent: part of another number
             hits.append((text.count("\n", 0, m.start()) + 1, m.group(0)))
     for m in ([] if token else _NUM_RE.finditer(text)):
         if text[max(0, m.start(2) - 3):m.start(2)] == "{,}":
             continue  # the tail group of a grouped numeral (its head was not a complete number): not a number of its own
+        if _EXPONENT_HEAD.search(text[max(0, m.start() - 48):m.start()]):
+            continue  # the digits of an exponent (10^{40}): part of another number
         try:
             val = float(m.group(2).replace("{,}", ""))
         except ValueError:
@@ -558,8 +567,27 @@ def manuscript_quote_check(claim: Dict[str, Any], texdir: Optional[str]) -> Opti
         per_file[base] = {"status": st, "n_occurrences": len(hits), "min_occurrences": int(need),
                           "lines": [h[0] for h in hits[:8]], "tokens": sorted({h[1].strip() for h in hits})[:6]}
         statuses.append(st)
+    # 'pinned_text' (optional): [{"tex", "line", "text"}, ...]. The named line of the named section file must
+    # print ``text`` verbatim (a piece of the source line, e.g. a table row up to the cell that states the
+    # quantity). It binds a claim to its site where the printed form is too coarse for an occurrence count
+    # (a table cell "$0$").
+    for site in claim.get("pinned_text") or []:
+        site = site if isinstance(site, dict) else {}
+        base = os.path.basename(str(site.get("tex") or primary))
+        ln, want = site.get("line"), site.get("text")
+        path = os.path.join(texdir, base)
+        src = open(path).read().split("\n") if os.path.exists(path) else []
+        ok = (isinstance(want, str) and bool(want.strip()) and isinstance(ln, int) and not isinstance(ln, bool)
+              and 1 <= ln <= len(src) and want in src[ln - 1])
+        if not ok:
+            pf = per_file.setdefault(base, {"status": "FOUND", "n_occurrences": 0, "min_occurrences": 0, "lines": [], "tokens": []})
+            pf["status"] = "SITE_CHANGED"
+            pf["site"] = f"line {ln} does not print the pinned text {want!r}"
+            statuses.append("SITE_CHANGED")
     if "TEX_MISSING" in statuses:
         status = "TEX_MISSING"
+    elif "SITE_CHANGED" in statuses:
+        status = "SITE_CHANGED"
     elif all(st == "FOUND" for st in statuses):
         status = "FOUND"
     elif any(st in ("FOUND", "TOO_FEW") for st in statuses):
@@ -577,6 +605,7 @@ def quote_shortfall_message(name: str, quoted: Any, mq: Dict[str, Any]) -> str:
     that fell short, with the occurrences found and pinned there. (The claim's primary file used to be named,
     also when that file was complete and another pinned file was short.)"""
     short = [f"{base}: {pf.get('n_occurrences')} of {pf.get('min_occurrences')} pinned ({pf.get('status')})"
+             + (f"; {pf['site']}" if pf.get("site") else "")
              for base, pf in (mq.get("files") or {}).items() if pf.get("status") != "FOUND"]
     where = "; ".join(short) if short else f"{mq.get('path')} ({mq.get('status')})"
     return f"{name}: quoted value {quoted!r} not found in {where}"
@@ -1017,11 +1046,11 @@ def _printed_text(raw: str) -> str:
 # single unbraced digit. Its digits are read with the spacing removed.
 _A_EXP = r"(?:\{" + _SP + r"*([+-]?)" + _SP + r"*(\d(?:" + _SP + r"*\d)*)" + _SP + r"*\}|(\d))"
 _BARE_POW_TAIL = re.compile(_SP + r"*\^" + _SP + r"*" + _A_EXP)
-_TIMES_POW_TAIL = re.compile(_SP + r"*\\(?:times|cdot)" + _SP + r"*10" + _SP + r"*\^" + _SP + r"*" + _A_EXP)
+_TIMES_POW_TAIL = re.compile(_SP + r"*" + _MUL + _SP + r"*10" + _SP + r"*\^" + _SP + r"*" + _A_EXP)
 # A power whose exponent carries a digit but is not an integer we can read (10^{-1.5}, ...) is reported,
 # never split into a mantissa and fragments.
 _POW_WITH_DIGIT = re.compile(_SP + r"*\^" + _SP + r"*(?:\{[^{}\n]*\d|\d)")
-_TIMES_WITH_DIGIT = re.compile(_SP + r"*\\(?:times|cdot)" + _SP + r"*10" + _SP + r"*\^" + _SP + r"*(?:\{[^{}\n]*\d|\d)")
+_TIMES_WITH_DIGIT = re.compile(_SP + r"*" + _MUL + _SP + r"*10" + _SP + r"*\^" + _SP + r"*(?:\{[^{}\n]*\d|\d)")
 # Comparisons run in a dedicated decimal context, exact for the supported domain: at most 60
 # significant digits and exponents up to 9999 in magnitude. A number outside it is reported as
 # unsupported instead of being rounded or underflowed into a match.
@@ -1319,6 +1348,13 @@ def qp_source_check(qp_root: Dict[str, Any]) -> List[str]:
     rec_status = (qp_root.get("_provenance") or {}).get("qp_source_status", status)
     def _finite_real(v: Any) -> bool:
         return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(float(v))
+    # The source regime itself must be finite: a source file whose mu0 is the string "NaN" resolves to a
+    # NaN, and no comparison with a NaN exceeds a tolerance.
+    for _name, _v in (("mu0", u5_mu0), ("nu1", u5_nu1)):
+        if not _finite_real(_v):
+            issues.append(f"[qp-source] the resolved source {_name} is {_v!r}; a finite number is required")
+    if issues:
+        return issues
     out_mu0 = qp_root.get("mu0")
     if not _finite_real(out_mu0):
         issues.append(f"[qp-source] QP output mu0 is {out_mu0!r}; a finite number is required")
@@ -1328,6 +1364,10 @@ def qp_source_check(qp_root: Dict[str, Any]) -> List[str]:
     # record, and the exemption is never taken from producer metadata.
     if rec_status == "smoke":
         issues.append("[qp-source] the QP record says it came from a smoke run (qp_source_status='smoke'); "
+                      "a full validation needs the full run's record")
+    rec_smoke = (qp_root.get("_provenance") or {}).get("smoke", False)
+    if rec_smoke is not False:   # the record's second smoke indicator, checked on its own
+        issues.append(f"[qp-source] the QP record says it came from a smoke run (_provenance.smoke={rec_smoke!r}); "
                       "a full validation needs the full run's record")
     out_nu1 = qp_root.get("nu1")
     if not _finite_real(out_nu1):

@@ -3,11 +3,11 @@
 """Pytest harness of the Design-G bundle (dynamics and quasiperiodic producers,
 validator, reproduction check).
 
-Run (canonical preamble, from the repo root):
-    set -a; source output/codes/.designg_bindings.sh; set +a
-    python3 -m pytest codes/test_designG_v4.py -q      # from the bundle root, bindings exported
+Run (from the directory that holds ``codes/``; README.md gives the command for all four test files):
+    set -a; . codes/.designg_bindings.sh; set +a
+    python -m pytest codes/test_designG_v4.py -q
 
-$DYN/$QP/... are BOUND names (see ``output/codes/.designg_bindings.sh``, the
+$DYN/$QP/... are BOUND names (see ``codes/.designg_bindings.sh``, the
 single source of truth) -- every test below uses
 ``_load("DYN")``/``_load("QP")``/``DYN_PATH``/``QP_PATH``, never a literal
 version string or ``_latest()``-style discovery.
@@ -65,6 +65,11 @@ def test_smoke_cli_dispatch_present(tmp_path, monkeypatch):
     assert hasattr(dyn, "_BLOCK_NAMES") and hasattr(dyn, "_block_registry")
     registry_keys = set(dyn._block_registry(None).keys())  # safe: lambdas are lazy, args unused at build time
     assert registry_keys == set(dyn._BLOCK_NAMES), (registry_keys, dyn._BLOCK_NAMES)
+    # --public is accepted and does nothing (both preflights); its help must say so
+    for path in (DYN_PATH, QP_PATH):
+        r = subprocess.run([_PY, path, "--help"], capture_output=True, text=True)
+        helptext = " ".join(r.stdout.split())
+        assert r.returncode == 0 and "--public" in helptext and "has no effect" in helptext and "relax" not in helptext, (path, r.stdout[-600:], r.stderr[-300:])
     # The PNGs these two producers draw are manuscript figures (dynamics: Figures 2, 4, 11 and S2;
     # ergodic: Figures 7, 8 and S1) and run_designG_figs.sh relies on the exit status. A figure step that
     # raises was a warning and exit 0; it must fail the run, with the values JSON still written. Nothing is
@@ -155,8 +160,8 @@ def test_taxonomy_coverage(tmp_path):
     """Runs in --smoke (both $DYN and $QP); fails if a PRESENT check-bearing
     scalar lacks a matching (or correctly-kinded) _taxonomy entry. Fields not
     yet produced (most of the U1-U5 list, pre Tasks B1-B5) are skipped, not
-    violations -- see the B0 task brief's TDD note: "passing trivially now,
-    becoming enforcing as B1-B5 add scalars".
+    violations: the test passes trivially at B0 and becomes enforcing as B1-B5
+    add scalars.
     """
     env = dict(os.environ, DESIGNG_FIGDIR=str(tmp_path), DESIGNG_DATADIR=str(tmp_path))
     violations: List[str] = []
@@ -164,8 +169,8 @@ def test_taxonomy_coverage(tmp_path):
         # NOT check=True: under --smoke's drastically reduced sample sizes, DYN's
         # own PASS/FAIL summary may legitimately return exit code 1 (some physics
         # checks miss tolerance at tiny N -- see designG_dynamics_v3.py's smoke
-        # NOTE) -- that is not a crash. The real acceptance bar (matching the B0
-        # task brief) is "the smoke JSON got written", asserted explicitly below;
+        # NOTE) -- that is not a crash. The real acceptance bar is "the smoke JSON
+        # got written", asserted explicitly below;
         # a genuine crash (preflight/path/traceback) leaves no file and the
         # assertion below fails with the captured stderr for diagnosis.
         result = subprocess.run([_PY, path, "--smoke"], env=env, capture_output=True, text=True)
@@ -206,6 +211,14 @@ def test_u1_continuous_fraction_and_flag(tmp_path):   # FAST/smoke: schema only
     assert type(row["fraction_extinct"]) is float            # continuous, not a bool recode to 0
     assert type(row["is_small"]) is bool and "small_ceiling" in row
     assert "fraction_extinct" in row and "is_small" in row   # distinct FIELDS (don't compare values: 0.0==False in Python)
+    # the note of an "is small" row states the criterion it measures (threshold, terminal window,
+    # horizon, as recorded by the same run) and names no destination of the other orbits
+    ef = v["extinction_fraction"]
+    small = [r for r in v["validation_table"] if str(r.get("label", "")).startswith("extinction fraction small")]
+    assert small, "no 'extinction fraction small' row in the smoke record"
+    crit = f"(terminal criterion: y < {ef['eps']:g} over the last {ef['tail']} of {ef['horizon']} iterates; "
+    for r in small:
+        assert crit in r["note"] and "coexistence" not in r["note"], r["note"]
     assert v["_taxonomy"]["/validation_table/*/fraction_extinct"] == "regression_anchor"
 
 
@@ -284,7 +297,7 @@ def test_u3_finite_amp_schema_and_nonblocking(tmp_path):
 # the run to run_exact_skew(). The double-exponential (tanh-sinh) quadrature
 # is the BLOCKING theory invariant (tol 1e-6, reaches ~1e-10); the direct
 # float64 orbit Birkhoff average is a SECONDARY, descriptive empirical
-# cross-check (tol 2e-2) -- see the task brief.
+# cross-check (tol 2e-2).
 # =============================================================================
 
 import math
@@ -315,8 +328,8 @@ def test_u4_orbit_cross_check_agrees():
 # The fix wraps the per-IC lambda_perp_orbit(...) call inside that loop in
 # try/except ValueError, excluding the crashing IC (same excluded_E_ic_count
 # bucket as _is_exceptional_x0) instead of propagating the crash. This test
-# exercises that exact call-site pattern directly (per the task brief's
-# "lambda_perp_orbit wrapped the same way" option), decoupled from whether the
+# exercises that exact call-site pattern directly (lambda_perp_orbit wrapped
+# the same way), decoupled from whether the
 # pre-filter would normally intercept x0=0.5 first in the real pipeline.
 # =============================================================================
 
@@ -345,8 +358,8 @@ def test_u4_orbit_crash_safety_excludes_not_aborts():
 
 # =============================================================================
 # Task B5 (U5): quasiperiodic invariant-circle diagnostics.
-# Supports the DEFENDED
-# Quasiperiodic (U5) claims: rotation number rho, invariant-circle residual,
+# Checks the
+# quasiperiodic (U5) quantities: rotation number rho, invariant-circle residual,
 # FFT-peak SNR, and a Benettin Lyapunov spectrum on the mu0=3.5, nu1=4.9
 # observed attracting-circle regime (nu1=4.9, above the unit-circle locus). `--smoke` KEEPS that regime (see $QP's
 # _smoke_params()/runtime assert) -- this is the FAST/smoke schema+taxonomy
@@ -369,7 +382,7 @@ def test_u5_quasiperiodic_diagnostics(tmp_path):   # FAST/smoke: schema + taxono
 # =============================================================================
 # Task B6 (U6): machine-checkable validator ($VAL) + claim inventory ($CLAIMS).
 # ONE
-# comprehensive test (keeps the suite at 12): it exercises (a) the --smoke
+# comprehensive test: it exercises (a) the --smoke
 # validator end-to-end over the REAL $CLAIMS + fresh smoke artifacts (exit 0;
 # every per-check kind in the taxonomy set; every numeric anchor SKIPPED_SMOKE;
 # non-blocking manuscript check skipped), (b) the one-scalar selector resolution
@@ -443,7 +456,7 @@ def test_u6_validator_smoke_selectors_gates(tmp_path):
         assert c.get("manuscript_change_required") is None, c             # non-blocking, skipped in smoke
     assert {"regression_anchor", "theory_invariant", "empirical_discovery"} <= {c["kind"] for c in checks}
     assert v["gates"]["audit_integrity"] == "OK"                          # every claim:<id> ref resolves
-    assert v["summary"]["n_audit_rows"] > 0                               # Step-1b coverage audit rendered
+    assert v["summary"]["n_audit_rows"] > 0                               # coverage audit rendered
 
     # --- (c) 6-env-var abort: omit DESIGNG_MANIFEST -> exit 2 ---
     keep = {k: val for k, val in os.environ.items()
@@ -527,6 +540,12 @@ def test_quote_check_grouped_numerals_are_whole_numbers(tmp_path):
         assert run(c, "and $40{,}000$ retained iterations")["status"] == "NOT_FOUND", c["id"]
         r = run(c, "$40{,}000$ predator seeds; all $40$ at $\\nu_1=3$; entry $40/3600$")
         assert (r["status"], r["n_occurrences"]) == ("FOUND", 2), (c["id"], r)
+    # the digits of an exponent are not a number of their own, on either matching path
+    for c in (cl("tok40", 40, "40"), cl("num40", 40)):
+        for good in ("all $40$ at", r"$n\le 40$", "$N=40$", "$x_{40}$"):
+            assert run(c, good)["status"] == "FOUND", (c["id"], good)
+        for bad in ("$1e40$", "$1E+40$", r"$1\times10^{40}$", r"$1{\times}10^{40}$", r"$10^{40}$", r"$10^{-40}$", r"$3\cdot 10^{ 40 }$"):
+            assert run(c, bad)["status"] == "NOT_FOUND", (c["id"], bad)
     assert run(cl("num40000", 40000), "and $40{,}000$ retained")["status"] == "FOUND"
     assert run(cl("num40000", 40000), "and $40000$ retained")["status"] == "FOUND"
     assert run(cl("tok40000", 40000, "40{,}000"), "and $40{,}000$ retained")["status"] == "FOUND"
@@ -773,6 +792,22 @@ def test_r05_readiness_and_strict_mode_on_corrupted_copies(tmp_path):
     assert "STALE" in str(v["gates"]["audit_integrity"])
     tc = [q for q in v["gates"]["manuscript_quotes"] if q.startswith("tc_p_x:")]
     assert len(tc) == 1 and "supplementary_clean.tex: 0 of " in tc[0] and "methods_clean.tex" not in tc[0], tc
+    # (e) a claim bound to the text of its line. The closed-form exponent at nu1 = 4 is printed as the
+    # cell "$0$" of Table S4, too coarse for an occurrence count; the claim pins the text of that row, and an
+    # edited cell fails the run.
+    sub = tmp_path / "site"; sub.mkdir()
+    _, data2, tex2 = _val_copies(sub)
+    claim = next(c for c in json.load(open(CLAIMS_PATH))["claims"] if c["id"] == "lambda_perp_nu1_4")
+    sites = {s["line"]: s["text"] for s in claim["pinned_text"]}
+    assert claim["line"] in sites and len(sites) == 2, claim
+    sup = tex2 / "supplementary_clean.tex"; lines2 = sup.read_text().split("\n")
+    row = min(sites)                                   # the row of Table S4
+    assert sites[row] in lines2[row - 1] and "& $0$ &" in lines2[row - 1], lines2[row - 1]
+    rc, v, out = _val_run(sub, data2, tex2)
+    assert rc == 0 and not v["gates"]["manuscript_quotes"], out[-800:]
+    lines2[row - 1] = lines2[row - 1].replace("& $0$ &", "& $1$ &", 1); sup.write_text("\n".join(lines2))
+    rc, v, out = _val_run(sub, data2, tex2)
+    assert rc == 1 and any("lambda_perp_nu1_4" in g and "SITE_CHANGED" in g for g in v["gates"]["manuscript_quotes"]), (rc, v["gates"]["manuscript_quotes"])
 
 
 def test_r02_exact_enumeration_covers_every_orbit_independently_of_the_maximiser():
@@ -1116,9 +1151,11 @@ def test_r05_validator_rejects_a_vacuous_inventory_and_never_calls_a_scope_ready
     leaf.write_text(leaf_orig)
 
 
-def test_r05_validator_qp_parameters_must_be_finite_and_match_the_regime(tmp_path):
+def test_r05_validator_qp_parameters_must_be_finite_and_match_the_regime(tmp_path, monkeypatch):
     """A string or a NaN in the QP output's parameters bypassed the regime
-    check, and nu1 was not compared at all when the source regime is the documented default."""
+    check, and nu1 was not compared at all when the source regime is the documented default.
+    Each of the record's two smoke indicators fails a full validation on its own, and the
+    source regime that the output is compared with must itself be finite."""
     _, data, texdir = _val_copies(tmp_path)
     qp = data / "designG_quasiperiodic_v2_values.json"; orig = qp.read_text()
     for name, field, value in (("mu0 NaN", "mu0", float("nan")), ("mu0 string", "mu0", "invalid"),
@@ -1126,14 +1163,34 @@ def test_r05_validator_qp_parameters_must_be_finite_and_match_the_regime(tmp_pat
         doc = json.loads(orig); doc[field] = value; qp.write_text(json.dumps(doc))
         rc, v, out = _val_run(tmp_path, data, texdir)
         assert rc == 1 and v["gates"]["qp_source"], (name, rc, v["gates"].get("qp_source_status"))
-    # producer metadata cannot exempt a full validation: a wrong nu1 labelled as a smoke run fails
+    # producer metadata cannot exempt a full validation: a wrong nu1 labelled as a smoke run fails, for both reasons
     doc = json.loads(orig); doc["nu1"] = 2.1; doc.setdefault("_provenance", {})["qp_source_status"] = "smoke"
     qp.write_text(json.dumps(doc))
     rc, v, out = _val_run(tmp_path, data, texdir)
-    assert rc == 1 and v["gates"]["qp_source"], (rc, v["gates"].get("qp_source_status"))
+    assert rc == 1 and len(v["gates"]["qp_source"]) == 2, (rc, v["gates"].get("qp_source"))
+    # each smoke indicator on its own, with the regime parameters left correct: the status, the boolean and the
+    # boolean written as text
+    assert json.loads(orig)["_provenance"]["smoke"] is False
+    for name, key, value in (("status", "qp_source_status", "smoke"), ("boolean", "smoke", True), ("boolean as text", "smoke", "true")):
+        doc = json.loads(orig); doc["_provenance"][key] = value; qp.write_text(json.dumps(doc))
+        rc, v, out = _val_run(tmp_path, data, texdir)
+        assert rc == 1 and len(v["gates"]["qp_source"]) == 1 and "smoke" in v["gates"]["qp_source"][0], (name, rc, v["gates"].get("qp_source"))
     qp.write_text(orig)
     rc, v, out = _val_run(tmp_path, data, texdir)
     assert rc == 0 and not v["gates"]["qp_source"], out[-800:]
+    # the source regime must be finite too: a source file whose mu0 is the string "NaN" resolved to a NaN,
+    # and the comparison with the output's 3.5 reported nothing
+    m = _load("VAL")
+    qp_root = json.loads(orig)
+    monkeypatch.delenv("DESIGNG_QP_SOURCE", raising=False)
+    assert m.qp_source_check(qp_root) == []
+    src = tmp_path / "source.json"
+    for field, value in (("mu0", "NaN"), ("mu0", "Infinity"), ("nu1", "NaN")):
+        src.write_text(json.dumps({"mu0": 3.5, field: value}))
+        monkeypatch.setenv("DESIGNG_QP_SOURCE", str(src))
+        issues = m.qp_source_check(qp_root)
+        assert issues and "finite number is required" in issues[0], (field, value, issues)
+    src.write_text(json.dumps({"mu0": 3.5})); assert m.qp_source_check(qp_root) == []
 
 
 def test_r05_validator_rejects_an_inconsistent_wilson_record(tmp_path):
@@ -1336,6 +1393,26 @@ def test_r05_validator_coverage_sees_printed_numbers_after_commands(tmp_path):
     rc, v, out = _val_run(tmp_path, data, texdir)
     assert rc == 0 and v["readiness"] == "SUBMISSION_READY", out[-800:]
     res.write_text(orig)
+    # a multiplication sign in braces. 5{\times}10^{-3} is the number 0.005, one number and not 5 followed
+    # by the power 10^{-3}, so an edited resolution of the onset ensemble or an edited horizon of Table S8 fails.
+    m = _load("VAL")
+    from decimal import Decimal
+    for srctext, want in ((r"$5{\times}10^{-3}$", "0.005"), (r"$2{\cdot}10^{-3}$", "0.002"), (r"$7.5{\times}10^4$", "75000"),
+                          (r"$7.5{ \times }10^{4}$", "75000"), (r"$5\times10^{-3}$", "0.005")):
+        nums, problems = m._printed_numbers(srctext)
+        assert [n[1] for n in nums] == [Decimal(want)] and not problems, (srctext, nums, problems)
+    ctl = {"id": "ctl", "quoted_value": 7.5, "manuscript_tracked": True, "tex": "a_clean.tex", "display_tol": 0.05,
+           "quoted_in": {"a_clean.tex": 1}}
+    (tmp_path / "a_clean.tex").write_text(r"horizon $7.5{\times}10^4$")
+    assert m.manuscript_quote_check(ctl, str(tmp_path))["status"] == "NOT_FOUND"      # 75000 is not 7.5
+    assert m.manuscript_quote_check(dict(ctl, manuscript_token="7.5"), str(tmp_path))["status"] == "NOT_FOUND"
+    sup = texdir / "supplementary_clean.tex"; sup_orig = sup.read_text()
+    for old, new in ((r"5{\times}10^{-3}", r"9{\times}10^{-3}"), (r"7.5{\times}10^4", r"8.5{\times}10^4")):
+        assert old in sup_orig, old
+        sup.write_text(sup_orig.replace(old, new, 1))
+        rc, v, out = _val_run(tmp_path, data, texdir)
+        assert rc == 1 and v["gates"]["audit_integrity"] != "OK", (old, rc, v["gates"]["audit_integrity"])
+    sup.write_text(sup_orig)
 
 
 def test_r04_checkpoint_reuse_requires_matching_configuration_and_inputs(monkeypatch):
@@ -1541,7 +1618,7 @@ def test_reproducer_overall_verdict_fails_when_any_producer_fails(tmp_path):
         rc, out = run(rg, sh)
         assert rc == 1 and "OVERALL: FAIL" in out, (case, out[-1500:])
         assert "(A) numeric-leaf reproduction (regenerated vs shipped): FAIL" in out, (case, out[-1500:])
-    regen4, ship4 = dirs("reviewer_cpu")
+    regen4, ship4 = dirs("avx512_cpu")
     edit(regen4, lambda b: b.__setitem__("contraction_max", 0.3526105969288764))
     rc, out = run(regen4, ship4)
     assert rc == 0 and "OVERALL: PASS" in out and "/nu1_3/contraction_max: regen=0.3526105969288764" in out, out[-1500:]

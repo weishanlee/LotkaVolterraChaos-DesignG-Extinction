@@ -188,7 +188,7 @@
       1e-08
     ],
     "legacy_first_passage_nu1_2_v3": 0.2294,
-    "legacy_first_passage_note": "rmk:three-regime-numeric quotes the terminal count 0.2269 at nu1=2; v3 gave 0.2294 under its own protocol, a FIRST-PASSAGE count (v3 broke at the first y<eps). It is history, not a target: at the same horizon and threshold a first-passage count is never below the terminal count, and neither bounds the asymptotic extinction fraction in either direction.",
+    "legacy_first_passage_note": "rmk:three-regime-numeric quotes the terminal fraction 0.2269 (817 of 3600 orbits) at nu1=2; v3 gave 0.2294 under its own protocol, a FIRST-PASSAGE fraction (826 of 3600; v3 broke at the first y<eps). It is history, not a target: at the same horizon and threshold a first-passage count is never below the terminal count, and neither bounds the asymptotic extinction fraction in either direction.",
     "per_nu1": {
       "1.00": {
         "fraction_extinct": 1.0,
@@ -2445,7 +2445,7 @@
       "abs_err": 0.0,
       "tol": 1e-09,
       "pass": true,
-      "note": "frac=0.2269 <= 0.3 (coexistence dominates above 4/3; finite-grid, not global)"
+      "note": "frac=0.2269 <= 0.3 (terminal criterion: y < 0.001 over the last 1000 of 20000 iterates; a finite grid; where the other orbits go is not recorded)"
     },
     {
       "quantity": "extinction fraction small (nu1=3.00)",
@@ -2455,7 +2455,7 @@
       "abs_err": 0.0,
       "tol": 1e-09,
       "pass": true,
-      "note": "frac=0.0111 <= 0.3 (coexistence dominates above 4/3; finite-grid, not global)"
+      "note": "frac=0.0111 <= 0.3 (terminal criterion: y < 0.001 over the last 1000 of 20000 iterates; a finite grid; where the other orbits go is not recorded)"
     },
     {
       "quantity": "extinction fraction small (nu1=4.00)",
@@ -2465,7 +2465,7 @@
       "abs_err": 0.0,
       "tol": 1e-09,
       "pass": true,
-      "note": "frac=0.0000 <= 0.3 (coexistence dominates above 4/3; finite-grid, not global)"
+      "note": "frac=0.0000 <= 0.3 (terminal criterion: y < 0.001 over the last 1000 of 20000 iterates; a finite grid; where the other orbits go is not recorded)"
     },
     {
       "quantity": "v3 first-passage reproduced (nu1=2.00)",

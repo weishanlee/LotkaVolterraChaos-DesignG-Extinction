@@ -271,12 +271,12 @@ def _potential_quadrature(r: float, n_nodes: int) -> float:
     1e-16, plus the 1e-300 floor below).  Because the log-singularity is
     INTEGRABLE the midpoint rule still converges; we further damp the
     slowly-converging singular tail by averaging two staggered node counts
-    (n and n+1), one of which always misses the singularity.  Empirically this
-    matches -ln4 to ~5.6e-5 at the default node count (cross-checked against the
-    off-support closed form and a node-doubling test), i.e. convergent-by-
-    integrability, NOT a knife-edge.  A principled singular quadrature would
-    remove the round-off dependence but is unnecessary at the accuracy this
-    consistency check requires.
+    (n and n+1), one of which always misses the singularity.  Empirically, at the
+    eleven shifts r = 0, 0.1, ..., 1 that the run samples, this matches -ln4 to
+    ~5.6e-5 at the default node count (cross-checked against the off-support closed
+    form and a node-doubling test), i.e. convergent-by-integrability, NOT a
+    knife-edge.  A principled singular quadrature would remove the round-off
+    dependence but is unnecessary at the accuracy this consistency check requires.
     """
     def potential_with(n: int) -> float:
         k = np.arange(1, n + 1, dtype=np.float64)
@@ -985,7 +985,7 @@ def _provenance(args: argparse.Namespace) -> Dict[str, object]:
         "model": "logistic prey axis of Design G at mu0=4 (arcsine measure)",
         "honesty": (
             "Numerics are CONSISTENCY CHECKS, not proofs (the sub-action telescoping argument is the proof). "
-            "a.e./SRB != all-orbit. The arcsine density, I(4)=-2ln2 and nu1*(4)=4 hold at mu0=4 only; nu1*(mu0) "
+            "a.e./SRB != all-orbit. The arcsine density holds at mu0=4 only; there it gives I(4)=-2ln2 and nu1*(4)=4; nu1*(mu0) "
             "has a closed form on an attracting cycle of the prey (mu0/(mu0-1) for 1<mu0<=3, mu0/sqrt(mu0+1) for "
             "3<mu0<=1+sqrt6); the six values at mu0=3.60 to 3.99 are orbit averages, non-monotone (periodic windows)."
         ),

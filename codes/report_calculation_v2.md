@@ -1,6 +1,6 @@
 # Design-G validation report
 
-- generated: 2026-11-14T04:59:50.983119+00:00
+- generated: 2026-11-21T19:03:23.572936+00:00
 - mode: **full**   scope: ALL
 - claims file: current_claims_designG_v1.json
 - producer JSON dir: ../../repro_run/data   figure dir: ../../repro_run/figs
@@ -19,7 +19,7 @@
 | regression_anchor | ext_frac_nu1_4 | 0 | 0 | 0.0001 | PASS | no |  | supplementary_clean.tex:2584 |
 | theory_invariant | lambda_perp_nu1_2 | -0.693147 | -0.693147 | 1e-06 | PASS | no |  | supplementary_clean.tex:2167 |
 | theory_invariant | lambda_perp_nu1_3 | -0.287682 | -0.287682 | 1e-06 | PASS | no |  | supplementary_clean.tex:2168 |
-| theory_invariant | lambda_perp_nu1_4 | 3.55271e-15 | 0 | 1e-06 | PASS | no |  | supplementary_clean.tex:2169 |
+| theory_invariant | lambda_perp_nu1_4 | 3.55271e-15 | 0 | 1e-06 | PASS | no |  | supplementary_clean.tex:2361 |
 | regression_anchor | jury_lower_edge | 1.85641 | 1.85641 | 1e-06 | PASS | no |  | supplementary_clean.tex:1518 |
 | regression_anchor | arcsine_E_lnx | -1.38629 | -1.38629 | 0.0001 | PASS | no |  | supplementary_clean.tex:1058 |
 | regression_anchor | jensen_gap_mln2 | -0.693144 | -0.693147 | 0.0001 | PASS | no |  | supplementary_clean.tex:1081 |
@@ -113,7 +113,7 @@
 
 ## Claim-coverage audit (every Design-G number -> claim id | exclusion)
 
-- audit rows: 254  (73 -> claim id, 181 -> documented exclusion)
+- audit rows: 251  (72 -> claim id, 179 -> documented exclusion)
 - audit integrity: OK
 
 | tex | line(s) | literal | disposition |
@@ -159,7 +159,7 @@
 | methods_clean.tex | 335 | 9.5e-4 (maximum absolute error of the Benettin estimates, in the caption of the on-axis exponent figure) | exclusion:derived_quantity (9.5e-4 = \|lambda_hat(4) - 0\|, the largest discrepancy, derived from the fields of the claim lambda_hat_nu1_4, which is quote-checked where Section 6 and the Supplement print it) |
 | resultsAndDiscussions_clean.tex | 12 | 9.5e-4 / ... / ... (lambda abs-err & sem) | claim:lambda_hat_nu1_4 (0.0009); 9.5e-4 = \|lambda_hat(4) - 0\|, the largest discrepancy, derived from the same fields |
 | supplementary_clean.tex | 2336,2340,2351,2356,2357,2358,2359,2360,2361 | 9.5e-4 / 1.40e-3 / 0.0009 (lambda abs-err & sem) | claim:lambda_hat_sem (1.40e-3 dispersion) + claim:lambda_hat_nu1_4 (0.0009); 9.5e-4 = \|lambda_hat(4) - 0\|, the largest discrepancy, derived from the same fields |
-| supplementary_clean.tex | 1047,1062 | 5.6e-5 (largest on-support potential departure) | exclusion:diagnostic_error_bar (equilibrium_measure on-support departure; block-covered) |
+| supplementary_clean.tex | 1047,1062 | 5.6e-5 (largest potential departure among the eleven sampled shifts) | exclusion:diagnostic_error_bar (equilibrium_measure on-support departure; block-covered) |
 | methods_clean.tex | 157 | 1.6309 / 0.667 / 0.250 (coexistence fixed point at mu0 = 4: modulus of its dominant multiplier at nu1 = 1.5, where it is unstable, and its coordinates (x*, y*) at nu1 = 2; at nu1 = 4 it is (0.5, 0.5)) | exclusion:frozen_verification_record (designG_dynamics_v4_values.json coexistence.per_nu1: eig_abs_max at 1.50; x_star and y_star at 2.00 and at 4.00, with x* = mu0/(mu0+nu1); closed-form-verified; block-covered) |
 | supplementary_clean.tex | 1522,1524 | 1.6309 / 0.667 / 0.250 / 0.7676 (coexistence fixed point at mu0 = 4: modulus of its dominant multiplier at nu1 = 1.5, where it is unstable; its coordinates (x*, y*) and its dominant modulus at nu1 = 2) | exclusion:frozen_verification_record (designG_dynamics_v4_values.json coexistence.per_nu1: eig_abs_max at 1.50 and at 2.00; x_star and y_star at 2.00, with x* = mu0/(mu0+nu1); closed-form-verified; block-covered) |
 | supplementary_clean.tex | 2698,2699,2700 | 1.249e-16/1.6653e-16 (FP residual, tr/det J err) | exclusion:diagnostic_error_bar (coexistence FP residual & trace/det closed-form error; DYN coexistence block; block-covered) |
@@ -174,7 +174,6 @@
 | resultsAndDiscussions_clean.tex | 60 | 3.96 (plotted mu0-sweep detector: chaos onset = extinction onset, nu1=2.1; 0.01 grid, rounded to the nearest double) | claim:sweep_chaos_onset_nu1_2p1 + claim:sweep_ext_onset_nu1_2p1 |
 | resultsAndDiscussions_clean.tex | 36,60 | 3.96 (plotted mu0-sweep detector: chaos onset = extinction onset, nu1=2.1; detector grid of step one hundredth, rounded to the nearest double) | claim:sweep_chaos_onset_nu1_2p1 + claim:sweep_ext_onset_nu1_2p1 |
 | resultsAndDiscussions_clean.tex | 36,60 | 3.96 (sustained-chaos onset that the onset ensemble finds for the plotted seed at the coarsest grid resolution) | claim:ons_seed0_sustained_0p01 (direct value check, 2026-10-18; the ensemble file is a validator producer) |
-| supplementary_clean.tex | 2519 | 3.96 / 4.00 (3.96 ([moved] at the finest resolution) median and [moved] to 4.00 ([moved] to [moved]) range of the 22 collapsing seeds' sustained-chaos onset; the row's other values moved to the appendix with the restructuring) | claim:ons_median_sustained_0p01 (direct value checks, 2026-10-18); the seed counts 22/24 remain regression-covered (reproduce (A)) |
 | methods_clean.tex | 793 | -4.556 (second-derivative bound -41/9 of H) | exclusion:closed_form_constant (-41/9 = -4.5556) |
 | supplementary_clean.tex | 1274 | -4.556 (second-derivative bound -41/9 of H) | exclusion:closed_form_constant (-41/9 = -4.5556) |
 | supplementary_clean.tex | 2662,2777 | -4.5556 (second-derivative bound -41/9 of H) | exclusion:closed_form_constant (-41/9) |
@@ -318,18 +317,16 @@
 | supplementary_clean.tex | 518,645,646,647,873,876,922,927,928,929 | 3240 / 384 / 1536 / 768 / 108 / 107 / 135 / 540 / 1000 (integer constants of thm:basin-positive and cor:rare-predator) | exclusion:closed_form_constant (c0 < 1/3240, D < 1/384, c0 <= ln(4/nu1)/1536, 1/768, 1/135 + 1/540 = 1/108, 1/107, eta < min/1000) |
 | resultsAndDiscussions_clean.tex | 35,36,55 | 3.85 / 3.86 / 3.95 (sampled classification of the plotted sweep seed near the onset: extinct at 3.85, coexisting again at 3.86 to 3.95, extinct from 3.96) | exclusion:protocol_observation (per-mu0 classification of seed (0.2, 1e-3) under the shipped sweep protocol, reproducible with designG_bifurcation_v2.sweep_mu0_xy / lyap_max; not a stored field) |
 | resultsAndDiscussions_clean.tex | 63,64 | 3.9604 / 3.9608 / 3.9612 (display-grid points right of the onset line: extinct with lambda_max < 0 at the first two, positive from the third) | exclusion:protocol_observation (seed (0.2, 1e-3) on the 4e-4 display grid under the shipped protocol; reproducible with designG_bifurcation_v2.sweep_mu0_xy / lyap_max; not a stored field) |
-| supplementary_clean.tex | 2505 | 1.909 (21/11: sign change of ln(nu1(1-1/mu0)) on the fixed-point branch at nu1=2.1) | exclusion:closed_form_constant (21/11) |
 | resultsAndDiscussions_clean.tex | 78 | -0.12 / -0.14 / 3.83 / 3.84 (transverse exponent inside periodic windows of the mu0 sweep) | claim:bif_window_lperp_3p83 + claim:bif_window_lperp_3p84 |
 | supplementary_clean.tex | 2519 | 3.96 (median, over the 22 collapsing seeds of the onset ensemble, of the sustained-chaos onset on the coarsest grid) | claim:ons_median_sustained_0p01 (direct value check, 2026-10-18) |
 | supplementary_clean.tex | 2519,2520 | 3.96 (3.962 at the finest resolution) median and 3.94 to 4.00 (3.944 to 3.996) range of the 22 collapsing seeds' sustained-chaos onset | claim:ons_median_sustained_0p01 claim:ons_median_sustained_0p002 claim:ons_min_sustained_0p01 claim:ons_max_sustained_0p01 claim:ons_min_sustained_0p002 claim:ons_max_sustained_0p002 (direct value checks, 2026-10-18); the seed counts 22/24 remain regression-covered (reproduce (A)) |
 | resultsAndDiscussions_clean.tex | 36 | 3.96 / ... / ... (ensemble sustained-chaos onset of the plotted seed at the three grid resolutions) | claim:ons_seed0_sustained_0p01 (direct value checks, 2026-10-18; the ensemble file is now a validator producer) |
 | supplementary_clean.tex | 2522,2523 | 3.955 / 3.958 (sustained-chaos onset that the ensemble finds for the plotted seed at the two finer grid resolutions; its onset at the coarsest resolution is printed in the Results) | claim:ons_seed0_sustained_0p005 claim:ons_seed0_sustained_0p002 (direct value checks, 2026-10-18; the ensemble file is a validator producer) |
 | supplementary_clean.tex | 2526,2527 | 3.950000000000003 / 3.9499999999999797 (the two float64 values of the decimal grid point 3.95 built from the anchors 1.0 and 3.0) | exclusion:arithmetic_demonstration (double-precision representation; the scripts now round every sweep grid to the nearest double) |
-| supplementary_clean.tex | 2526,2527 | 3.950000000000003 / 3.9499999999999797 (the two float64 values of the decimal grid point 3.95 built from the anchors 1.0 and 3.0) | exclusion:arithmetic_demonstration (double-precision representation; the scripts now round every sweep grid to the nearest double) |
 | supplementary_clean.tex | 2337 | 5000 (Benettin protocol: the window of the stability test; its burn-in and retained length are printed in the Results) | exclusion:protocol_parameter (designG_dynamics_v4.py check_lambda_hat: its window, the --window option, default 5000) |
 | supplementary_clean.tex | 2230 | 0.9498/1.0 (max y / max x boundedness) | exclusion:frozen_verification_record (boundedness; DYN boundedness block; block-covered) |
 | supplementary_clean.tex | 2820,2824 | -512 (the AVX-512 instruction-set name in the reproducibility paragraph, parsed as a signed number; not a quantity) | exclusion:not_a_quantity (instruction-set name) |
-| supplementary_clean.tex | 2430,2476,2477,2592,2616,2617,2625,2820,2821,2822,2823,2824 | 11147 / 40000 / 19022 / 5189 / 5188 (CPU-dispatch effect on the log-uniform predator seeds, external measurement) | exclusion:external_measurement (11,147 one-ULP changes and the 5189 count are external measurements on an AVX-512 host and are not reproducible on the authors' AVX2 host; 40,000 is the sample size, 19,022 the valid count and 5188 = fraction x n of the shipped ic.rlogy nu1=3 cell, all regression-covered by reproduce (A)) |
+| supplementary_clean.tex | 2430,2476,2477,2592,2617,2625,2820,2821,2822,2823,2824 | 11147 / 40000 / 19022 / 5189 / 5188 (CPU-dispatch effect on the log-uniform predator seeds, external measurement) | exclusion:external_measurement (11,147 one-ULP changes and the 5189 count are external measurements on an AVX-512 host and are not reproducible on the authors' AVX2 host; 40,000 is the sample size, 19,022 the valid count and 5188 = fraction x n of the shipped ic.rlogy nu1=3 cell, all regression-covered by reproduce (A)) |
 | methods_clean.tex | 485 | 5.25 / 4.25 (decades of height plotted in Figure 5(a): from the input grid's 10^{-9} to the last converged height) | exclusion:protocol_observation (span of the plotted heights of Figure 5(a); log10(1.778e-4/1e-9) = 5.25 at nu1=2.1, log10(1.778e-5/1e-9) = 4.25 at nu1=3) |
 | supplementary_clean.tex | 1703,1741,1843 | 1.13 (Theorem 1.13 of Vidiella et al., a citation locator in the comparison subsection; not a quantity) | exclusion:not_a_quantity (citation locator: Theorem 1.13 of the predecessor chapter) |
 | supplementary_clean.tex | 429 | 799 (page of the Proposition in Section 3 of Alexander, Yorke, You and Kan, a citation locator in Remark S2.2; not a quantity) | exclusion:not_a_quantity (citation locator: p. 799 of Alexander et al.) |
@@ -370,7 +367,7 @@
 | supplementary_clean.tex | 2771,2772 | 1.20 / 2.00 (the two abscissae r off the support [0, 1] of the equilibrium-potential rows of Table S10) | exclusion:protocol_parameter (table abscissae: the r values of the two off-support validation_table rows 'int ln\|x-r\| dmu4' of designG_ergodic_quadrature_v2_values.json) |
 | supplementary_clean.tex | 2200,2245,2261,2380,2437,2565 | 2e4 (nominal horizon H of the extinction-fraction protocol of Figure 11 and Table S6) | exclusion:protocol_parameter (_EXT_ANCHOR_PROTOCOL horizon = 20000 in designG_dynamics_v4.py) |
 | supplementary_clean.tex | 2203 | 20000 (largest exponent of the mu0 sweep and of the onset ensemble: burn-in and retained iterations) | exclusion:protocol_parameter (designG_bifurcation_v2.py: lyap_max(m, nu1, x0, y0, 20_000, 20_000); designG_onset_ensemble_v1.json lyap_burn = lyap_iter = 20000) |
-| supplementary_clean.tex | 2517,2522 | 5e-3 / 2e-3 (the two finer mu0 grid resolutions of the onset ensemble; where the multiplication sign is braced the validator's number reader reads each as the power 1e-3 after a one-digit factor) | exclusion:protocol_parameter (designG_onset_ensemble_v1.py RESOLUTIONS = (0.01, 0.005, 0.002); on line 2517 the multiplication sign is braced, so the validator's number reader reads 5x10^-3 and 2x10^-3 there as the power 1e-3 after a one-digit factor) |
+| supplementary_clean.tex | 2517,2522 | 5e-3 / 2e-3 (the two finer mu0 grid resolutions of the onset ensemble) | exclusion:protocol_parameter (designG_onset_ensemble_v1.py RESOLUTIONS = (0.01, 0.005, 0.002)) |
 | supplementary_clean.tex | 2152 | 75000 / 1000 (Monte-Carlo orbit average of Table S4: horizon and the initial iterates discarded) | exclusion:protocol_parameter (designG_dynamics_v4_values.json exact_skew: largest horizon 75000, B = 1000 discarded iterates) |
 
 ## Gates (full mode)

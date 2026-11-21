@@ -852,7 +852,7 @@ def check_lambda_hat(
     mlnx, sem_lnx, n_acc, n_noncol, n_tot = _logistic_lnx_ensemble(mu0, n_burn, n_keep, window, n_ic)
     # Gate is LOAD-BEARING and the per-trajectory 5000-window stability gate is genuinely
     # enforced inside the ensemble (it rejects unstable non-collapsed orbits, n_acc < n_noncol).
-    # The estimate is certified only if a MAJORITY of the TOTAL ensemble did not collapse
+    # The estimate is certified only if AT LEAST HALF of the TOTAL ensemble did not collapse
     # (a run dominated by collapse is not a trustworthy SRB average even if the few survivors
     # look stable), AND a healthy fraction of the non-collapsed trajectories pass the per-traj
     # stability gate, AND the across-ensemble standard error is small vs the 2e-2 validation tol.

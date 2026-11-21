@@ -1,7 +1,7 @@
 {
   "_meta": {
     "task": "Design-G validator",
-    "generated": "2026-11-14T04:59:50.983119+00:00",
+    "generated": "2026-11-21T19:03:23.572936+00:00",
     "mode": "full",
     "scope": null,
     "claims_in": "current_claims_designG_v1.json",
@@ -30,9 +30,9 @@
     "n_fail": 0,
     "n_skipped_smoke": 0,
     "n_manuscript_change": 0,
-    "n_audit_rows": 254,
-    "n_audit_to_claim": 73,
-    "n_audit_exclusion": 181
+    "n_audit_rows": 251,
+    "n_audit_to_claim": 72,
+    "n_audit_exclusion": 179
   },
   "ci_methods": {
     "sens_base_nu1_2": "none",
@@ -539,7 +539,7 @@
       },
       "block": "exact_skew",
       "manuscript_tracked": true,
-      "tex_ref": "supplementary_clean.tex:2169",
+      "tex_ref": "supplementary_clean.tex:2361",
       "actual": 3.552713678800501e-15,
       "expected": 0.0,
       "tol": 1e-06,
@@ -568,17 +568,6 @@
           "0.0000"
         ],
         "files": {
-          "resultsAndDiscussions_clean.tex": {
-            "status": "FOUND",
-            "n_occurrences": 1,
-            "min_occurrences": 1,
-            "lines": [
-              104
-            ],
-            "tokens": [
-              "0.0000"
-            ]
-          },
           "supplementary_clean.tex": {
             "status": "FOUND",
             "n_occurrences": 5,

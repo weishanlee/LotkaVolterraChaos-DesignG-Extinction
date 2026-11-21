@@ -18,7 +18,7 @@ import designG_bifurcation_v2 as bif2
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 # The shipped fixture lives one level above codes/ in the authoring tree (output/data/designG)
-# and under codes/data/designG in the submitted bundle; the first existing path wins and the
+# and under codes/data/designG in the bundle; the first existing path wins and the
 # regression assertions are REQUIRED (a missing fixture must fail, not skip).
 _CANDIDATES = [os.path.join(os.path.dirname(_HERE), "data", "designG", "designG_extinction_bif_values.json"),
                os.path.join(_HERE, "data", "designG", "designG_extinction_bif_values.json")]
@@ -209,14 +209,6 @@ def test_onset_lyap_spectrum_zero_jacobian_corner():
     assert all(np.isnan(v) for v in ons._lyap_spectrum_2d(4.0, 2.1, 0.0, 1.0, 0, 0))
 
 
-# The direct entry point sits at the END so that every test above is defined before it runs
-# (placed earlier, it ran only 8 of the 16 tests then defined).
-if __name__ == "__main__":
-    for n, fn in sorted(globals().items()):
-        if n.startswith("test_") and callable(fn): fn(); print("PASS", n)
-    print("ALL PASS")
-
-
 # ---- Figure 10, three panels (2026-11-08): panel (c) is the plotted orbit's own spectrum -------------
 import matplotlib
 import pytest
@@ -377,9 +369,8 @@ def test_fig10_too_narrow_a_span_is_no_room(monkeypatch):
     assert plt.get_fignums() == open_before
 
 
-# Script mode (the Run line of the docstring): the entry point above runs the plain tests defined before it;
-# the eight Figure 10 tests need pytest (fixtures, monkeypatch, pytest.raises), so this second entry point runs them
-# through pytest, and the script's exit status covers them.
+# Script mode: one entry point, after every definition. All 25 tests run through pytest (the eight Figure 10
+# tests need its fixtures), which prints one verdict at the end and gives the script its exit status.
 if __name__ == "__main__":
     import sys
-    sys.exit(pytest.main(["-q", "-p", "no:cacheprovider", os.path.abspath(__file__), "-k", "fig10"]))
+    sys.exit(pytest.main(["-q", "-p", "no:cacheprovider", os.path.abspath(__file__)]))

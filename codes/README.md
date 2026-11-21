@@ -34,25 +34,29 @@ matplotlib 3.9.2.
 
 ## Contents
 
-Producers (write `*_values.json` + figures):
+Producers (each writes a values JSON `<script name>_values.json` and its figures, except where a comment says
+otherwise; `designG_bifurcation_v2.py` writes `designG_extinction_bif_values.json` and
+`designG_bifurcation_values.json`):
 
     designG_dynamics_v4.py            # U1-U4: lambda_perp=ln(nu1/4), TERMINAL extinction fractions,
                                       #        coexistence/Jury band, sensitivity, finite-amp, exact-skew
     designG_ergodic_quadrature_v2.py  # arcsine moments, equilibrium potential -ln4,
                                       #        sub-action ln(3/4), periodic enumeration, I-family
     designG_bifurcation_v2.py         # mu0 sweep at nu1=2.1: Figure 10 (prey, predator, the orbit's exponents) + the companion M0 exponents (Figure S3)
-    designG_onset_ensemble_v1.py      # 24-seed x 3-resolution onset ensemble (the onset numbers of Section 6 and Supplementary Section S12)
+    designG_onset_ensemble_v1.py      # 24-seed x 3-resolution onset ensemble (the onset numbers of Section 6 and Supplementary Section S12);
+                                      #        writes designG_onset_ensemble_v1.json, no figure
     designG_invasion_exponents_v1.py  # closed-form invasion exponents vs nu1 (arcsine, period-3,
                                       #        mu0=2 control, mean-variance bound): the controlled-comparison figure
     designG_stable_leaf_v1.py         # stable-leaf / matched-product ILLUSTRATION (2026-10-21): the local stable
                                       #        leaf through an axis point as the fixed point of the manuscript's
                                       #        Lyapunov--Perron operator, and cor:rare-predator's matched product;
                                       #        not an instance of the theorem (see the section below)
-    designG_schematics_v2.py          # schematic figures (2026-10-17 redesign)
+    designG_schematics_v2.py          # schematic figures (2026-10-17 redesign); figures only, no values JSON
     designG_quasiperiodic_v2.py       # Figures 13-14 phase portraits + spectrum; S10 U5 quasiperiodic diagnostics
     certify_period_two_v1.py          # exact rational interval certificate of the attracting two-cycle at
                                       #        (mu0, nu1) = (4, 46/25) [prop:two-cycle] + numerical basin fraction
-                                      #        and nu1 scan (standard library for the certificate; numpy for the scan)
+                                      #        and nu1 scan (standard library for the certificate; numpy for the scan);
+                                      #        writes designG_period_two_certificate_v1.json, no figure
     designG_dynamics_v3.py            # SUPERSEDED first-passage producer, kept as the record of what was computed
                                       #        for the July 2026 version of the manuscript; not run by run_designG_figs.sh and not to be
                                       #        used to reproduce this paper (its output: data/designG/superseded/)
@@ -65,12 +69,12 @@ If Figure 10 leaves no room for its insets (they sit where the orbit rests at th
 Validator + reproduction:
 
     validate_designG_v1.py            # claim/JSON/figure/manifest validator (smoke|full modes)
-    reproduce_designG_v1.py           # proves the SUBMITTED numbers reproduce (see below)
+    reproduce_designG_v1.py           # checks that the producer numbers reproduce (see below)
 
 Claim inventories, report, manifest, data:
 
     current_claims_designG_v1.json    # validator-native claim inventory (98 claims, 94 of them
-                                      #        quoted in the manuscript and quote-checked; refreshed 2026-11-12)
+                                      #        quoted in the manuscript and quote-checked; refreshed 2026-11-21)
     submitted_claims_designG_v1.json  # FROZEN inventory of the 77 quoted numbers of the July 2026 version of the manuscript
                                       #        (regression reference for reproduce_designG_v1.py; it still lists claims no longer
                                       #        in the manuscript, the row numbers in its notes refer to the validation report
@@ -99,12 +103,21 @@ SHA-256, and an edited literal is refused).
 
 `test_designG_v4.py` resolves the scripts it exercises through `codes/.designg_bindings.sh`
 rather than hard-coding names, so that file must be **sourced with export** first;
-without it the tests abort with `DYN not exported` (`validate_designG_v1.py` reads only
-its own `DESIGNG_*` variables, listed below). From the bundle root:
+without it the tests abort with `DYN not exported` (`validate_designG_v1.py` reads its own
+`DESIGNG_*` variables, listed below, and, for the quasiperiodic source file, `LATEST_QP_VALUES` of the
+bindings when `DESIGNG_QP_SOURCE` is unset). Eleven of the 75 tests run the validator or its
+quotation check and read the manuscript's seven `*_clean.tex` section files in the bundle root
+(see "I/O contract" below): with these files there all 75 pass; without them those eleven fail
+and the other 64 pass. From the bundle root:
 
     set -a; source codes/.designg_bindings.sh; set +a
     python3 -m pytest codes/test_designG_v4.py codes/test_designG_bifurcation.py codes/test_designG_invasion_exponents.py codes/test_designG_stable_leaf.py -q
                                                       # 75 passed (38 + 25 + 4 + 8), ~5 min, CPU only
+
+The bindings hold paths that begin with `codes/`, so they resolve from the bundle root only; from
+inside `codes/` run the two commands in a subshell,
+`(cd .. && set -a && . codes/.designg_bindings.sh && set +a && python3 -m pytest codes/test_designG_*.py -q)`,
+and install with `python3.10 -m venv ../.venv; . ../.venv/bin/activate; pip install -r requirements.txt`.
 
 The 2026-10-18 additions are targeted regression tests with independent oracles: the
 initial-condition archive round-trip and a one-ULP tamper, the exceptional-seed
@@ -158,9 +171,19 @@ variables explicitly, so a README run never relies on those defaults:
 The validator requires six vars, `DESIGNG_VALIDATE_IN`, `DESIGNG_VALIDATE_FIGDIR`,
 `DESIGNG_CLAIMS_IN`, `DESIGNG_REPORT_OUT`, `DESIGNG_VALJSON_OUT` and `DESIGNG_MANIFEST`
 (it exits with status 2 if one is unset), and reads four optional ones:
-`DESIGNG_VALIDATE_MODE` (smoke|full; default full), `DESIGNG_TEXDIR` (default: the bundle
-root, where the `*_clean.tex` files live), and `DESIGNG_VALIDATE_SCOPE` and
-`DESIGNG_VALIDATE_STRICT`, both described below.
+`DESIGNG_VALIDATE_MODE` (smoke|full; default full), `DESIGNG_TEXDIR` (the directory that holds
+the manuscript's seven `*_clean.tex` section files; default: the bundle root), and
+`DESIGNG_VALIDATE_SCOPE` and `DESIGNG_VALIDATE_STRICT`, both described below.
+The section files are `abstract`, `introduction`, `methods`, `resultsAndDiscussions`,
+`conclusions`, `supplementary` and `reportOnAITools` `_clean.tex`. The companion repository does
+not hold them: there, set `DESIGNG_TEXDIR` to a directory that does before running the validator
+(without them it exits with status 1), and copy them into the repository root for the eleven
+tests that read them. The producers, `run_designG_figs.sh` and `reproduce_designG_v1.py` do not
+read them.
+For its regime check of the quasiperiodic record the validator resolves the record's source file as
+the producer does: the first existing file among `DESIGNG_QP_SOURCE`, `LATEST_QP_VALUES` (set by
+the bindings) and `data/designG/designG_quasiperiodic_values.json`; the `mu0` and `nu1` read
+from it must be finite numbers.
 Two gates read the manuscript itself. The manifest gate refuses an empty
 manifest and requires, for every figure the manuscript includes
 (`\includegraphics{figures/...}` in `*_clean.tex`), a row whose path is that
@@ -182,8 +205,10 @@ complete signed numbers in the TeX forms it supports (an optional minus across
 whitespace, line breaks, thin spaces or `~`; a mantissa, whose thousands may be grouped
 by the TeX separator `{,}`, so that `40{,}000` is the one number 40000 and never an
 occurrence of 40; an exponent written as `\times 10^{b}`, `\cdot 10^{b}` with an
-optional sign on `b`, or e-notation): a sign before a number and a decimal,
-thousands-group or exponent continuation after it do not count as a match, and
+optional sign on `b` (the multiplication sign bare or in braces, `{\times}`), or e-notation):
+a sign before a number and a decimal,
+thousands-group or exponent continuation after it do not count as a match, nor do the digits
+of an exponent (the 40 of `1e40`, `10^{40}` or `1\times10^{40}`), and
 `test_designG_v4.py` keeps these mutations as negative controls (the grouped form since
 2026-10-24). The coverage audit is
 gated too: a row that calls a number claim-covered must cite a claim that checks that
@@ -192,7 +217,13 @@ must still carry that number (a stale line number fails the run instead of passi
 and every numeric token of a row's literal must be found on at least one listed line.
 This is a presence/occurrence check of the quoted number in
 the section file -- it does not bind the number to a particular sentence or
-label -- and it is stated as such. In full mode both gates block.
+label -- and it is stated as such. A claim may in addition pin the text of a line
+(`pinned_text`: section file, line number and a piece of that source line, verbatim); the run
+fails with the status `SITE_CHANGED` when the line no longer prints it. One claim does:
+`lambda_perp_nu1_4`, whose closed-form value at nu1 = 4 is printed as the cell `$0$` of Table S4
+(a one-digit integer, outside the reach of the count) and as `0.0000` in the table of the measured
+exponents; the token `0.0000` that it counts in the Supplement is also the printed form of
+extinction and sensitivity fractions there, so its count alone names no site. In full mode both gates block.
 
 Three further rules were added on 2026-10-18:
 
@@ -267,8 +298,6 @@ The last additions of 2026-10-18 close the remaining shortcuts:
   exists to catch a printed number left out of the audit. Source that writes a number through other
   constructs is outside its contract. It misreads the following forms in a way that can let an
   uncovered number pass:
-  - a multiplication sign in braces (`5{\times}10^{-3}`, `5{\cdot}10^{-3}`), which is read as the
-    factor (here 5, outside the scope) followed by the bare power `10^{-3}`;
   - after `\times` or `\cdot`, an exponent with a space or a decimal point among its digits
     (`\times10^{0 9}`, `\times10^{0.5}`), and any exponent that is nested or spans lines
     (`10^{\frac{1}{2}}`);
@@ -282,19 +311,19 @@ The last additions of 2026-10-18 close the remaining shortcuts:
     the automatic numbers of sections, theorem environments, equations, figures, tables, list items
     and pages (the scan expands no macro); and catcode changes, which it does not interpret.
 
-  The delivered section files use the first of these forms on four lines of `supplementary_clean.tex`
-  and none of the others (checked 2026-11-12): line 2517 prints the grid resolutions `5{\times}10^{-3}`
-  and `2{\times}10^{-3}` of the onset ensemble, which the scan reads there as `10^{-3}` (audit row A253
-  records this), and lines 2649-2651 (Table S8) print the horizon `7.5{\times}10^4`, which it reads
-  there as `10^4`. On those lines these numbers are not read as printed; the two resolutions are read
-  as printed on line 2522, and the horizon on lines 2200, 2415, 2453 and 2612. The only command defined
+  The delivered section files use none of these forms (checked 2026-11-12). A multiplication sign in
+  braces (`5{\times}10^{-3}`, `7.5{\times}10^4`), which four lines of `supplementary_clean.tex` use
+  (line 2517, the grid resolutions of the onset ensemble; lines 2649-2651, the horizon of Table S8), is
+  read as the number it prints, one number and not a factor followed by a power of ten, and an edit
+  of one of those numbers fails the audit. The only command defined
   in the document that they call is `\suppref` (`preamble_local.tex`), which prints its second argument
   as written; the theorem environments declared in `main.tex` and `supplementary.tex` add no number
   other than their automatic numbers.
 - **A Wilson record carries its sample.** `n_total` and `n_censored` are required and
   n = n_total - n_censored; a claim that names its expected interval method fails on any other.
 - **A smoke record is not a full record.** A full validation fails a QP record whose provenance says
-  it came from a smoke run.
+  it came from a smoke run, by either of its two indicators (`qp_source_status` equal to `smoke`,
+  or `smoke` not `false`).
 
 The onset-ensemble numbers quoted in Section 6 and the Supplementary Material (medians, ranges and the plotted seed's
 onsets at the three resolutions) and the two-cycle certificate numbers are value-checked by
@@ -305,7 +334,9 @@ direct claims against `designG_onset_ensemble_v1.json` and
 
 From `codes/` (from the bundle root: `cd codes`). The dynamics smoke run writes its figures and data
 and then exits with status 1: with its reduced counts several of its small-sample diagnostics do not pass,
-which is expected and is not an acceptance test (the smoke validation of the third command passes):
+which is expected and is not an acceptance test (the smoke validation of the third command passes; where
+the `*_clean.tex` files are not in the bundle root, put `DESIGNG_TEXDIR=/path/to/them` before it, as before
+the validator command of the FULL sequence):
 
     S=$(mktemp -d)
     DESIGNG_FIGDIR="$S" DESIGNG_DATADIR="$S" DESIGNG_MANIFEST="$S/manifest.md" \
@@ -320,8 +351,7 @@ which is expected and is not an acceptance test (the smoke validation of the thi
 ## FULL reproduction of the submitted numbers (non-smoke)
 
 Regenerate every producer JSON + figures, validate all blocks, and confirm the
-submitted numbers reproduce. Run from `codes/` (from the bundle root: `cd codes`), the
-directory the shipped record was produced in:
+submitted numbers reproduce. Run from `codes/` (from the bundle root: `cd codes`):
 
     S=$(mktemp -d); mkdir -p "$S/data" "$S/figs"
     # every manuscript figure + its values JSON + manifest rows (dynamics, ergodic,
@@ -333,7 +363,9 @@ directory the shipped record was produced in:
       PYTHON="$(command -v python)" bash run_designG_figs.sh
 
     # (a) validator, all blocks, against the tracked anchors/invariants (strict: a
-    #     tracked claim that still requires a manuscript change fails the run):
+    #     tracked claim that still requires a manuscript change fails the run). It reads the
+    #     manuscript's *_clean.tex files in the bundle root; if they are elsewhere, add
+    #     DESIGNG_TEXDIR=/path/to/them to the variables of this command:
     DESIGNG_VALIDATE_MODE=full DESIGNG_VALIDATE_STRICT=1 \
       DESIGNG_VALIDATE_IN="$S/data" DESIGNG_VALIDATE_FIGDIR="$S/figs" \
       DESIGNG_CLAIMS_IN=current_claims_designG_v1.json \
@@ -346,15 +378,17 @@ directory the shipped record was produced in:
 
 Step (a) reads the outputs of the producer step. Run instead on the shipped `data/designG/`
 reference (`DESIGNG_VALIDATE_IN=data/designG DESIGNG_VALIDATE_FIGDIR=../figures`, with no producer
-step before it), the validator prints `structural=FAIL readiness=FAIL strict=on` (exit 1). Two of
-its eight gates fail because no producer run preceded it: `manifest`, since the manifest is written
-by a producer run, and `completeness`, since `designG_lambda_convergence.png` and
-`designG_exact_skew.png`, two figures the producer draws and the manuscript does not use, are not
-shipped. The other six gates report OK, and none of the 98 checks fails (67 PASS and 31
-OK_NONBLOCKING).
+step before it), the validator prints `structural=FAIL readiness=FAIL strict=on` (exit 1). The
+`manifest` gate fails because no producer run preceded it: the manifest is written by a producer
+run. Where `../figures` holds the manuscript's figures only, the `completeness` gate fails as well,
+since `designG_lambda_convergence.png` and `designG_exact_skew.png`, two figures the producer draws
+and the manuscript does not use, are then absent; the `figures/` directory of the companion
+repository holds both, and there `completeness` reports OK. The other gates report OK (given the
+`*_clean.tex` files), and none of the 98 checks fails (67 PASS and 31 OK_NONBLOCKING).
 
 `reproduce_designG_v1.py` checks four things and reports a fifth: (A) a deterministic
-regression -- every numeric leaf of each regenerated producer JSON (the nine result
+regression -- every numeric leaf, outside the volatile keys (provenance blocks, times, host and
+path fields, the run times `wall_s`; `VOLATILE_KEYS` in the script), of each regenerated producer JSON (the nine result
 files of the manuscript figures and data: dynamics, quasiperiodic, ergodic quadrature,
 onset ensemble, invasion exponents, the mu0-sweep onset file and the nu1-sweep window file, the stable-leaf
 illustration, and the two-cycle certificate) matches the shipped `data/designG/` reference within tolerance
@@ -372,18 +406,22 @@ resolution -- each machine-parseable `json_source_field` in the frozen
 regenerated JSON and compared with the recorded value; (B) fails unless the file holds these 77
 entries and 65 of them resolve (`--expect-claims ENTRIES RESOLVED` states the counts of another
 inventory). The remaining 12 entries
-are derived or hand-annotated quantities that (B) does not value-check; they are
-covered only by the regression in (A). (A') compares every boolean leaf of the same files
+are derived or hand-annotated quantities whose recorded values no part of this program
+checks: (A) compares the producer fields they are derived from, not the derivations, and the
+program prints their number as `annotated(not value-checked)`. (A') compares every boolean leaf of the same files
 exactly (pass flags, stability and chaos labels, certificate checks), and (D) requires, on
 both sides, that the result records report success: the two-cycle certified with every
 check ok, every exact-skew collapse guard ok, the enumeration complete with zero
 least-period count mismatches (numeric agreement alone had passed records stating that a
-certificate or a guard failed). (C) is informational: for the two random
-sensitivity configurations it reports whether the regenerated run used the SAME
-initial conditions as the shipped run (`STRICT`: the archive was loaded, so (A) is a
-strict dataset regression) or different ones (`PLATFORM`: a fresh draw or a resample
-whose inputs differ at the floating-point level), so the reader knows which comparison
-(A) performed. Neither (A) nor (B) reads the current manuscript:
+certificate or a guard failed). (C) is informational: for each of the two random
+sensitivity configurations it compares the SHA-256 of the initial conditions that the
+regenerated run used with that of the shipped run. `STRICT`: both records carry a valid
+digest and the two are equal, so (A) is a strict dataset regression (the archive was loaded,
+or a fresh draw gave the same bytes). `PLATFORM`: both are valid and differ (a fresh draw or a
+resample whose inputs differ at the floating-point level). `UNAVAILABLE`: a record or a valid
+digest is missing on one side. The run's verdict is `PLATFORM` if any configuration is, else
+`UNAVAILABLE` if any is, else `STRICT`; how the inputs were obtained is the record's `source`
+field, printed on the same line. Neither (A) nor (B) reads the current manuscript:
 agreement between the manuscript text and the producer JSON is the job of
 `validate_designG_v1.py` (claim anchors + the quote gate above).
 
@@ -394,14 +432,19 @@ seeds from `numpy.random.default_rng(20260709)`; the log-uniform predator seeds 
 `10**u` via `np.power`, which NumPy dispatches to a CPU-feature-specific kernel. An
 external measurement found that on an AVX-512 host 11,147 of the 40,000 predator
 seeds differ by one unit in the last place from the values obtained with the scalar
-libm path (which the authors' AVX2 host uses, and which `NPY_DISABLE_CPU_FEATURES=
-AVX512F,AVX2,FMA3` reproduced on that AVX-512 host); three of the 19,022 valid
+libm path (which the authors' AVX2 host uses, and which
+`NPY_DISABLE_CPU_FEATURES=AVX512F,AVX2,FMA3`
+reproduced on that AVX-512 host); three of the 19,022 valid
 trajectories then change terminal classification and the extinct count at nu1 = 3
 reads 5189 instead of 5188. Version pins alone therefore do not fix these inputs.
 The producer now LOADS the archived arrays (`data/designG/ics/`, verified against
 their sidecar sha256) by default and records, under
 `sensitivity.<config>._params.ic_provenance`, what it used, the fresh draw's ULP
-distance from the archive and the NumPy CPU-dispatch state of the run.
+distance from the archive and the NumPy CPU-dispatch state of the run that computed the
+configuration. A configuration reused from a checkpoint (below) keeps the record of the run
+that computed it, so a bare `run_designG_figs.sh`, which reuses the shipped checkpoint, shows
+the authors' host there; the FULL recipe starts from a fresh directory and records the host
+it runs on.
 `DESIGNG_IC_MODE=resample` uses the fresh seeded draw instead (a statistical
 comparison, platform-dependent at the ULP level); `DESIGNG_IC_ARCHIVE_DIR` points the
 loader at another archive. A resumed run (a checkpoint
@@ -417,25 +460,27 @@ total; the Wilson interval of the terminal count for a random configuration and 
 otherwise that
 configuration is recomputed, so `DESIGNG_IC_MODE=resample`
 always resamples (the FULL recipe starts from a fresh directory and never resumes).
-Three things are kept apart: the fixed-input regression (archive loaded), the resampled
-statistical comparison (Wilson intervals), and the mathematics, which none of this
-touches.
+Two things are kept apart: the fixed-input regression (archive loaded) and the resampled
+statistical comparison (Wilson intervals).
 
 The shipped validation record -- `report_calculation_v2.md` and
 `data/designG/validation_designG_v1.json` -- is the validator's `$S/report.md` and `$S/val.json`
 from step (a) above. Two separate runs stand behind it. The producer step of the FULL sequence
-was run from `codes/` on 2026-11-10 (UTC). The validator was run afterwards on those producer
+was run on 2026-11-10 (UTC) from the authoring tree's copy of `codes/`. The validator was run afterwards on those producer
 outputs, with the claims inventory re-pinned to the text of this version (its main text and
 Supplementary Material) and in its latest amended state, so that the record's manuscript line
 references match the shipped text; the record states the time of that validation run,
-2026-11-14T04:59:50.983119+00:00 (its `_meta.generated`, repeated on line 3 of
+2026-11-21T19:03:23.572936+00:00 (its `_meta.generated`, repeated on line 3 of
 `report_calculation_v2.md`). Every value, status and gate in it equals that of the record of
 2026-10-24, run on the outputs behind the shipped `data/designG/` reference (whose dynamics and
 ergodic values files were regenerated later with every result unchanged; see the next two
-paragraphs); only the manuscript
-quotation sites (file, line, printed form and number of occurrences), the audit-row counts and the
-tolerances of six count ratios (the five extinction fractions of Table S6 and the base fraction at
-nu1 = 2 of Table S7, which this version checks at the resolution of their grids) differ. Its
+paragraphs). What differs is the inventory's account of the manuscript, not a result: the
+quotation sites (file, line, printed form and number of occurrences, and the two pinned lines of
+`lambda_perp_nu1_4`), the audit rows (their number, and the descriptions and dispositions of the
+rows revised since then; for instance the contraction bound 1.3e-7 of the two-cycle certificate
+is recorded as the rounded ceiling of a computed field) and
+the tolerances of six count ratios (the five extinction fractions of Table S6 and the base fraction at
+nu1 = 2 of Table S7, which this version checks at the resolution of their grids). Its
 header paths are printed verbatim. The runner writes its log next to the
 manifest (`$S/run_designG_figs.log`): the documented FULL sequence writes its scientific
 outputs, manifest, validation reports and runner log into the scratch directory, while
@@ -466,12 +511,15 @@ they replaced, and its two `.json` descriptions differ from theirs only in `writ
 read 2026-10-17T16:44:08.873241 (`ic.runif`) and 2026-10-17T16:44:08.875720 (`ic.rlogy`) and now
 read 2026-11-12T14:23:12.027586 and 2026-11-12T14:23:29.172145. The superseded
 `designG_dynamics_v3.py` ended its note with the same sentence and now reads the same way; its
-archived output in `data/designG/superseded/` was not regenerated and keeps the earlier sentence. On 2026-11-14 the provenance entry `round` was removed from the four values files that carried it (this file, the ergodic and the quasiperiodic values file and that archived output), one line each; no other byte changed, and no file was regenerated for it. On the same day two note strings of this file were changed by hand to read as `designG_dynamics_v4.py` now writes them (lines 191 and 2318: `legacy_first_passage_note`, which now gives the terminal count that Remark S12.1 of the Supplement prints at nu1 = 2, and the note of the check "overall max y (nu1<=4) <= 1"), and that archived output was changed by hand to what `designG_dynamics_v3.py` now writes (the note of the same check; the two entries `spec_figure_nu1_2` and `spec_figure_note` deleted, two lines: they held a figure that the manuscript does not print, not a result of the run); no computed value changed, and no file was regenerated for it.
+archived output in `data/designG/superseded/` was not regenerated and keeps the earlier sentence. On 2026-11-14 the provenance entry `round` was removed from the four values files that carried it (this file, the ergodic and the quasiperiodic values file and that archived output), one line each; no other byte changed, and no file was regenerated for it. On the same day two note strings of this file were changed by hand to read as `designG_dynamics_v4.py` now writes them (lines 191 and 2318: `legacy_first_passage_note`, which now gives the terminal fraction that Remark S12.1 of the Supplement prints at nu1 = 2, and the note of the check "overall max y (nu1<=4) <= 1"), and that archived output was changed by hand to what `designG_dynamics_v3.py` now writes (the note of the same check; the two entries `spec_figure_nu1_2` and `spec_figure_note` deleted, two lines: they held a figure that the manuscript does not print, not a result of the run); no computed value changed, and no file was regenerated for it. Four other note strings of this file were also changed by hand to read as `designG_dynamics_v4.py` writes them: `legacy_first_passage_note` (it calls 0.2269 and 0.2294 fractions and gives their counts, 817 and 826 of 3600), and the notes of the three checks "extinction fraction small" (they state the criterion measured, y < 0.001 over the last 1000 of 20000 iterates); no computed value changed, and no file was regenerated for it.
 
 `designG_ergodic_quadrature_v2_values.json` was regenerated on 2026-11-12 (UTC) as well, after the
 producer's `provenance.honesty` note was made to say what the note it prints says. It read
 "Closed forms (arcsine density, I(4)=-2ln2, nu1*(4)=4) are mu0=4-specific; nu1*(mu0) for mu0<4 is
-a per-parameter orbit average"; it now says that these three hold at mu0=4 only, that nu1*(mu0) has
+a per-parameter orbit average"; it now says that the arcsine density holds at mu0=4 only and gives
+I(4)=-2ln2 and nu1*(4)=4 there (the two values are not peculiar to mu0=4: the attracting fixed
+point 1/4 of mu0=4/3 gives the same two; this sentence of the note was reworded by hand in the
+producer and in this file after that regeneration), that nu1*(mu0) has
 a closed form on an attracting cycle of the prey (mu0/(mu0-1) for 1<mu0<=3, mu0/sqrt(mu0+1) for
 3<mu0<=1+sqrt6), and that the six values at mu0=3.60 to 3.99 are orbit averages. The file it
 replaced was produced on 2026-10-21. Apart from the provenance block (its time, that note and the
@@ -531,5 +579,5 @@ with status 1.
 
 The same bundle is published in the companion repository
 `github.com/weishanlee/LotkaVolterraChaos-DesignG-Extinction` (its `codes/` is this
-directory, its `figures/` the producers' outputs); `code_availability.md` lists what
-ships with the submission.
+directory without `code_availability.md`, its `figures/` the producers' outputs), where the
+code and data are openly available.

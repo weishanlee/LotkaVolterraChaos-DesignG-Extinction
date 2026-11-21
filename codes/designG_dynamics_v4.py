@@ -112,7 +112,11 @@ block; the default runs the full pipeline (all blocks) -> ``DESIGNG_DATADIR``.
 # direction. It OVER-counts dip-and-recover orbits, and UNDER-counts orbits
 # converging to 0 too slowly to reach eps within the horizon -- the latter
 # worsening as nu1 -> 4, exactly where ln(nu1/4) -> 0. Because the two errors
-# oppose, the direction of v4's change could not be predicted in advance.
+# oppose, its distance from the asymptotic fraction has no known sign. The
+# change from v3 to v4 does have one: at the same threshold, horizon and sample an
+# orbit that stays below eps over the terminal window has passed below eps, so the
+# terminal count is never above the first-passage count (817 against 826 of 3600
+# at nu1 = 2); only the size of the decrease is a measurement.
 # The paper quotes what this script computes.
 # v3's fractions (nu1=2:0.2294, 3:0.0289, 4:0.0172) are
 # first-passage values and are retained only as `fraction_first_passage`.
@@ -171,7 +175,7 @@ _SENS_SEED = 20260709
 # Per-CELL wall-clock budget (one (config, nu1) cell). The plan's runtime envelope
 # has the heaviest cell (400^2 x 1e4 ~ 1.6e9 map-steps) at ~30-60 s, well under this
 # 300 s ceiling, so NO fallback fires at nominal params (fractions stay submission
-# grade). Env-overridable so the controller's Step-5 run can tune it.
+# grade). Env-overridable (DESIGNG_SENS_BUDGET_S).
 _SENS_BUDGET_S_DEFAULT = 300.0
 # Conservative numba map-step rate for the deterministic pre-run estimate (real
 # rate ~3.5e7/s; using 3e7 makes the estimate slightly pessimistic -> the fallback
@@ -1277,7 +1281,7 @@ def check_lambda_hat(
     mlnx, sem_lnx, n_acc, n_noncol, n_tot = _logistic_lnx_ensemble(mu0, n_burn, n_keep, window, n_ic)
     # Gate is LOAD-BEARING and the per-trajectory 5000-window stability gate is genuinely
     # enforced inside the ensemble (it rejects unstable non-collapsed orbits, n_acc < n_noncol).
-    # The estimate is certified only if a MAJORITY of the TOTAL ensemble did not collapse
+    # The estimate is certified only if AT LEAST HALF of the TOTAL ensemble did not collapse
     # (a run dominated by collapse is not a trustworthy SRB average even if the few survivors
     # look stable), AND a healthy fraction of the non-collapsed trajectories pass the per-traj
     # stability gate, AND the across-ensemble standard error is small vs the 2e-2 validation tol.
@@ -1382,8 +1386,8 @@ def check_extinction_fraction(
         "eps_ladder": [float(e) for e in _EXT_EPS_LADDER],
         "legacy_first_passage_nu1_2_v3": 0.2294,
         "legacy_first_passage_note": (
-            "rmk:three-regime-numeric quotes the terminal count 0.2269 at nu1=2; v3 gave 0.2294 "
-            "under its own protocol, a FIRST-PASSAGE count (v3 broke at the "
+            "rmk:three-regime-numeric quotes the terminal fraction 0.2269 (817 of 3600 orbits) at nu1=2; v3 gave 0.2294 "
+            "under its own protocol, a FIRST-PASSAGE fraction (826 of 3600; v3 broke at the "
             "first y<eps). It is history, not a target: at the same horizon and "
             "threshold a first-passage count is never below the terminal count, and "
             "neither bounds the asymptotic extinction fraction in either direction."
@@ -1460,7 +1464,7 @@ def check_extinction_fraction(
                 ),
             )
         )
-    # nu1 >= 2: SMALL fraction (coexistence dominates). One-sided 'is small' check.
+    # nu1 in {2, 3, 4}: SMALL fraction. One-sided 'is small' check.
     # The ceiling is a NAMED grid-robustness margin, NOT a tight point assertion --
     # the value is grid/horizon-dependent basin geometry, not a theorem constant.
     # v4 RECALIBRATION: 0.30 was calibrated against v3's FIRST-PASSAGE 0.2294. The
@@ -1478,7 +1482,8 @@ def check_extinction_fraction(
                 tol=1e-9,
                 # The paper proves a positive-area, not a full-measure, extinction set
                 # (thm:basin-positive).
-                note=f"frac={fracs[nu1]:.4f} <= {SMALL_FRAC_CEILING} (coexistence dominates above 4/3; finite-grid, not global)",
+                note=(f"frac={fracs[nu1]:.4f} <= {SMALL_FRAC_CEILING} (terminal criterion: y < {eps:g} over the last "
+                      f"{_eff_tail(horizon)} of {horizon} iterates; a finite grid; where the other orbits go is not recorded)"),
             )
         )
     # v4 REGRESSION GUARD: the same orbits, classified v3's way, must still reproduce
@@ -2609,13 +2614,13 @@ def _run_one_exact_skew_nu1(nu1: float, sched: Dict[str, object]) -> Dict[str, o
 def run_exact_skew(args: argparse.Namespace) -> Tuple[List[object], Dict[str, object]]:
     """U4 (Task B4) block: exact axis transverse-variational lambda_perp = ln(nu1/4).
 
-    Title (task brief): "quadrature primary (BLOCKING) + orbit cross-check" --
+    Quadrature primary (BLOCKING) + orbit cross-check:
     unlike U2/U3 (run_sensitivity / run_finite_amplitude, both explicitly
     non-blocking, contribute zero Check rows), THIS block DOES emit a real
     PASS/FAIL Check per nu1: abs_err <= 1e-6 AND collapse_guard_ok (the
     ``chk.passed = chk.passed and gate_ok`` idiom already used by
     check_lambda_hat elsewhere in this file).  The orbit cross-check (tol 2e-2,
-    "descriptive... NOT part of the 1e-6 blocking gate") is emitted as an
+    descriptive, not part of the 1e-6 blocking gate) is emitted as an
     INFORMATIONAL raw-dict row instead (U1's continuous_rows idiom in
     check_extinction_fraction), excluded from PASS/FAIL accounting by main()'s
     isinstance(c, Check) guard.
@@ -2660,7 +2665,7 @@ def run_exact_skew(args: argparse.Namespace) -> Tuple[List[object], Dict[str, ob
 
         # SECONDARY/descriptive orbit cross-check: informational dict row (U1's
         # continuous_rows idiom), NOT a Check -- explicitly excluded from PASS/FAIL
-        # accounting per the task brief ("NOT part of the 1e-6 blocking gate").
+        # accounting (not part of the 1e-6 blocking gate).
         rows.append({
             "label": f"orbit_cross_check_nu1_{nk}".replace(".", "p"),
             "orbit_cross_check_abs_diff": cell["orbit_cross_check_abs_diff"],
@@ -2838,7 +2843,7 @@ def make_figures(rec: Dict[str, object], figdir: str) -> List[str]:
     # Supplementary Figure S2 (U2, Task B2): extinction-fraction sensitivity across the C0-C10
     # configs, per nu1, with Wilson 95% error bars on the random-IC configs only
     # (deterministic grids are exact -> no error bar). Under --smoke this is a sparse
-    # PNG (few configs, single nu1); the full-data figure comes from the Step-5 run.
+    # PNG (few configs, single nu1); the full-data figure comes from the full run.
     if "sensitivity" in rec:
         sens = rec["sensitivity"]
         cfg_keys = [k for k in sens.keys() if not k.startswith("_") and k != "convergence_band"]
@@ -2999,20 +3004,13 @@ def _preflight() -> None:
     That is an AUTHOR-LOCAL path, so the check made the bundle's own README fail as
     written: the README says to build a fresh ``python3.10 -m venv .venv`` and then
     run ``python3 designG_dynamics_v4.py``, which supplies neither flag, so every
-    third-party reproduction aborted with "local run requires ~/.venv/nolds". A
-    reproduction package whose documented commands cannot run is not a reproduction
-    package.
+    third-party reproduction aborted with "local run requires ~/.venv/nolds".
 
-    Removing the path check costs the author nothing, which is why it goes rather
-    than being papered over in the README: the wrong-environment case it existed to
-    catch is ALREADY caught, strictly earlier, by the version pins. The only other
-    interpreter on this machine (``~/.venv/ml_31123121``, the CUDA env) is Python
-    3.11.0 / numpy 2.3.4 / numba 0.62.0 -- it fails the Python-version line above
-    before the path was ever consulted. The path check was pure redundancy for the
-    author and a hard blocker for everyone else.
+    The wrong-environment case that the path check existed to catch is caught,
+    strictly earlier, by the version pins above.
 
-    ``LV_LOCAL=1`` restores the author-only path assertion for anyone who wants the
-    belt-and-braces back. ``--public``/``LV_PUBLIC=1`` remain accepted and are now
+    ``LV_LOCAL=1`` restores the author-only path assertion. ``--public``/``LV_PUBLIC=1``
+    remain accepted and are now
     NO-OPS, kept so existing documented commands and scripts do not break.
     """
     import numpy, numba as _numba  # local import: keep module import-safe pre-preflight
@@ -3222,7 +3220,7 @@ def main(argv: List[str] | None = None) -> int:
     parser.add_argument("--smoke", action="store_true", help="tiny/reduced run, full schema -> <name>_smoke.json")
     parser.add_argument("--only", choices=sorted(_BLOCK_NAMES), default=None, help="run a single named block")
     parser.add_argument("--public", action="store_true",
-                         help="relax preflight to the public/lockfile check (companion-repo clone)")
+                         help="accepted for compatibility; has no effect (the preflight checks the pinned versions on every run)")
     args = parser.parse_args(argv)
 
     # Keep the lambda stability gate non-vacuous. The per-trajectory gate needs at least

@@ -163,7 +163,7 @@ def invariant_circle_residual(xs, ys, x0, y0, n_bins=360):
 
 def fft_peak_snr(r):
     """P = |rfft(r - mean(r))|^2; fft_peak_snr = max(P[1:]) / median(P[1:])
-    (the DC bin P[0] is excluded from both, per the Task B5 brief)."""
+    (the DC bin P[0] is excluded from both)."""
     P = np.abs(np.fft.rfft(r - np.mean(r)))**2
     return float(np.max(P[1:]) / np.median(P[1:]))
 
@@ -240,11 +240,10 @@ def resolve_paths(smoke: bool) -> "dict[str, str]":
 def _smoke_params() -> "dict[str, object]":
     """QP smoke: KEEPS the U5 regime mu0=3.5, nu1=4.9; reduces ONLY burn-in and sample size.
 
-    n_burn 60000(panel default)/60000(fft default) -> 500 (the plan's "5e3->500"
-    describes the eventual U5 (Task B5) full-run burn-in of 5e3, which differs
-    from this v1/v2-inherited 60000 default -- B0 does not change that default,
-    only the smoke reduction target); n_keep (panel 4000 default / fft's
-    previously-hardcoded 8192) -> 2000. The regime is not switched to mu0=4/nu1=2.
+    n_burn 60000 (the default of the panel and of the spectrum) -> 500; n_keep
+    (panel 4000 default / the spectrum's 8192) -> 2000. The U5 block of a full run
+    has its own burn-in, 5000 (see _provenance). The regime is not switched to
+    mu0=4/nu1=2.
     """
     return dict(mu0=MU0, nu1=4.90, n_burn=500, n_keep=2000)
 
@@ -268,7 +267,7 @@ def _resolve_qp_source_regime():
     come from the JSON at DESIGNG_QP_SOURCE (falls back to the LATEST_QP_VALUES
     binding -- exported by `.designg_bindings.sh` -- then to the default data path of
     either tree layout (output/data/designG in the authoring tree, codes/data/designG
-    in the submitted bundle), so a bare run without bindings sourced still works).
+    in the bundle), so the source file is found without the bindings sourced).
 
     The only source JSON that currently exists (v1's
     designG_quasiperiodic_values.json) predates an explicit "nu1" field (only
@@ -283,9 +282,10 @@ def _resolve_qp_source_regime():
     """
     # Candidates in priority order: the explicit variable, the bindings variable, then the
     # default data path of either tree layout (the authoring tree keeps its data one level
-    # above codes/, output/data/designG; the submitted bundle keeps it under codes/data/designG).
-    # The first EXISTING candidate wins, so a bindings path exported relative to the bundle
-    # root still resolves when the README FULL sequence is run from codes/.
+    # above codes/, output/data/designG; the bundle keeps it under codes/data/designG).
+    # The first EXISTING candidate wins: from codes/ (where the README FULL sequence runs), a
+    # bindings path exported relative to the root above it does not exist, and the default data
+    # path of the tree's layout is found.
     cands = [os.environ.get("DESIGNG_QP_SOURCE"), os.environ.get("LATEST_QP_VALUES"),
              os.path.join(_OUT, "data", "designG", "designG_quasiperiodic_values.json"),
              os.path.join(_HERE, "data", "designG", "designG_quasiperiodic_values.json")]
@@ -316,7 +316,7 @@ def main(argv=None):
     parser.add_argument("--only", choices=["quasiperiodic"], default=None,
                          help="run a single named block (only one exists pre-Task-B5/U5)")
     parser.add_argument("--public", action="store_true",
-                         help="relax preflight to the public/lockfile check (companion-repo clone)")
+                         help="accepted for compatibility; has no effect (the preflight checks the pinned versions on every run)")
     args = parser.parse_args(argv)
 
     paths = resolve_paths(args.smoke)
@@ -337,14 +337,15 @@ def main(argv=None):
         n_burn_fft, nfft = 60000, 8192              # v1's explicit FFT call (n_keep=8192)
 
     import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-    # Type sizes (2026-10-17; widths as of 2026-11-12): the manuscript sets the panel at 0.72 and
-    # the spectrum at 0.78 of its 6.27 in text width (the panel is 9 in wide at design size, the
-    # spectrum 8 in), so 12 pt here prints at about 6 pt in the panel and 7.3 pt in the spectrum.
+    # Type sizes (2026-10-17): the manuscript sets the panel at 0.7083 and
+    # the spectrum at 0.78 of its 6.27 in text width (the panel, drawn on a 9 in canvas, is saved with a
+    # tight bounding box: 1518 px at 200 dpi, about 7.6 in; the spectrum is 8 in wide), so 12 pt here
+    # prints at about 7.0 pt in the panel and 7.3 pt in the spectrum.
     plt.rcParams.update({"font.size": 12, "axes.titlesize": 12, "axes.labelsize": 12,
                          "xtick.labelsize": 12, "ytick.labelsize": 12,
                          "legend.fontsize": 11.5, "figure.titlesize": 13})
     cases = [(4.60, "stable focus (below $\\nu_1^{\\rm NS}$)"), (4.80, "circle (+3%)"),
-             (5.10, "circle (+9%)"), (5.50, "invariant-circle breakup")]
+             (5.10, "circle (+9%)"), (5.50, "post-transient points")]
     fig, axes = plt.subplots(2, 2, figsize=(9, 8))
     for ax, (nu1, label) in zip(axes.ravel(), cases):
         if nu1 < NU1_NS:
@@ -380,7 +381,7 @@ def main(argv=None):
         ax.set_aspect("equal", adjustable="box")
         ax.ticklabel_format(useOffset=False, style="plain")
         ax.tick_params(labelbottom=True, labelleft=True)
-    fig.suptitle(r"At $\mu_0=3.5$: focus below $\nu_1^{\rm NS}=14/3$, invariant circle above, breakup at $\nu_1=5.5$")
+    fig.suptitle(r"Phase portraits at $\mu_0=3.5$")
     fig.tight_layout()
     panel_path = os.path.join(figdir, "designG_quasiperiodic_panel.png")
     fig.savefig(panel_path, dpi=200, bbox_inches="tight", pad_inches=0.02); plt.close(fig)  # 2026-10-17: trim the white margin
@@ -394,7 +395,7 @@ def main(argv=None):
     ax.axvline(theta2pi, color="green", ls=":", lw=1.2, label=fr"linear $\theta/2\pi={theta2pi:.4f}$")
     ax.set_xlabel("frequency (cycles per iterate)"); ax.set_ylabel(r"Fourier amplitude $|X(f)|$")
     ax.set_ylim(top=200.0 * float(sp.max())); ax.legend(loc="upper right")   # head room: the legend lies above every spectral line
-    ax.set_title(r"Spectrum of $x_n-x^*$ at $\mu_0=3.5,\ \nu_1=4.9$: lines at $n\rho$")
+    ax.set_title(r"Spectrum of $x_n-x^*$ at $\mu_0=3.5,\ \nu_1=4.9$: peaks near harmonics of $\rho$")
     fig.tight_layout()
     fft_path = os.path.join(figdir, "designG_quasiperiodic_fft.png")
     fig.savefig(fft_path, dpi=200); plt.close(fig)

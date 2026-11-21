@@ -1,16 +1,16 @@
 {
  "_meta": {
-  "description": "Integrity manifest of the submission code bundle (target submit/codes; its path is relative to submit/codes) and of the companion GitHub repository weishanlee/LotkaVolterraChaos-DesignG-Extinction (target companion; its path is relative to the repository root, which mirrors the bundle as codes/ plus figures/, requirements.txt, README.md, LICENSE). Artifacts are keyed by repository path (bundle file P = repository file codes/P); every row carries sha256 + size_bytes. The manifest does not list itself.",
+  "description": "Integrity manifest of the code bundle (target bundle; its path is relative to the bundle's folder codes/) and of the companion GitHub repository weishanlee/LotkaVolterraChaos-DesignG-Extinction (target companion; its path is relative to the repository root, whose codes/ is the bundle without code_availability.md, next to figures/ (the producers' outputs), requirements.txt, README.md and LICENSE). Artifacts are keyed by repository path (bundle file P = repository file codes/P); every row carries sha256 + size_bytes. The manifest does not list itself.",
   "targets_legend": {
-   "submit/codes": "the code bundle shipped with the manuscript (CPU only)",
+   "bundle": "the code bundle (CPU only)",
    "companion": "public companion repository: the bundle as codes/ (without code_availability.md) plus figures/, requirements.txt, README.md and LICENSE"
   },
   "counts": {
    "artifacts": 68,
-   "submit_codes_rows": 42,
+   "bundle_rows": 42,
    "companion_rows": 67
   },
-  "generated_utc": "2026-11-14T10:46:14.614429+00:00"
+  "generated_utc": "2026-11-21T19:09:31.398801+00:00"
  },
  "artifacts": [
   {
@@ -31,17 +31,17 @@
    ],
    "companion": {
     "path": "README.md",
-    "sha256": "d1f2dc9baafc82bbb828d5448265d1bda2a6a7f23702949e751b451b4d8aa4a9",
-    "size_bytes": 3530
+    "sha256": "fd910ea2e80b5319a52a04321c03e462c10b5a75c4314e52518c44dfd9c20f0d",
+    "size_bytes": 3660
    }
   },
   {
    "artifact": "codes/.designg_bindings.sh",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": ".designg_bindings.sh",
     "sha256": "b052ed4382debd5ddffbce14d519c4ec9b788532b31f70d6ac63f9417bbca69a",
     "size_bytes": 688
@@ -55,27 +55,27 @@
   {
    "artifact": "codes/README.md",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "README.md",
-    "sha256": "dd38d691c4fbc17743e0d0f6c5b2088b4bce40e01d87304ced5dc2db34f1a13a",
-    "size_bytes": 42629
+    "sha256": "0e9c97b0fcbc68ff76dda61fe50d96cfdd69f6ea6870bedc8a4e5bed60bec2da",
+    "size_bytes": 47502
    },
    "companion": {
     "path": "codes/README.md",
-    "sha256": "dd38d691c4fbc17743e0d0f6c5b2088b4bce40e01d87304ced5dc2db34f1a13a",
-    "size_bytes": 42629
+    "sha256": "0e9c97b0fcbc68ff76dda61fe50d96cfdd69f6ea6870bedc8a4e5bed60bec2da",
+    "size_bytes": 47502
    }
   },
   {
    "artifact": "codes/certify_period_two_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "certify_period_two_v1.py",
     "sha256": "c68b59eaa485ed68d6fb2a34db2a4689a0121a86fe811fa43e55fd228d9f5b14",
     "size_bytes": 17181
@@ -89,38 +89,38 @@
   {
    "artifact": "codes/code_availability.md",
    "targets": [
-    "submit/codes"
+    "bundle"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "code_availability.md",
-    "sha256": "b3011adcfad3433f14e1d2cced9dfe81c6026629272a7bec1d13400b313719aa",
-    "size_bytes": 3791
+    "sha256": "0b5cd9fef5b97d1a8e77f9dfe04554c310e76d30c18b91509e891efcf1ead52b",
+    "size_bytes": 3740
    }
   },
   {
    "artifact": "codes/current_claims_designG_v1.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "current_claims_designG_v1.json",
-    "sha256": "0207467660ea020743f5ec458bc5811f9e897d8f3bfe59a8e134de78027e7cd6",
-    "size_bytes": 201197
+    "sha256": "55e0a765042ced026545e0737fb5247a386b44ac236d40a3494ca6cf86e5867e",
+    "size_bytes": 202300
    },
    "companion": {
     "path": "codes/current_claims_designG_v1.json",
-    "sha256": "0207467660ea020743f5ec458bc5811f9e897d8f3bfe59a8e134de78027e7cd6",
-    "size_bytes": 201197
+    "sha256": "55e0a765042ced026545e0737fb5247a386b44ac236d40a3494ca6cf86e5867e",
+    "size_bytes": 202300
    }
   },
   {
    "artifact": "codes/data/designG/designG_bifurcation_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_bifurcation_values.json",
     "sha256": "e40865e7437273a5c5eaccfb53711927be417a972d96993fa2476daf724639c8",
     "size_bytes": 143
@@ -134,10 +134,10 @@
   {
    "artifact": "codes/data/designG/designG_dynamics_v4_sensitivity_checkpoint.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_dynamics_v4_sensitivity_checkpoint.json",
     "sha256": "40642b6fc93084ed6c2950c2415b3101c73f4b850cfaf2232784d344a873d679",
     "size_bytes": 20435
@@ -151,44 +151,44 @@
   {
    "artifact": "codes/data/designG/designG_dynamics_v4_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_dynamics_v4_values.json",
-    "sha256": "f304c72eb3e619656273feee2892ea724a6984fa850c5495a14bcb680e6ef916",
-    "size_bytes": 88183
+    "sha256": "e3284738c5a9942ca8a48cb68d8c642b3912d397d5b3cc7b79b1ea0a75fa5a59",
+    "size_bytes": 88427
    },
    "companion": {
     "path": "codes/data/designG/designG_dynamics_v4_values.json",
-    "sha256": "f304c72eb3e619656273feee2892ea724a6984fa850c5495a14bcb680e6ef916",
-    "size_bytes": 88183
+    "sha256": "e3284738c5a9942ca8a48cb68d8c642b3912d397d5b3cc7b79b1ea0a75fa5a59",
+    "size_bytes": 88427
    }
   },
   {
    "artifact": "codes/data/designG/designG_ergodic_quadrature_v2_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_ergodic_quadrature_v2_values.json",
-    "sha256": "f1a78675e5f9a373d5b1bc3a7ed64e58af2e9c97ff56f22e13b511fb2835e485",
-    "size_bytes": 18826
+    "sha256": "a173b9a4098306a135d2a92e8708cdf552dbde18a0009ef58ecf9c9b251cd1a5",
+    "size_bytes": 18842
    },
    "companion": {
     "path": "codes/data/designG/designG_ergodic_quadrature_v2_values.json",
-    "sha256": "f1a78675e5f9a373d5b1bc3a7ed64e58af2e9c97ff56f22e13b511fb2835e485",
-    "size_bytes": 18826
+    "sha256": "a173b9a4098306a135d2a92e8708cdf552dbde18a0009ef58ecf9c9b251cd1a5",
+    "size_bytes": 18842
    }
   },
   {
    "artifact": "codes/data/designG/designG_extinction_bif_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_extinction_bif_values.json",
     "sha256": "6e4343aa25dd2b6b280424c12bfd1884f420f564fd1d2295522e187299e9d52c",
     "size_bytes": 617
@@ -202,10 +202,10 @@
   {
    "artifact": "codes/data/designG/designG_invasion_exponents_v1_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_invasion_exponents_v1_values.json",
     "sha256": "f377482cea17b20dd556d9fbf6ac8ed5b5f8df2625eb509b096469be0b80968c",
     "size_bytes": 2574
@@ -219,10 +219,10 @@
   {
    "artifact": "codes/data/designG/designG_onset_ensemble_v1.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_onset_ensemble_v1.json",
     "sha256": "6c79b5d6a6243a5d5507a9410c89d0a6eaeb0b1bb26344dffa89fbfdb0940515",
     "size_bytes": 16506
@@ -236,10 +236,10 @@
   {
    "artifact": "codes/data/designG/designG_period_two_certificate_v1.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_period_two_certificate_v1.json",
     "sha256": "9f24bc2ac0c6a4d0049de1a04722b20b4672db61e1d67f07dc762c4fb7117498",
     "size_bytes": 43641
@@ -253,10 +253,10 @@
   {
    "artifact": "codes/data/designG/designG_quasiperiodic_v2_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_quasiperiodic_v2_values.json",
     "sha256": "a6975b49ef5fc92bf048add75843dd6eb2c515e2a00c265193476ff7eef34ccd",
     "size_bytes": 1253
@@ -270,10 +270,10 @@
   {
    "artifact": "codes/data/designG/designG_quasiperiodic_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_quasiperiodic_values.json",
     "sha256": "5a0a2cd51236a4a1a2d3f3c11f6665d71ee02f137c685fddc1e978c3d22eb9a5",
     "size_bytes": 163
@@ -287,10 +287,10 @@
   {
    "artifact": "codes/data/designG/designG_stable_leaf_v1_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/designG_stable_leaf_v1_values.json",
     "sha256": "5b9ca082fd8cafc1943a85cfec1bae9d537d7b928d3277961252d3dd2bf3c920",
     "size_bytes": 42780
@@ -304,10 +304,10 @@
   {
    "artifact": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/ics/designG_ics_rlogy_N40000_seed20260709.json",
     "sha256": "57a7f972d3045a7d9f6f0bb405cfc711996511db72f25d3fa3b2390a52646fd3",
     "size_bytes": 1472
@@ -321,10 +321,10 @@
   {
    "artifact": "codes/data/designG/ics/designG_ics_rlogy_N40000_seed20260709.npy",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/ics/designG_ics_rlogy_N40000_seed20260709.npy",
     "sha256": "c8c07fbae8dfc30785954eb5c245176625276f270ea0c18a1067950d23e8848c",
     "size_bytes": 640128
@@ -338,10 +338,10 @@
   {
    "artifact": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/ics/designG_ics_runif_N40000_seed20260709.json",
     "sha256": "b61d26e653ce1de0514553ab8b21ab26c292f7728646882ab1902bb3df0a3316",
     "size_bytes": 1472
@@ -355,10 +355,10 @@
   {
    "artifact": "codes/data/designG/ics/designG_ics_runif_N40000_seed20260709.npy",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/ics/designG_ics_runif_N40000_seed20260709.npy",
     "sha256": "e88615cff1e4465e80763618ea840d0eb8c47008ae48950144a9e17c786473e1",
     "size_bytes": 640128
@@ -372,10 +372,10 @@
   {
    "artifact": "codes/data/designG/superseded/README.md",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/superseded/README.md",
     "sha256": "f888c58f00c5d5c5c7fe29a4987656fc26c066eb26676f54cc56e44670ebac33",
     "size_bytes": 1800
@@ -389,10 +389,10 @@
   {
    "artifact": "codes/data/designG/superseded/designG_dynamics_v3_values.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/superseded/designG_dynamics_v3_values.json",
     "sha256": "80cd9141c36c7e748940e221da01cac1c10799379d5d3847a928658971488ef9",
     "size_bytes": 55541
@@ -406,27 +406,27 @@
   {
    "artifact": "codes/data/designG/validation_designG_v1.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "data/designG/validation_designG_v1.json",
-    "sha256": "c03ea53418ea0bdbcace625018b9bf245ff50d413306d3702228287bf1a79ebb",
-    "size_bytes": 132198
+    "sha256": "23e37913438ea6d5b10ce6a7d4f0392be11265b316ac27fea7ca3cbd2941565f",
+    "size_bytes": 131924
    },
    "companion": {
     "path": "codes/data/designG/validation_designG_v1.json",
-    "sha256": "c03ea53418ea0bdbcace625018b9bf245ff50d413306d3702228287bf1a79ebb",
-    "size_bytes": 132198
+    "sha256": "23e37913438ea6d5b10ce6a7d4f0392be11265b316ac27fea7ca3cbd2941565f",
+    "size_bytes": 131924
    }
   },
   {
    "artifact": "codes/designG_bifurcation_v2.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_bifurcation_v2.py",
     "sha256": "1cbdd277c4e5eb5cfd4d6ce7fc7d2ba8ada18896c8c0d9e9938c7ed385c93e1c",
     "size_bytes": 48189
@@ -440,61 +440,61 @@
   {
    "artifact": "codes/designG_dynamics_v3.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_dynamics_v3.py",
-    "sha256": "29f3e0952438510b5a834fb478f4324c4c057165ae5f6ff669c547ada293a28f",
-    "size_bytes": 121795
+    "sha256": "bdddab49583d45ebeed6c50a51faae5e6f7373596fb5d209f43e55b0ba84ae16",
+    "size_bytes": 121798
    },
    "companion": {
     "path": "codes/designG_dynamics_v3.py",
-    "sha256": "29f3e0952438510b5a834fb478f4324c4c057165ae5f6ff669c547ada293a28f",
-    "size_bytes": 121795
+    "sha256": "bdddab49583d45ebeed6c50a51faae5e6f7373596fb5d209f43e55b0ba84ae16",
+    "size_bytes": 121798
    }
   },
   {
    "artifact": "codes/designG_dynamics_v4.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_dynamics_v4.py",
-    "sha256": "7c039b4fd2b7ca15542f488f688da9911938027915187067ae9d42976bc68c54",
-    "size_bytes": 170654
+    "sha256": "9a03b7113d354108bfc30dacb4c81ce20fdf32a4e120087709014c13f126a23f",
+    "size_bytes": 170508
    },
    "companion": {
     "path": "codes/designG_dynamics_v4.py",
-    "sha256": "7c039b4fd2b7ca15542f488f688da9911938027915187067ae9d42976bc68c54",
-    "size_bytes": 170654
+    "sha256": "9a03b7113d354108bfc30dacb4c81ce20fdf32a4e120087709014c13f126a23f",
+    "size_bytes": 170508
    }
   },
   {
    "artifact": "codes/designG_ergodic_quadrature_v2.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_ergodic_quadrature_v2.py",
-    "sha256": "94db37ecdd956620d6cb64a1c218e3afbdcfa75f8f738f4b9e7659db5089c9b3",
-    "size_bytes": 56867
+    "sha256": "00ae2fc2792a6bba9f69abaefe94c42a37225870a36f46909c22616605106217",
+    "size_bytes": 56945
    },
    "companion": {
     "path": "codes/designG_ergodic_quadrature_v2.py",
-    "sha256": "94db37ecdd956620d6cb64a1c218e3afbdcfa75f8f738f4b9e7659db5089c9b3",
-    "size_bytes": 56867
+    "sha256": "00ae2fc2792a6bba9f69abaefe94c42a37225870a36f46909c22616605106217",
+    "size_bytes": 56945
    }
   },
   {
    "artifact": "codes/designG_invasion_exponents_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_invasion_exponents_v1.py",
     "sha256": "d45db2c75c8016bf313188531df2d2643b00baf5d6bcbe47cfcc51095adef7a7",
     "size_bytes": 11632
@@ -508,10 +508,10 @@
   {
    "artifact": "codes/designG_onset_ensemble_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_onset_ensemble_v1.py",
     "sha256": "bef9133d52c75fefa6026d21963a4e157e9e5cf048488b074f0c686005d1d1a3",
     "size_bytes": 12874
@@ -525,27 +525,27 @@
   {
    "artifact": "codes/designG_quasiperiodic_v2.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_quasiperiodic_v2.py",
-    "sha256": "228f00d37a070adc46f50949391c8e90e2626b454ec250b07d089a79671e9af3",
-    "size_bytes": 26753
+    "sha256": "8237609167c12f8fd599843fa09548bcdc1ad34430fe369b93db0c774c0530e8",
+    "size_bytes": 26675
    },
    "companion": {
     "path": "codes/designG_quasiperiodic_v2.py",
-    "sha256": "228f00d37a070adc46f50949391c8e90e2626b454ec250b07d089a79671e9af3",
-    "size_bytes": 26753
+    "sha256": "8237609167c12f8fd599843fa09548bcdc1ad34430fe369b93db0c774c0530e8",
+    "size_bytes": 26675
    }
   },
   {
    "artifact": "codes/designG_schematics_v2.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_schematics_v2.py",
     "sha256": "4cf33bbe0ec8229f573c4e10b0fb7c5a32023f465d648749e08875276479eeed",
     "size_bytes": 31167
@@ -559,10 +559,10 @@
   {
    "artifact": "codes/designG_stable_leaf_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "designG_stable_leaf_v1.py",
     "sha256": "8b0abac42d445387e3a0add0385161595cde7c935016ef682c44023eb4fee236",
     "size_bytes": 26810
@@ -576,112 +576,112 @@
   {
    "artifact": "codes/report_calculation_v2.md",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "report_calculation_v2.md",
-    "sha256": "589dbdfe79b6a952ec889708045c41fc0d34413a226ce19157e80b8c77b5b160",
-    "size_bytes": 75363
+    "sha256": "0e7e81e0a9f617eaff8149ec083de86b731c604cb5d1b1c7213ed2b67f4414f1",
+    "size_bytes": 74233
    },
    "companion": {
     "path": "codes/report_calculation_v2.md",
-    "sha256": "589dbdfe79b6a952ec889708045c41fc0d34413a226ce19157e80b8c77b5b160",
-    "size_bytes": 75363
+    "sha256": "0e7e81e0a9f617eaff8149ec083de86b731c604cb5d1b1c7213ed2b67f4414f1",
+    "size_bytes": 74233
    }
   },
   {
    "artifact": "codes/reproduce_designG_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "reproduce_designG_v1.py",
-    "sha256": "478106434a385ccd462e2c34784da1b3505f40fc4b828007263802ea95c9dc0e",
-    "size_bytes": 31460
+    "sha256": "f1cc50f3bd5544b06fbc9817d126bba9e327d454ad180909f346ba6f4e5abcdf",
+    "size_bytes": 32036
    },
    "companion": {
     "path": "codes/reproduce_designG_v1.py",
-    "sha256": "478106434a385ccd462e2c34784da1b3505f40fc4b828007263802ea95c9dc0e",
-    "size_bytes": 31460
+    "sha256": "f1cc50f3bd5544b06fbc9817d126bba9e327d454ad180909f346ba6f4e5abcdf",
+    "size_bytes": 32036
    }
   },
   {
    "artifact": "codes/requirements.txt",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "requirements.txt",
-    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
-    "size_bytes": 1502
+    "sha256": "24466877ace008a231396ecb25bfd5818f9056cd18ffd6d73260289589427eff",
+    "size_bytes": 1535
    },
    "companion": {
     "path": "codes/requirements.txt",
-    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
-    "size_bytes": 1502
+    "sha256": "24466877ace008a231396ecb25bfd5818f9056cd18ffd6d73260289589427eff",
+    "size_bytes": 1535
    }
   },
   {
    "artifact": "codes/run_designG_figs.sh",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "run_designG_figs.sh",
-    "sha256": "08e5db36a98a9196802de9a95e392f4dabc186119cf532848bed4f4504057ab0",
-    "size_bytes": 4295
+    "sha256": "53c5edc022efe439b0aaf2c70076a53b3c4fd764373ef94b4b5e0746e6542281",
+    "size_bytes": 4274
    },
    "companion": {
     "path": "codes/run_designG_figs.sh",
-    "sha256": "08e5db36a98a9196802de9a95e392f4dabc186119cf532848bed4f4504057ab0",
-    "size_bytes": 4295
+    "sha256": "53c5edc022efe439b0aaf2c70076a53b3c4fd764373ef94b4b5e0746e6542281",
+    "size_bytes": 4274
    }
   },
   {
    "artifact": "codes/submitted_claims_designG_v1.json",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "submitted_claims_designG_v1.json",
-    "sha256": "492f6a891b548a7773676e041b481d9d894c3815ef48388831b2c3839af40d39",
-    "size_bytes": 35969
+    "sha256": "4e385085d74ed66eec7ca426bddc331ec259e94abe624c84d28d80fb74113281",
+    "size_bytes": 35962
    },
    "companion": {
     "path": "codes/submitted_claims_designG_v1.json",
-    "sha256": "492f6a891b548a7773676e041b481d9d894c3815ef48388831b2c3839af40d39",
-    "size_bytes": 35969
+    "sha256": "4e385085d74ed66eec7ca426bddc331ec259e94abe624c84d28d80fb74113281",
+    "size_bytes": 35962
    }
   },
   {
    "artifact": "codes/test_designG_bifurcation.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "test_designG_bifurcation.py",
-    "sha256": "d950d7153a91bb3cf0cee46be137cec369a1c540185ce186d26f2ebdd7bbab50",
-    "size_bytes": 21581
+    "sha256": "3f4b82f1035a4713bb524f6b499db2e8073074fc68a91d2177e211c255f6f8ae",
+    "size_bytes": 21156
    },
    "companion": {
     "path": "codes/test_designG_bifurcation.py",
-    "sha256": "d950d7153a91bb3cf0cee46be137cec369a1c540185ce186d26f2ebdd7bbab50",
-    "size_bytes": 21581
+    "sha256": "3f4b82f1035a4713bb524f6b499db2e8073074fc68a91d2177e211c255f6f8ae",
+    "size_bytes": 21156
    }
   },
   {
    "artifact": "codes/test_designG_invasion_exponents.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "test_designG_invasion_exponents.py",
     "sha256": "7ace652854f8d594c9fcca0ea68108036b8944e74d368fcc9e027458df3c4a93",
     "size_bytes": 4252
@@ -695,10 +695,10 @@
   {
    "artifact": "codes/test_designG_stable_leaf.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "test_designG_stable_leaf.py",
     "sha256": "0ba60ba7e9af7d0ec2e7c7ab864d4cfb9a87e9ce6dda5913331013a0f25192ab",
     "size_bytes": 6502
@@ -712,35 +712,35 @@
   {
    "artifact": "codes/test_designG_v4.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "test_designG_v4.py",
-    "sha256": "fc751478f0737278917b8521855fb139498d5f5f846c68ef3492b9b725761b22",
-    "size_bytes": 100115
+    "sha256": "2406aeb0cf24d4a7227f2418d661636d063a998bb739b1c490544bc560e44df5",
+    "size_bytes": 105875
    },
    "companion": {
     "path": "codes/test_designG_v4.py",
-    "sha256": "fc751478f0737278917b8521855fb139498d5f5f846c68ef3492b9b725761b22",
-    "size_bytes": 100115
+    "sha256": "2406aeb0cf24d4a7227f2418d661636d063a998bb739b1c490544bc560e44df5",
+    "size_bytes": 105875
    }
   },
   {
    "artifact": "codes/validate_designG_v1.py",
    "targets": [
-    "submit/codes",
+    "bundle",
     "companion"
    ],
-   "submit/codes": {
+   "bundle": {
     "path": "validate_designG_v1.py",
-    "sha256": "de2204fe0e10839fcea3fe09f82bcea406c27583d91ada33234806f8164c78bc",
-    "size_bytes": 103826
+    "sha256": "c1b13012a597ecb8f2528871470e95ab5bde5dcfb06475fbe087cdb84a84c9f2",
+    "size_bytes": 106672
    },
    "companion": {
     "path": "codes/validate_designG_v1.py",
-    "sha256": "de2204fe0e10839fcea3fe09f82bcea406c27583d91ada33234806f8164c78bc",
-    "size_bytes": 103826
+    "sha256": "c1b13012a597ecb8f2528871470e95ab5bde5dcfb06475fbe087cdb84a84c9f2",
+    "size_bytes": 106672
    }
   },
   {
@@ -926,8 +926,8 @@
    ],
    "companion": {
     "path": "figures/designG_quasiperiodic_fft.png",
-    "sha256": "cc04f30dbf76892829d0575b6c30991bbb7c6ed86e666eceb672b3eb8c6bb967",
-    "size_bytes": 124684
+    "sha256": "1965960ee396d515b24f9cb590ce4e063b83fc5a8123163003c4ead8cdfce169",
+    "size_bytes": 125273
    }
   },
   {
@@ -937,8 +937,8 @@
    ],
    "companion": {
     "path": "figures/designG_quasiperiodic_panel.png",
-    "sha256": "ecdd2f07007a5a9f05dbf40f3e4926bda244fba51e3c3151bef464700e8c183a",
-    "size_bytes": 419985
+    "sha256": "3e5676fc28a69942e895ae95772d47dce94ba7be8a3c421cf6652401a6b6455f",
+    "size_bytes": 414840
    }
   },
   {
@@ -1003,8 +1003,8 @@
    ],
    "companion": {
     "path": "requirements.txt",
-    "sha256": "ddd10dc8ec55457a18eed6950002e98b75eef7c22bc25097d8e8c31aa42c8584",
-    "size_bytes": 1502
+    "sha256": "24466877ace008a231396ecb25bfd5818f9056cd18ffd6d73260289589427eff",
+    "size_bytes": 1535
    }
   }
  ]
